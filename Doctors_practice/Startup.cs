@@ -12,6 +12,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Doctors_practice.Models;
+using Doctors_practice.Models.Doctor;
+using Doctors_practice.Models.Practice;
+using Doctors_practice.Models.Appointment;
 
 namespace Doctors_practice
 {
@@ -28,6 +31,9 @@ namespace Doctors_practice
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PatientContext>(opt => opt.UseInMemoryDatabase("PatientList"));
+            services.AddDbContext<DoctorContext>(opt => opt.UseInMemoryDatabase("DoctorList"));
+            services.AddDbContext<PracticeContext>(opt => opt.UseInMemoryDatabase("PracticeList"));
+            services.AddDbContext<AppointmentContext>(opt => opt.UseInMemoryDatabase("AppoinmentList"));
             services.AddControllers();
         }
 
