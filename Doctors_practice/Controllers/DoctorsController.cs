@@ -28,7 +28,7 @@ namespace Doctors_practice.Controllers
         }
 
         // GET: Doctors/5
-        [HttpGet("{id}")]
+        [HttpGet]
         [Route("Doctors/{id}")]
         public async Task<ActionResult<DoctorDTO>> GetDoctor(int id)
         {
@@ -43,7 +43,7 @@ namespace Doctors_practice.Controllers
         }
 
         // PUT: Doctors/5
-        [HttpPut("{id}")]
+        [HttpPut]
         [Route("Doctors/{id}")]
         public async Task<IActionResult> PutDoctor(int id, DoctorDTO doctorDTO)
         {
@@ -100,7 +100,7 @@ namespace Doctors_practice.Controllers
         }
 
         // DELETE: Doctors/5
-        [HttpDelete("{id}")]
+        [HttpDelete]
         [Route("Doctors/{id}")]
         public async Task<ActionResult<Doctor>> DeleteDoctor(int id)
         {

@@ -30,10 +30,10 @@ namespace Doctors_practice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PatientContext>(opt => opt.UseInMemoryDatabase("PatientList"));
-            services.AddDbContext<DoctorContext>(opt => opt.UseInMemoryDatabase("DoctorList"));
-            services.AddDbContext<PracticeContext>(opt => opt.UseInMemoryDatabase("PracticeList"));
-            services.AddDbContext<AppointmentContext>(opt => opt.UseInMemoryDatabase("AppoinmentList"));
+            services.AddDbContext<PatientContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DoctorContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<PracticeContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppointmentContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
         }
 

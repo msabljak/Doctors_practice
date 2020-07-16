@@ -28,7 +28,7 @@ namespace Doctors_practice.Controllers
         }
 
         // GET: Appointments/5
-        [HttpGet("{id}")]
+        [HttpGet]
         [Route("Appointments/{id}")]
         public async Task<ActionResult<AppointmentDTO>> GetAppointment(int id)
         {
@@ -43,7 +43,7 @@ namespace Doctors_practice.Controllers
         }
 
         // PUT: Appointments/5
-        [HttpPut("{id}")]
+        [HttpPut]
         [Route("Appointments/{id}")]
         public async Task<IActionResult> PutAppointment(int id, AppointmentDTO appointmentDTO)
         {
@@ -100,7 +100,7 @@ namespace Doctors_practice.Controllers
         }
 
         // DELETE: Appointments/5
-        [HttpDelete("{id}")]
+        [HttpDelete]
         [Route("Appointments/{id}")]
         public async Task<ActionResult<Appointment>> DeleteAppointment(int id)
         {

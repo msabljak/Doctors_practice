@@ -29,7 +29,7 @@ namespace Doctors_practice.Controllers
         }
 
         // GET: Patients/5
-        [HttpGet("{id}")]
+        [HttpGet]
         [Route("Patients/{id}")]
         public async Task<ActionResult<PatientDTO>> GetPatient(int id)
         {
@@ -44,7 +44,7 @@ namespace Doctors_practice.Controllers
         }
 
         // PUT: Patients/5
-        [HttpPut("{id}")]
+        [HttpPut]
         [Route("Patients/{id}")]
         public async Task<IActionResult> PutPatient(int id, PatientDTO patientDTO)
         {
