@@ -22,15 +22,15 @@ namespace Doctors_practice.Controllers
         // GET: Doctors
         [HttpGet]
         [Route("Doctors")]
-        public async Task<ActionResult<IEnumerable<Doctor>>> GetDoctors()
+        public async Task<ActionResult<IEnumerable<DoctorDTO>>> GetDoctors()
         {
-            return await _context.Doctors.ToListAsync();
+            return await _context.Doctors.Select(x=>DoctorToDTO(x)).ToListAsync();
         }
 
         // GET: Doctors/5
         [HttpGet("{id}")]
         [Route("Doctors/{id}")]
-        public async Task<ActionResult<Doctor>> GetDoctor(int id)
+        public async Task<ActionResult<DoctorDTO>> GetDoctor(int id)
         {
             var doctor = await _context.Doctors.FindAsync(id);
 
@@ -39,20 +39,28 @@ namespace Doctors_practice.Controllers
                 return NotFound();
             }
 
-            return doctor;
+            return DoctorToDTO(doctor);
         }
 
         // PUT: Doctors/5
         [HttpPut("{id}")]
         [Route("Doctors/{id}")]
-        public async Task<IActionResult> PutDoctor(int id, Doctor doctor)
+        public async Task<IActionResult> PutDoctor(int id, DoctorDTO doctorDTO)
         {
-            if (id != doctor.ID)
+            if (id != doctorDTO.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(doctor).State = EntityState.Modified;
+            var doctor = await _context.Doctors.FindAsync(id);
+            if(doctor == null)
+            {
+                return NotFound();
+            }
+
+            doctor.Name = doctorDTO.Name;
+            doctor.Surname = doctorDTO.Surname;
+            doctor.Practice_id = doctorDTO.Practice_id;
 
             try
             {
@@ -76,12 +84,19 @@ namespace Doctors_practice.Controllers
         // POST: Doctors
         [HttpPost]
         [Route("Doctors")]
-        public async Task<ActionResult<Doctor>> PostDoctor(Doctor doctor)
+        public async Task<ActionResult<Doctor>> PostDoctor(DoctorDTO doctorDTO)
         {
+            var doctor = new Doctor
+            {
+                Name = doctorDTO.Name,
+                Surname = doctorDTO.Surname,
+                Practice_id = doctorDTO.Practice_id
+
+            };
             _context.Doctors.Add(doctor);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDoctor", new { id = doctor.ID }, doctor);
+            return CreatedAtAction(nameof(GetDoctor), new { id = doctor.ID }, DoctorToDTO(doctor));
         }
 
         // DELETE: Doctors/5
@@ -105,5 +120,14 @@ namespace Doctors_practice.Controllers
         {
             return _context.Doctors.Any(e => e.ID == id);
         }
+
+        private static DoctorDTO DoctorToDTO(Doctor doctor) =>
+            new DoctorDTO
+            {
+                ID = doctor.ID,
+                Name = doctor.Name,
+                Surname = doctor.Surname,
+                Practice_id = doctor.Practice_id
+            };
     }
 }

@@ -23,15 +23,15 @@ namespace Doctors_practice.Controllers
         // GET: Practices
         [HttpGet]
         [Route("Practices")]
-        public async Task<ActionResult<IEnumerable<Practice>>> GetPractices()
+        public async Task<ActionResult<IEnumerable<PracticeDTO>>> GetPractices()
         {
-            return await _context.Practices.ToListAsync();
+            return await _context.Practices.Select(x=>PracticeToDTO(x)).ToListAsync();
         }
 
         // GET: Practices/5
         [HttpGet("{id}")]
         [Route("Practices{id}")]
-        public async Task<ActionResult<Practice>> GetPractice(int id)
+        public async Task<ActionResult<PracticeDTO>> GetPractice(int id)
         {
             var practice = await _context.Practices.FindAsync(id);
 
@@ -40,20 +40,27 @@ namespace Doctors_practice.Controllers
                 return NotFound();
             }
 
-            return practice;
+            return PracticeToDTO(practice);
         }
 
         // PUT: Practices/5
         [HttpPut("{id}")]
         [Route("Practices{id}")]
-        public async Task<IActionResult> PutPractice(int id, Practice practice)
+        public async Task<IActionResult> PutPractice(int id, PracticeDTO practiceDTO)
         {
-            if (id != practice.ID)
+            if (id != practiceDTO.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(practice).State = EntityState.Modified;
+            var practice = await _context.Practices.FindAsync(id);
+            if(practice == null)
+            {
+                return NotFound();
+            }
+
+            practice.Name = practiceDTO.Name;
+            practice.Address = practiceDTO.Address;
 
             try
             {
@@ -74,15 +81,21 @@ namespace Doctors_practice.Controllers
             return NoContent();
         }
 
-        // POST: api/Practices
+        // POST: Practices
         [HttpPost]
         [Route("Practices")]
-        public async Task<ActionResult<Practice>> PostPractice(Practice practice)
+        public async Task<ActionResult<PracticeDTO>> PostPractice(PracticeDTO practiceDTO)
         {
+            var practice = new Practice
+            {
+                Name = practiceDTO.Name,
+                Address = practiceDTO.Address
+            };
+
             _context.Practices.Add(practice);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPractice", new { id = practice.ID }, practice);
+            return CreatedAtAction(nameof(GetPractice), new { id = practice.ID }, PracticeToDTO(practice));
         }
 
         // DELETE: Practices/5
@@ -106,5 +119,14 @@ namespace Doctors_practice.Controllers
         {
             return _context.Practices.Any(e => e.ID == id);
         }
+
+        private static PracticeDTO PracticeToDTO(Practice practice) =>
+            new PracticeDTO
+            {
+                ID = practice.ID,
+                Name = practice.Name,
+                Address = practice.Address
+            };
+
     }
 }

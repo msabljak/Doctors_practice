@@ -22,15 +22,15 @@ namespace Doctors_practice.Controllers
         // GET: Appointments
         [HttpGet]
         [Route("Appointments")]
-        public async Task<ActionResult<IEnumerable<Appointment>>> GetAppointments()
+        public async Task<ActionResult<IEnumerable<AppointmentDTO>>> GetAppointments()
         {
-            return await _context.Appointments.ToListAsync();
+            return await _context.Appointments.Select(x=>AppointmentToDTO(x)).ToListAsync();
         }
 
         // GET: Appointments/5
         [HttpGet("{id}")]
         [Route("Appointments/{id}")]
-        public async Task<ActionResult<Appointment>> GetAppointment(int id)
+        public async Task<ActionResult<AppointmentDTO>> GetAppointment(int id)
         {
             var appointment = await _context.Appointments.FindAsync(id);
 
@@ -39,20 +39,28 @@ namespace Doctors_practice.Controllers
                 return NotFound();
             }
 
-            return appointment;
+            return AppointmentToDTO(appointment);
         }
 
         // PUT: Appointments/5
         [HttpPut("{id}")]
         [Route("Appointments/{id}")]
-        public async Task<IActionResult> PutAppointment(int id, Appointment appointment)
+        public async Task<IActionResult> PutAppointment(int id, AppointmentDTO appointmentDTO)
         {
-            if (id != appointment.ID)
+            if (id != appointmentDTO.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(appointment).State = EntityState.Modified;
+            var appointment = await _context.Appointments.FindAsync(id);
+            if(appointment == null)
+            {
+                return NotFound();
+            }
+
+            appointment.Doctor_id = appointmentDTO.Doctor_id;
+            appointment.Patient_id = appointmentDTO.Patient_id;
+            appointment.Reason = appointmentDTO.Reason;
 
             try
             {
@@ -76,12 +84,19 @@ namespace Doctors_practice.Controllers
         // POST: Appointments
         [HttpPost]
         [Route("Appointments")]
-        public async Task<ActionResult<Appointment>> PostAppointment(Appointment appointment)
+        public async Task<ActionResult<AppointmentDTO>> PostAppointment(AppointmentDTO appointmentDTO)
         {
+
+            var appointment = new Appointment
+            {
+                Doctor_id=appointmentDTO.Doctor_id,
+                Patient_id=appointmentDTO.Patient_id,
+                Reason=appointmentDTO.Reason
+            };
             _context.Appointments.Add(appointment);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAppointment", new { id = appointment.ID }, appointment);
+            return CreatedAtAction(nameof(GetAppointment), new { id = appointment.ID }, AppointmentToDTO(appointment));
         }
 
         // DELETE: Appointments/5
@@ -105,5 +120,14 @@ namespace Doctors_practice.Controllers
         {
             return _context.Appointments.Any(e => e.ID == id);
         }
+
+        private static AppointmentDTO AppointmentToDTO(Appointment appointment) =>
+            new AppointmentDTO
+            {
+                ID = appointment.ID,
+                Doctor_id = appointment.Doctor_id,
+                Patient_id=appointment.Patient_id,
+                Reason=appointment.Reason
+            };
     }
 }
