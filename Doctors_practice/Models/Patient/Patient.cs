@@ -24,12 +24,26 @@ namespace Doctors_practice.Models
     {
         public ReadPatient(DataRow row)
         {
-            ID = Convert.ToInt32(row["ID"]);
-            Name = row["Name"].ToString();
-            Surname = row["Surname"].ToString();
-            Telephone = row["Telephone"].ToString();
-            Secret = row["Secret"].ToString();
-
+            if (row.Table.Columns.Contains("ID"))
+            {
+                ID = Convert.ToInt32(row["ID"]);
+            }
+            if (row.Table.Columns.Contains("Name"))
+            {
+                Name = row["Name"].ToString();
+            }
+            if (row.Table.Columns.Contains("Surname"))
+            {
+                Surname = row["Surname"].ToString();
+            }
+            if (row.Table.Columns.Contains("Telephone"))
+            {
+                Telephone = row["Telephone"].ToString();
+            }
+            if (row.Table.Columns.Contains("Secret"))
+            {
+                Secret = row["Secret"].ToString();
+            }    
         }
     }
 }
