@@ -31,7 +31,7 @@ namespace Doctors_practice.Controllers
                 {
                     _connection.Open();
                     DataTable _dt = new DataTable();
-                    var query = "Select * from Patient";
+                    var query = "Select ID, Name, Surname, Telephone, Secret from Patient";
                     _adapter = new SqlDataAdapter
                     {
                         SelectCommand = new SqlCommand(query, _connection)
@@ -65,7 +65,7 @@ namespace Doctors_practice.Controllers
                 {
                     _connection.Open();
                     DataTable _dt = new DataTable();
-                    var query = $"Select * from Patient where id={id}";
+                    var query = $"Select ID, Name, Surname, Telephone, Secret from Patient where id={id}";
                     _adapter = new SqlDataAdapter
                     {
                         SelectCommand = new SqlCommand(query, _connection)
@@ -185,12 +185,6 @@ namespace Doctors_practice.Controllers
                     throw;
                 }
             }
-                
-
-            //_context.Patients.Remove(patient);
-            //await _context.SaveChangesAsync();
-
-            //return patient;
         }
 
         private bool PatientExists(int id)
@@ -199,7 +193,7 @@ namespace Doctors_practice.Controllers
             {
                 try
                 {
-                    var query = $"select * from Patient where id = {id}";
+                    var query = $"select ID from Patient where id = {id}";
                     SqlCommand sqlCommand = new SqlCommand(query, _connection);
                     _connection.Open();
                     SqlDataReader reader = sqlCommand.ExecuteReader();
