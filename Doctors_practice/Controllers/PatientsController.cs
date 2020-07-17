@@ -93,38 +93,35 @@ namespace Doctors_practice.Controllers
         [Route("Patients/{id}")]
         public async Task<IActionResult> PutPatient(int id, PatientDTO patientDTO)
         {
-            //if (id != patientDTO.ID)
-            //{
-            //    return BadRequest();
-            //}
-
-            //var patient = await _context.Patients.FindAsync(id);
-            //if(patient == null)
-            //{
+            if (id != patientDTO.ID)
+            {
+                return BadRequest();
+            }
+            if(!PatientExists(id))
+            {
                 return NotFound();
-            //}
+            }
 
-            //patient.Name = patientDTO.Name;
-            //patient.Surname = patientDTO.Surname;
-            //patient.Telephone = patientDTO.Telephone;
+            using (_connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    var query = $"update Patient set Name=@name,Surname=@surname,Telephone=@telephone,Secret=@secret where id = {id}";
+                    SqlCommand sqlCommand = new SqlCommand(query, _connection);
+                    sqlCommand.Parameters.AddWithValue("@name", patientDTO.Name);
+                    sqlCommand.Parameters.AddWithValue("@surname", patientDTO.Surname);
+                    sqlCommand.Parameters.AddWithValue("@telephone", patientDTO.Telephone);
+                    sqlCommand.Parameters.AddWithValue("@secret", "-");
+                    _connection.Open();
+                    sqlCommand.ExecuteNonQuery();                    
+                }
+                catch
+                {
+                    throw;
+                }
+            }
 
-            //try
-            //{
-            //   // await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!PatientExists(id))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
-
-            //return NoContent();
+            return NoContent();
         }
 
         // POST: Patients
@@ -132,17 +129,31 @@ namespace Doctors_practice.Controllers
         [Route("Patients")]
         public async Task<ActionResult<PatientDTO>> PostPatient(PatientDTO patientDTO)
         {
-            var patient = new Patient
+            using(_connection=new SqlConnection(_connectionString))
             {
-                Name = patientDTO.Name,
-                Surname = patientDTO.Surname,
-                Telephone = patientDTO.Telephone
-            };
-
-            //_context.Patients.Add(patient);
-            //await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetPatient), new { id = patient.ID }, PatientToDTO(patient));
+                try
+                {
+                    var query = "insert into Patient (Name,Surname,Telephone,Secret) values (@name,@surname,@telephone,@secret)";
+                    SqlCommand sqlCommand = new SqlCommand(query, _connection);
+                    sqlCommand.Parameters.AddWithValue("@name",patientDTO.Name);
+                    sqlCommand.Parameters.AddWithValue("@surname",patientDTO.Surname);
+                    sqlCommand.Parameters.AddWithValue("@telephone",patientDTO.Telephone);
+                    sqlCommand.Parameters.AddWithValue("@secret","-");
+                    _connection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    var patient = new Patient
+                    {
+                        Name = patientDTO.Name,
+                        Surname = patientDTO.Surname,
+                        Telephone = patientDTO.Telephone
+                    };
+                    return CreatedAtAction(nameof(GetPatient), new { id = patient.ID }, PatientToDTO(patient));
+                }
+                catch
+                {
+                    throw;
+                }
+            }            
         }
 
         // DELETE: Patients/5
@@ -150,11 +161,31 @@ namespace Doctors_practice.Controllers
         [Route("Patients/{id}")]
         public async Task<ActionResult<Patient>> DeletePatient(int id)
         {
-           // var patient = await _context.Patients.FindAsync(id);
-            //if (patient == null)
-            //{
-                return NotFound();
-            //}
+            using (_connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    var query = $"delete from Patient where id = {id}";
+                    SqlCommand sqlCommand = new SqlCommand(query, _connection);
+                    if (PatientExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        _connection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        return Ok();
+                    }                
+                    
+                }
+                catch
+                {
+
+                    throw;
+                }
+            }
+                
 
             //_context.Patients.Remove(patient);
             //await _context.SaveChangesAsync();
@@ -164,8 +195,29 @@ namespace Doctors_practice.Controllers
 
         private bool PatientExists(int id)
         {
-            //return _context.Patients.Any(e => e.ID == id);
-            return true;
+            using (_connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    var query = $"select * from Patient where id = {id}";
+                    SqlCommand sqlCommand = new SqlCommand(query, _connection);
+                    _connection.Open();
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch
+                {
+
+                    throw;
+                }
+            }
         }
 
         private static PatientDTO PatientToDTO(Patient patient) =>
