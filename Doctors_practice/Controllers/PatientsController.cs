@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Doctors_practice.Models;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using Doctors_practice.Models.Patient;
 
 namespace Doctors_practice.Controllers
 {
@@ -15,77 +16,27 @@ namespace Doctors_practice.Controllers
     [ApiController]
     public class PatientsController : ControllerBase
     {
-        private SqlConnection _connection;
-        private string _connectionString = "Data Source=localhost;Initial Catalog=Doctors_practice;Persist Security Info=True;User ID=SA;Password=<QWerT!13r4>";
-        private SqlDataAdapter _adapter;
+        private IPatientRepository _patientRepository;
 
+        public PatientsController(IPatientRepository patientRepository)
+        {
+            _patientRepository = patientRepository;
+        }
         // GET: Patients
         [HttpGet]
         [Route("Patients")]
         
         public IEnumerable<PatientDTO> GetPatients()
         {
-            using(_connection=new SqlConnection(_connectionString))
-            {
-                try
-                {
-                    _connection.Open();
-                    DataTable _dt = new DataTable();
-                    var query = "Select ID, Name, Surname, Telephone, Secret from Patient";
-                    _adapter = new SqlDataAdapter
-                    {
-                        SelectCommand = new SqlCommand(query, _connection)
-                    };
-                    _adapter.Fill(_dt);
-                    List<PatientDTO> patientDTOs = new List<PatientDTO>(_dt.Rows.Count);
-                    if (_dt.Rows.Count > 0)
-                    {
-                        foreach (DataRow patientRecord in _dt.Rows)
-                        {
-                            patientDTOs.Add(PatientToDTO(new ReadPatient(patientRecord)));
-                        }
-                    }
-                    return patientDTOs;
-                }
-                catch
-                {
-                    throw;
-                }
-            }            
+            return _patientRepository.GetAllPatients();    
         }
 
         // GET: Patients/5
         [HttpGet]
         [Route("Patients/{id}")]
-        public IEnumerable<PatientDTO> GetPatient(int id)
+        public PatientDTO GetPatient(int id)
         {
-            using (_connection = new SqlConnection(_connectionString))
-            {
-                try
-                {
-                    _connection.Open();
-                    DataTable _dt = new DataTable();
-                    var query = $"Select ID, Name, Surname, Telephone, Secret from Patient where id={id}";
-                    _adapter = new SqlDataAdapter
-                    {
-                        SelectCommand = new SqlCommand(query, _connection)
-                    };
-                    _adapter.Fill(_dt);
-                    List<PatientDTO> patientDTOs = new List<PatientDTO>(_dt.Rows.Count);
-                    if (_dt.Rows.Count > 0)
-                    {
-                        foreach (DataRow patientRecord in _dt.Rows)
-                        {
-                            patientDTOs.Add(PatientToDTO(new ReadPatient(patientRecord)));
-                        }
-                    }
-                    return patientDTOs;
-                }
-                catch
-                {
-                    throw;
-                }
-            }
+            return _patientRepository.GetPatients(id);
         }
 
         // PUT: Patients/5
@@ -97,28 +48,9 @@ namespace Doctors_practice.Controllers
             {
                 return BadRequest();
             }
-            if(!PatientExists(id))
+            if(_patientRepository.Update(patientDTO, id)==0)
             {
                 return NotFound();
-            }
-
-            using (_connection = new SqlConnection(_connectionString))
-            {
-                try
-                {
-                    var query = $"update Patient set Name=@name,Surname=@surname,Telephone=@telephone,Secret=@secret where id = {id}";
-                    SqlCommand sqlCommand = new SqlCommand(query, _connection);
-                    sqlCommand.Parameters.AddWithValue("@name", patientDTO.Name);
-                    sqlCommand.Parameters.AddWithValue("@surname", patientDTO.Surname);
-                    sqlCommand.Parameters.AddWithValue("@telephone", patientDTO.Telephone);
-                    sqlCommand.Parameters.AddWithValue("@secret", "-");
-                    _connection.Open();
-                    sqlCommand.ExecuteNonQuery();                    
-                }
-                catch
-                {
-                    throw;
-                }
             }
 
             return NoContent();
@@ -129,98 +61,23 @@ namespace Doctors_practice.Controllers
         [Route("Patients")]
         public async Task<ActionResult<PatientDTO>> PostPatient(PatientDTO patientDTO)
         {
-            using(_connection=new SqlConnection(_connectionString))
-            {
-                try
-                {
-                    var query = "insert into Patient (Name,Surname,Telephone,Secret) values (@name,@surname,@telephone,@secret)";
-                    SqlCommand sqlCommand = new SqlCommand(query, _connection);
-                    sqlCommand.Parameters.AddWithValue("@name",patientDTO.Name);
-                    sqlCommand.Parameters.AddWithValue("@surname",patientDTO.Surname);
-                    sqlCommand.Parameters.AddWithValue("@telephone",patientDTO.Telephone);
-                    sqlCommand.Parameters.AddWithValue("@secret","-");
-                    _connection.Open();
-                    sqlCommand.ExecuteNonQuery();
-                    var patient = new Patient
-                    {
-                        Name = patientDTO.Name,
-                        Surname = patientDTO.Surname,
-                        Telephone = patientDTO.Telephone
-                    };
-                    return CreatedAtAction(nameof(GetPatient), new { id = patient.ID }, PatientToDTO(patient));
-                }
-                catch
-                {
-                    throw;
-                }
-            }            
+            var patient = _patientRepository.Add(patientDTO);
+            return CreatedAtAction(nameof(GetPatient), new { id = patient.ID }, patient);            
         }
 
         // DELETE: Patients/5
         [HttpDelete("{id}")]
         [Route("Patients/{id}")]
-        public async Task<ActionResult<Patient>> DeletePatient(int id)
+        public async Task<ActionResult<Patients>> DeletePatient(int id)
         {
-            using (_connection = new SqlConnection(_connectionString))
+            if (_patientRepository.Delete(id)==0)
             {
-                try
-                {
-                    var query = $"delete from Patient where id = {id}";
-                    SqlCommand sqlCommand = new SqlCommand(query, _connection);
-                    if (PatientExists(id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        _connection.Open();
-                        sqlCommand.ExecuteNonQuery();
-                        return Ok();
-                    }                
-                    
-                }
-                catch
-                {
-
-                    throw;
-                }
+                return NotFound();
+            }
+            else
+            {
+                return Ok();
             }
         }
-
-        private bool PatientExists(int id)
-        {
-            using (_connection = new SqlConnection(_connectionString))
-            {
-                try
-                {
-                    var query = $"select ID from Patient where id = {id}";
-                    SqlCommand sqlCommand = new SqlCommand(query, _connection);
-                    _connection.Open();
-                    SqlDataReader reader = sqlCommand.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                catch
-                {
-
-                    throw;
-                }
-            }
-        }
-
-        private static PatientDTO PatientToDTO(Patient patient) =>
-            new PatientDTO
-            {
-                ID = patient.ID,
-                Name = patient.Name,
-                Surname = patient.Surname,
-                Telephone = patient.Telephone
-            };
     }
 }

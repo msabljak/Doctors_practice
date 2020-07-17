@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Doctors_practice.Models
 {
-    public class Patient
+    public class Patients
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -15,12 +15,12 @@ namespace Doctors_practice.Models
         public string Secret { get; set; }
     }
 
-    public class CreatePatient : Patient
+    public class CreatePatient : Patients
     {
 
     }
 
-    public class ReadPatient : Patient
+    public class ReadPatient : Patients
     {
         public ReadPatient(DataRow row)
         {

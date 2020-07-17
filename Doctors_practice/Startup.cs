@@ -15,6 +15,7 @@ using Doctors_practice.Models;
 using Doctors_practice.Models.Doctor;
 using Doctors_practice.Models.Practice;
 using Doctors_practice.Models.Appointment;
+using Doctors_practice.Models.Patient;
 
 namespace Doctors_practice
 {
@@ -30,10 +31,7 @@ namespace Doctors_practice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<PatientContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            //services.AddDbContext<DoctorContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            //services.AddDbContext<PracticeContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            //services.AddDbContext<AppointmentContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));            
+            services.AddScoped<IPatientRepository, SQLPatientRepository>();
             services.AddControllers();
         }
 
