@@ -14,6 +14,6 @@ namespace Doctors_practice.Models.Practice
 
         }
 
-        public DbSet<Practice> Practices { get; set; }
+        public DbSet<Practices> Practices { get; set; }
     }
 }

@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Appointment\AppointmentContext.cs" />
+    <Compile Remove="Models\Doctor\DoctorContext.cs" />
     <Compile Remove="Models\Patient\PatientContext.cs" />
+    <Compile Remove="Models\Practice\PracticeContext.cs" />
   </ItemGroup>
 
   <ItemGroup>

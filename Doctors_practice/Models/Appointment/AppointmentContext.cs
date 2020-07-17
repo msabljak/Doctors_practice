@@ -14,6 +14,6 @@ namespace Doctors_practice.Models.Appointment
 
         }
 
-        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Appointments> Appointments { get; set; }
     }
 }

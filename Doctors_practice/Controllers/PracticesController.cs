@@ -13,39 +13,32 @@ namespace Doctors_practice.Controllers
     [ApiController]
     public class PracticesController : ControllerBase
     {
-        private readonly PracticeContext _context;
+        private IPracticeRepository _practiceRepository;
 
-        public PracticesController(PracticeContext context)
+        public PracticesController(IPracticeRepository practiceRepository)
         {
-            _context = context;
+            _practiceRepository = practiceRepository;
         }
 
         // GET: Practices
         [HttpGet]
         [Route("Practices")]
-        public async Task<ActionResult<IEnumerable<PracticeDTO>>> GetPractices()
+        public IEnumerable<PracticeDTO> GetPractices()
         {
-            return await _context.Practices.Select(x=>PracticeToDTO(x)).ToListAsync();
+            return _practiceRepository.GetAllPractices();
         }
 
         // GET: Practices/5
         [HttpGet]
-        [Route("Practices{id}")]
-        public async Task<ActionResult<PracticeDTO>> GetPractice(int id)
+        [Route("Practices/{id}")]
+        public PracticeDTO GetPractice(int id)
         {
-            var practice = await _context.Practices.FindAsync(id);
-
-            if (practice == null)
-            {
-                return NotFound();
-            }
-
-            return PracticeToDTO(practice);
+            return _practiceRepository.GetPractices(id);
         }
 
         // PUT: Practices/5
         [HttpPut]
-        [Route("Practices{id}")]
+        [Route("Practices/{id}")]
         public async Task<IActionResult> PutPractice(int id, PracticeDTO practiceDTO)
         {
             if (id != practiceDTO.ID)
@@ -53,29 +46,9 @@ namespace Doctors_practice.Controllers
                 return BadRequest();
             }
 
-            var practice = await _context.Practices.FindAsync(id);
-            if(practice == null)
+            if (_practiceRepository.Update(practiceDTO,id)==0)
             {
                 return NotFound();
-            }
-
-            practice.Name = practiceDTO.Name;
-            practice.Address = practiceDTO.Address;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PracticeExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
             }
 
             return NoContent();
@@ -86,47 +59,24 @@ namespace Doctors_practice.Controllers
         [Route("Practices")]
         public async Task<ActionResult<PracticeDTO>> PostPractice(PracticeDTO practiceDTO)
         {
-            var practice = new Practice
-            {
-                Name = practiceDTO.Name,
-                Address = practiceDTO.Address
-            };
+            var practice = _practiceRepository.Add(practiceDTO);
 
-            _context.Practices.Add(practice);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetPractice), new { id = practice.ID }, PracticeToDTO(practice));
+            return CreatedAtAction(nameof(GetPractice), new { id = practice.ID }, practice);
         }
 
         // DELETE: Practices/5
         [HttpDelete]
-        [Route("Practices{id}")]
-        public async Task<ActionResult<Practice>> DeletePractice(int id)
+        [Route("Practices/{id}")]
+        public async Task<ActionResult<Practices>> DeletePractice(int id)
         {
-            var practice = await _context.Practices.FindAsync(id);
-            if (practice == null)
+            if (_practiceRepository.Delete(id) == 0)
             {
                 return NotFound();
             }
-
-            _context.Practices.Remove(practice);
-            await _context.SaveChangesAsync();
-
-            return practice;
-        }
-
-        private bool PracticeExists(int id)
-        {
-            return _context.Practices.Any(e => e.ID == id);
-        }
-
-        private static PracticeDTO PracticeToDTO(Practice practice) =>
-            new PracticeDTO
+            else
             {
-                ID = practice.ID,
-                Name = practice.Name,
-                Address = practice.Address
-            };
-
+                return Ok();
+            }
+        }
     }
 }

@@ -12,34 +12,27 @@ namespace Doctors_practice.Controllers
     [ApiController]
     public class DoctorsController : ControllerBase
     {
-        private readonly DoctorContext _context;
+        private IDoctorRepository _doctorRepository;
 
-        public DoctorsController(DoctorContext context)
+        public DoctorsController(IDoctorRepository doctorRepository)
         {
-            _context = context;
+            _doctorRepository = doctorRepository;
         }
 
         // GET: Doctors
         [HttpGet]
         [Route("Doctors")]
-        public async Task<ActionResult<IEnumerable<DoctorDTO>>> GetDoctors()
+        public IEnumerable<DoctorDTO> GetDoctors()
         {
-            return await _context.Doctors.Select(x=>DoctorToDTO(x)).ToListAsync();
+            return _doctorRepository.GetAllDoctors();
         }
 
         // GET: Doctors/5
         [HttpGet]
         [Route("Doctors/{id}")]
-        public async Task<ActionResult<DoctorDTO>> GetDoctor(int id)
+        public DoctorDTO GetDoctor(int id)
         {
-            var doctor = await _context.Doctors.FindAsync(id);
-
-            if (doctor == null)
-            {
-                return NotFound();
-            }
-
-            return DoctorToDTO(doctor);
+            return _doctorRepository.GetDoctor(id);
         }
 
         // PUT: Doctors/5
@@ -52,30 +45,9 @@ namespace Doctors_practice.Controllers
                 return BadRequest();
             }
 
-            var doctor = await _context.Doctors.FindAsync(id);
-            if(doctor == null)
+            if (_doctorRepository.Update(doctorDTO, id) == 0)
             {
                 return NotFound();
-            }
-
-            doctor.Name = doctorDTO.Name;
-            doctor.Surname = doctorDTO.Surname;
-            doctor.Practice_id = doctorDTO.Practice_id;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!DoctorExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
             }
 
             return NoContent();
@@ -84,50 +56,26 @@ namespace Doctors_practice.Controllers
         // POST: Doctors
         [HttpPost]
         [Route("Doctors")]
-        public async Task<ActionResult<Doctor>> PostDoctor(DoctorDTO doctorDTO)
+        public async Task<ActionResult<Doctors>> PostDoctor(DoctorDTO doctorDTO)
         {
-            var doctor = new Doctor
-            {
-                Name = doctorDTO.Name,
-                Surname = doctorDTO.Surname,
-                Practice_id = doctorDTO.Practice_id
+            var doctor = _doctorRepository.Add(doctorDTO);
 
-            };
-            _context.Doctors.Add(doctor);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetDoctor), new { id = doctor.ID }, DoctorToDTO(doctor));
+            return CreatedAtAction(nameof(GetDoctor), new { id = doctor.ID }, doctor);
         }
 
         // DELETE: Doctors/5
         [HttpDelete]
         [Route("Doctors/{id}")]
-        public async Task<ActionResult<Doctor>> DeleteDoctor(int id)
+        public async Task<ActionResult<Doctors>> DeleteDoctor(int id)
         {
-            var doctor = await _context.Doctors.FindAsync(id);
-            if (doctor == null)
+            if (_doctorRepository.Delete(id) == 0)
             {
                 return NotFound();
             }
-
-            _context.Doctors.Remove(doctor);
-            await _context.SaveChangesAsync();
-
-            return doctor;
-        }
-
-        private bool DoctorExists(int id)
-        {
-            return _context.Doctors.Any(e => e.ID == id);
-        }
-
-        private static DoctorDTO DoctorToDTO(Doctor doctor) =>
-            new DoctorDTO
+            else
             {
-                ID = doctor.ID,
-                Name = doctor.Name,
-                Surname = doctor.Surname,
-                Practice_id = doctor.Practice_id
-            };
+                return Ok();
+            }
+        }  
     }
 }

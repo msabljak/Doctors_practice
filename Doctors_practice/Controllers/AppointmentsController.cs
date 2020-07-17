@@ -12,34 +12,27 @@ namespace Doctors_practice.Controllers
     [ApiController]
     public class AppointmentsController : ControllerBase
     {
-        private readonly AppointmentContext _context;
+        private IAppointmentRepository _appointmentRepository;
 
-        public AppointmentsController(AppointmentContext context)
+        public AppointmentsController(IAppointmentRepository appointmentRepository)
         {
-            _context = context;
+            _appointmentRepository = appointmentRepository;
         }
 
         // GET: Appointments
         [HttpGet]
         [Route("Appointments")]
-        public async Task<ActionResult<IEnumerable<AppointmentDTO>>> GetAppointments()
+        public IEnumerable<AppointmentDTO> GetAppointments()
         {
-            return await _context.Appointments.Select(x=>AppointmentToDTO(x)).ToListAsync();
+            return  _appointmentRepository.GetAllAppointments();
         }
 
         // GET: Appointments/5
         [HttpGet]
         [Route("Appointments/{id}")]
-        public async Task<ActionResult<AppointmentDTO>> GetAppointment(int id)
+        public AppointmentDTO GetAppointment(int id)
         {
-            var appointment = await _context.Appointments.FindAsync(id);
-
-            if (appointment == null)
-            {
-                return NotFound();
-            }
-
-            return AppointmentToDTO(appointment);
+            return _appointmentRepository.GetAppointment(id);
         }
 
         // PUT: Appointments/5
@@ -52,30 +45,9 @@ namespace Doctors_practice.Controllers
                 return BadRequest();
             }
 
-            var appointment = await _context.Appointments.FindAsync(id);
-            if(appointment == null)
+            if (_appointmentRepository.Update(appointmentDTO, id) == 0)
             {
                 return NotFound();
-            }
-
-            appointment.Doctor_id = appointmentDTO.Doctor_id;
-            appointment.Patient_id = appointmentDTO.Patient_id;
-            appointment.Reason = appointmentDTO.Reason;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AppointmentExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
             }
 
             return NoContent();
@@ -86,48 +58,25 @@ namespace Doctors_practice.Controllers
         [Route("Appointments")]
         public async Task<ActionResult<AppointmentDTO>> PostAppointment(AppointmentDTO appointmentDTO)
         {
+            var doctor = _appointmentRepository.Add(appointmentDTO);
 
-            var appointment = new Appointment
-            {
-                Doctor_id=appointmentDTO.Doctor_id,
-                Patient_id=appointmentDTO.Patient_id,
-                Reason=appointmentDTO.Reason
-            };
-            _context.Appointments.Add(appointment);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetAppointment), new { id = appointment.ID }, AppointmentToDTO(appointment));
+            return CreatedAtAction(nameof(GetAppointment), new { id = doctor.ID }, doctor);
         }
 
         // DELETE: Appointments/5
         [HttpDelete]
         [Route("Appointments/{id}")]
-        public async Task<ActionResult<Appointment>> DeleteAppointment(int id)
+        public async Task<ActionResult<Appointments>> DeleteAppointment(int id)
         {
-            var appointment = await _context.Appointments.FindAsync(id);
-            if (appointment == null)
+            if (_appointmentRepository.Delete(id) == 0)
             {
                 return NotFound();
             }
-
-            _context.Appointments.Remove(appointment);
-            await _context.SaveChangesAsync();
-
-            return appointment;
-        }
-
-        private bool AppointmentExists(int id)
-        {
-            return _context.Appointments.Any(e => e.ID == id);
-        }
-
-        private static AppointmentDTO AppointmentToDTO(Appointment appointment) =>
-            new AppointmentDTO
+            else
             {
-                ID = appointment.ID,
-                Doctor_id = appointment.Doctor_id,
-                Patient_id=appointment.Patient_id,
-                Reason=appointment.Reason
-            };
+                return Ok();
+            }
+        }
+ 
     }
 }
