@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Doctors_practice.Models.Doctor;
+using Doctors_practice.Models;
+using Doctors_practice.Models.Appointment;
+using Doctors_practice.Models.Patient;
+using Doctors_practice.BusinessLayer;
 
 namespace Doctors_practice.Controllers
 {
@@ -13,10 +17,14 @@ namespace Doctors_practice.Controllers
     public class DoctorsController : ControllerBase
     {
         private IDoctorRepository _doctorRepository;
+        private IAppointmentRepository _appointmentRepository;
+        private IPatientRepository _patientRepository;
 
-        public DoctorsController(IDoctorRepository doctorRepository)
+        public DoctorsController(IDoctorRepository doctorRepository, IAppointmentRepository appointmentRepository, IPatientRepository patientRepository)
         {
             _doctorRepository = doctorRepository;
+            _appointmentRepository = appointmentRepository;
+            _patientRepository = patientRepository;
         }
 
         // GET: Doctors
@@ -33,6 +41,19 @@ namespace Doctors_practice.Controllers
         public DoctorDTO GetDoctor(int id)
         {
             return _doctorRepository.GetDoctor(id);
+        }
+
+        // GET: Doctors/5/Patients
+        [HttpGet]
+        [Route("Doctors/{id}/Patients")]
+        public IEnumerable<PatientDTO> GetDoctorPatients(int id)
+        {
+            DoctorDTO doctor = _doctorRepository.GetDoctor(id);
+            IEnumerable<PatientDTO> patients = _patientRepository.GetAllPatients();
+            IEnumerable<AppointmentDTO> appointments = _appointmentRepository.GetAllAppointments();
+            DoctorLogic doctorLogic = new DoctorLogic(doctor, patients, appointments);
+            IEnumerable<PatientDTO> doctorsPatients = doctorLogic.GetDoctorPatients();
+            return doctorsPatients;
         }
 
         // PUT: Doctors/5

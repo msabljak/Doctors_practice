@@ -38,7 +38,7 @@ namespace Doctors_practice.Models.Appointment
             }
             if (row.Table.Columns.Contains("Reason"))
             {
-                Reason = row["Practice_id"].ToString();
+                Reason = row["Reason"].ToString();
             }
             if (row.Table.Columns.Contains("Secret"))
             {
