@@ -158,7 +158,7 @@ namespace Doctors_practice.Models.Patient
             }
         }
 
-        private bool PatientExists(int id)
+        public bool PatientExists(int id)
         {
             using (_connection = new SqlConnection(_connectionString))
             {

@@ -65,10 +65,14 @@ namespace Doctors_practice.Controllers
             {
                 return BadRequest();
             }
-
-            if (_doctorRepository.Update(doctorDTO, id) == 0)
+            int updateResult = _doctorRepository.Update(doctorDTO, id);
+            if ( updateResult == 0)
             {
                 return NotFound();
+            }
+            else if (updateResult == -1)
+            {
+                return BadRequest();
             }
 
             return NoContent();

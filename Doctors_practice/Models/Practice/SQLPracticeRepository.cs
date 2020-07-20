@@ -159,7 +159,7 @@ namespace Doctors_practice.Models.Practice
             }
         }
 
-        private bool PracticeExists(int id)
+        public bool PracticeExists(int id)
         {
             using (_connection = new SqlConnection(_connectionString))
             {

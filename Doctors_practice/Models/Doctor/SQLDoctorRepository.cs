@@ -24,20 +24,28 @@ namespace Doctors_practice.Models.Patient
             {
                 try
                 {
-                    var query = "insert into Doctor(Name,Surname,Practice_id) values (@name,@surname,@practice_id)";
-                    SqlCommand sqlCommand = new SqlCommand(query, _connection);
-                    sqlCommand.Parameters.AddWithValue("@name", doctorDTO.Name);
-                    sqlCommand.Parameters.AddWithValue("@address", doctorDTO.Surname);
-                    sqlCommand.Parameters.AddWithValue("@practice_id", doctorDTO.Practice_id);
-                    _connection.Open();
-                    sqlCommand.ExecuteNonQuery();
-                    var doctor = new Doctors
+                    SQLPracticeRepository practiceRepository = new SQLPracticeRepository();
+                    if (practiceRepository.PracticeExists(doctorDTO.Practice_id))
                     {
-                        Name = doctorDTO.Name,
-                        Surname = doctorDTO.Surname,
-                        Practice_id = doctorDTO.Practice_id
-                    };
-                    return DoctorToDTO(doctor);
+                        var query = "insert into Doctor(Name,Surname,Practice_id) values (@name,@surname,@practice_id)";
+                        SqlCommand sqlCommand = new SqlCommand(query, _connection);
+                        sqlCommand.Parameters.AddWithValue("@name", doctorDTO.Name);
+                        sqlCommand.Parameters.AddWithValue("@address", doctorDTO.Surname);
+                        sqlCommand.Parameters.AddWithValue("@practice_id", doctorDTO.Practice_id);
+                        _connection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        var doctor = new Doctors
+                        {
+                            Name = doctorDTO.Name,
+                            Surname = doctorDTO.Surname,
+                            Practice_id = doctorDTO.Practice_id
+                        };
+                        return DoctorToDTO(doctor);
+                    }
+                    else
+                    {
+                        return null;
+                    }
 
                 }
                 catch
@@ -146,14 +154,22 @@ namespace Doctors_practice.Models.Patient
             {
                 try
                 {
-                    var query = $"update Doctor set Name=@name,Surname=@surname,Practice=@practice_id where id = {id}";
-                    SqlCommand sqlCommand = new SqlCommand(query, _connection);
-                    sqlCommand.Parameters.AddWithValue("Name", doctorDTOChanges.Name);
-                    sqlCommand.Parameters.AddWithValue("Surname", doctorDTOChanges.Surname);
-                    sqlCommand.Parameters.AddWithValue("Practice_id",doctorDTOChanges.Practice_id);
-                    _connection.Open();
-                    sqlCommand.ExecuteNonQuery();
-                    return 1;
+                    SQLPracticeRepository practiceRepository = new SQLPracticeRepository();
+                    if (practiceRepository.PracticeExists(doctorDTOChanges.Practice_id))
+                    {
+                        var query = $"update Doctor set Name=@name,Surname=@surname,Practice=@practice_id where id = {id}";
+                        SqlCommand sqlCommand = new SqlCommand(query, _connection);
+                        sqlCommand.Parameters.AddWithValue("Name", doctorDTOChanges.Name);
+                        sqlCommand.Parameters.AddWithValue("Surname", doctorDTOChanges.Surname);
+                        sqlCommand.Parameters.AddWithValue("Practice_id", doctorDTOChanges.Practice_id);
+                        _connection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        return 1;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
                 }
                 catch
                 {
@@ -162,7 +178,7 @@ namespace Doctors_practice.Models.Patient
                 }
             }
         }
-        private bool DoctorExists(int id)
+        public bool DoctorExists(int id)
         {
             using (_connection = new SqlConnection(_connectionString))
             {

@@ -44,12 +44,16 @@ namespace Doctors_practice.Controllers
             {
                 return BadRequest();
             }
-
-            if (_appointmentRepository.Update(appointmentDTO, id) == 0)
+            int updateResult = _appointmentRepository.Update(appointmentDTO, id);
+            if ( updateResult == 0)
             {
                 return NotFound();
             }
-
+            else if (updateResult == -1)
+            {
+                return BadRequest();
+            }
+           
             return NoContent();
         }
 
@@ -59,7 +63,10 @@ namespace Doctors_practice.Controllers
         public async Task<ActionResult<AppointmentDTO>> PostAppointment(AppointmentDTO appointmentDTO)
         {
             var doctor = _appointmentRepository.Add(appointmentDTO);
-
+            if (doctor == null)
+            {
+                return BadRequest();
+            }
             return CreatedAtAction(nameof(GetAppointment), new { id = doctor.ID }, doctor);
         }
 
