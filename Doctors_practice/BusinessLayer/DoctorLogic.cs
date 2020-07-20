@@ -49,33 +49,42 @@ namespace Doctors_practice.BusinessLayer
         //Maybe change Patients property to list of doctors Patients and send list of general patients in method parametar instead
         public IEnumerable<PatientDTO> GetDoctorPatients()
         {
-            List<int> patientID = new List<int>();
+            //List<int> patientID = new List<int>();
             List<PatientDTO> doctorPatients = new List<PatientDTO>();
-            bool exists = false;
-            foreach (AppointmentDTO appointment in Appointments)
+            //bool exists = false;
+            //foreach (AppointmentDTO appointment in Appointments)
+            //{
+            //    if (appointment.Doctor_id == Doctor.ID)
+            //    {
+            //        patientID.Add(appointment.Patient_id);
+            //    }
+            //}
+            //foreach (PatientDTO patient in Patients)
+            //{
+            //    if (patientID.Contains(patient.ID))
+            //    {
+            //        exists = false;
+            //        foreach (PatientDTO doctorPatient in doctorPatients)
+            //        {
+            //            if (doctorPatient.ID == patient.ID)
+            //            {
+            //                exists = true;
+            //            }
+            //        }
+            //        if (exists == false)
+            //        {
+            //            doctorPatients.Add(patient);
+            //        }
+            //    }
+            //}
+            var query = from patient in Patients
+                        join appointment in Appointments
+                        on patient.ID equals appointment.Patient_id
+                        where appointment.Doctor_id == doctor.ID
+                        select patient;
+            foreach (var patient in query)
             {
-                if (appointment.Doctor_id == Doctor.ID)
-                {
-                    patientID.Add(appointment.Patient_id);
-                }
-            }
-            foreach (PatientDTO patient in Patients)
-            {
-                if (patientID.Contains(patient.ID))
-                {
-                    exists = false;
-                    foreach (PatientDTO doctorPatient in doctorPatients)
-                    {
-                        if (doctorPatient.ID == patient.ID)
-                        {
-                            exists = true;
-                        }
-                    }
-                    if (exists == false)
-                    {
-                        doctorPatients.Add(patient);
-                    }
-                }
+                doctorPatients.Add(patient);
             }
             return doctorPatients;
         }
