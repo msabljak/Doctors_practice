@@ -46,7 +46,7 @@ namespace Doctors_practice.BusinessLayer
             Appointments = appointments;
         }
 
-        //Maybe change Patients property to list of doctors Patients and send list of general patients in method parametar instead
+        //Maybe change Patients property to list of doctors Patients and send list of general patients in method parametar instead?
         public IEnumerable<PatientDTO> GetDoctorPatients()
         {
             //List<int> patientID = new List<int>();
