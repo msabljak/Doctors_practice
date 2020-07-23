@@ -7,10 +7,12 @@ services:
         depends_on:
             - db
     db:
-        container_name: sql1
+        container_name: doctorsql
         image: "mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04"
         ports:
             - "1433:1433"
         environment: 
             SA_PASSWORD: "<QWerT!13r4>"
             ACCEPT_EULA: "Y"
+        volumes: 
+            
