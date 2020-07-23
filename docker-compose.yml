@@ -2,12 +2,15 @@ version: "3.8"
 services: 
     web:
         build: ./Doctors_practice
+        expose: 
+            - "8000"
         ports: 
             - "8000:80"
         depends_on:
             - db
+        environment: 
+            DBServer: "db"
     db:
-        container_name: doctorsql
         image: "mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04"
         ports:
             - "1433:1433"
@@ -15,4 +18,5 @@ services:
             SA_PASSWORD: "<QWerT!13r4>"
             ACCEPT_EULA: "Y"
         volumes: 
+            - "./Doctors_practice/SQLdata/Doctors_practice:/var/opt/mssql/data"
             

@@ -17,7 +17,7 @@ namespace Doctors_practice.Models.Doctor
 
         public SQLAppointmentRepository()
         {
-            _connectionString = "Data Source=localhost;Initial Catalog=Doctors_practice;Persist Security Info=True;User ID=SA;Password=<QWerT!13r4>";
+            _connectionString = "Data Source=db;Initial Catalog=Doctors_practice;Persist Security Info=True;User ID=SA;Password=<QWerT!13r4>";
         }
         public AppointmentDTO Add(AppointmentDTO appointmentDTO)
         {
