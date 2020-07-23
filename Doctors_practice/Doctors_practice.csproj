@@ -28,7 +28,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SQLdata\" />
+    <Resource Include="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="SQLdata\Doctors_practice.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 
