@@ -46,6 +46,8 @@ namespace Doctors_practice
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseRequestResponseLogging();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
