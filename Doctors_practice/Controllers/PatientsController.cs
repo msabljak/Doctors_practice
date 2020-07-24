@@ -39,6 +39,20 @@ namespace Doctors_practice.Controllers
             return _patientRepository.GetPatients(id);
         }
 
+        // GET: Patients/server
+        [HttpGet]
+        [Route("Patients/server")]
+        public string GetServerID()
+        {
+            HttpRequest httpRequest = HttpContext.Request;
+            return $"Http Response Information:{Environment.NewLine}" +
+                                   $"Schema:{httpRequest.Scheme} " +
+                                   $"Host: {httpRequest.Host} " +
+                                   $"Path: {httpRequest.Path} " +
+                                   $"QueryString: {httpRequest.QueryString} " +
+                                   $"Response Body: {httpRequest}";
+        }
+
         // PUT: Patients/5
         [HttpPut]
         [Route("Patients/{id}")]
