@@ -47,10 +47,9 @@ namespace Doctors_practice.Controllers
             HttpRequest httpRequest = HttpContext.Request;
             return $"Http Response Information:{Environment.NewLine}" +
                                    $"Schema:{httpRequest.Scheme} " +
-                                   $"Host: {httpRequest.Request.Host} " +
-                                   $"Path: {httpRequest.Request.Path} " +
-                                   $"QueryString: {context.Request.QueryString} " +
-                                   $"Response Body: {text}";
+                                   $"Host: {httpRequest.Host} " +
+                                   $"Path: {httpRequest.Path} " +
+                                   $"QueryString: {httpRequest.QueryString} ";
         }
 
         // PUT: Patients/5
