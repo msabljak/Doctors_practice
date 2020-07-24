@@ -38,6 +38,12 @@ namespace Doctors_practice
                                    $"Path: {context.Request.Path} " +
                                    $"QueryString: {context.Request.QueryString} " +
                                    $"Request Body: {ReadStreamInChunks(requestStream)}");
+            Console.WriteLine($"Http Request Information:{Environment.NewLine}" +
+                                   $"Schema:{context.Request.Scheme} " +
+                                   $"Host: {context.Request.Host} " +
+                                   $"Path: {context.Request.Path} " +
+                                   $"QueryString: {context.Request.QueryString} " +
+                                   $"Request Body: {ReadStreamInChunks(requestStream)}");
             context.Request.Body.Position = 0;
         }
         private static string ReadStreamInChunks(Stream stream)
@@ -67,6 +73,12 @@ namespace Doctors_practice
             var text = await new StreamReader(context.Response.Body).ReadToEndAsync();
             context.Response.Body.Seek(0, SeekOrigin.Begin);
             _logger.LogInformation($"Http Response Information:{Environment.NewLine}" +
+                                   $"Schema:{context.Request.Scheme} " +
+                                   $"Host: {context.Request.Host} " +
+                                   $"Path: {context.Request.Path} " +
+                                   $"QueryString: {context.Request.QueryString} " +
+                                   $"Response Body: {text}");
+            Console.WriteLine($"Http Response Information:{Environment.NewLine}" +
                                    $"Schema:{context.Request.Scheme} " +
                                    $"Host: {context.Request.Host} " +
                                    $"Path: {context.Request.Path} " +
