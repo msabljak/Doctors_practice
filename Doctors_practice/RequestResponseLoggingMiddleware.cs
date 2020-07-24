@@ -75,5 +75,4 @@ namespace Doctors_practice
             await responseBody.CopyToAsync(originalBodyStream);
         }
     }
-    }
 }
