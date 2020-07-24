@@ -36,14 +36,24 @@ namespace Doctors_practice
                                    $"Schema:{context.Request.Scheme} " +
                                    $"Host: {context.Request.Host} " +
                                    $"Path: {context.Request.Path} " +
-                                   $"QueryString: {context.Request.QueryString} " +
-                                   $"Request Body: {ReadStreamInChunks(requestStream)}");
+                                   $"QueryString: {context.Request.QueryString} " /*+
+                                  $"Request Body: {ReadStreamInChunks(requestStream)}"*/);
             Console.WriteLine($"Http Request Information:{Environment.NewLine}" +
                                    $"Schema:{context.Request.Scheme} " +
                                    $"Host: {context.Request.Host} " +
                                    $"Path: {context.Request.Path} " +
-                                   $"QueryString: {context.Request.QueryString} " +
-                                   $"Request Body: {ReadStreamInChunks(requestStream)}");
+                                   $"QueryString: {context.Request.QueryString} " /*+
+                                   $"Request Body: {ReadStreamInChunks(requestStream)}"*/);
+            string currentDirectory = Environment.CurrentDirectory;
+            string logFilePath = currentDirectory + "\\Logs\\logs.txt";
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFilePath, true))
+            {
+                file.WriteLine($"Http Request Information:{Environment.NewLine}" +
+                                   $"Schema:{context.Request.Scheme} " +
+                                   $"Host: {context.Request.Host} " +
+                                   $"Path: {context.Request.Path} " +
+                                   $"QueryString: {context.Request.QueryString} ");
+            }            
             context.Request.Body.Position = 0;
         }
         private static string ReadStreamInChunks(Stream stream)
@@ -84,6 +94,17 @@ namespace Doctors_practice
                                    $"Path: {context.Request.Path} " +
                                    $"QueryString: {context.Request.QueryString} " +
                                    $"Response Body: {text}");
+            string currentDirectory = Environment.CurrentDirectory;
+            string logFilePath = currentDirectory + "\\Logs\\logs.txt";
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(logFilePath, true))
+            {
+                file.WriteLine($"Http Response Information:{Environment.NewLine}" +
+                                   $"Schema:{context.Request.Scheme} " +
+                                   $"Host: {context.Request.Host} " +
+                                   $"Path: {context.Request.Path} " +
+                                   $"QueryString: {context.Request.QueryString} " +
+                                   $"Response Body: {text}");
+            }
             await responseBody.CopyToAsync(originalBodyStream);
         }
     }

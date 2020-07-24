@@ -1,0 +1,28 @@
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
