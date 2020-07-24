@@ -31,14 +31,6 @@ namespace Doctors_practice.Controllers
             return _patientRepository.GetAllPatients();    
         }
 
-        // GET: Patients/5
-        [HttpGet]
-        [Route("Patients/{id}")]
-        public PatientDTO GetPatient(int id)
-        {
-            return _patientRepository.GetPatients(id);
-        }
-
         // GET: Patients/server
         [HttpGet]
         [Route("Patients/server")]
@@ -52,6 +44,14 @@ namespace Doctors_practice.Controllers
                                    $"QueryString: {httpRequest.QueryString} " +
                                    $"Response Body: {httpRequest}";
         }
+
+        // GET: Patients/5
+        [HttpGet]
+        [Route("Patients/{id}")]
+        public PatientDTO GetPatient(int id)
+        {
+            return _patientRepository.GetPatients(id);
+        }        
 
         // PUT: Patients/5
         [HttpPut]
