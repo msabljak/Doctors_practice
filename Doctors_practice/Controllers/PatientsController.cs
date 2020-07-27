@@ -46,9 +46,10 @@ namespace Doctors_practice.Controllers
         {
             HttpRequest httpRequest = HttpContext.Request;
             return $"Http Response Information:{Environment.NewLine}" +
-                                   $"Schema:{httpRequest.Scheme} " +
-                                   $"Host: {httpRequest.Host} " +
-                                   $"Path: {httpRequest.Path} " +
+                                   $"Schema:{httpRequest.Scheme} \n" +
+                                   $"Host: {httpRequest.Host} \n" +
+                                   $"Path: {httpRequest.Path} \n" +
+                                   $"TraceID: {HttpContext.TraceIdentifier} \n" +
                                    $"QueryString: {httpRequest.QueryString} ";
         }
 
