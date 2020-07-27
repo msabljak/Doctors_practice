@@ -17,10 +17,12 @@ namespace Doctors_practice.Controllers
     public class PatientsController : ControllerBase
     {
         private IPatientRepository _patientRepository;
+        private IPatientClient _client; 
 
-        public PatientsController(IPatientRepository patientRepository)
+        public PatientsController(IPatientRepository patientRepository, IPatientClient client)
         {
             _patientRepository = patientRepository;
+            _client = client;
         }
         // GET: Patients
         [HttpGet]

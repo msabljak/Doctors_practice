@@ -25,4 +25,8 @@ services:
             - web
         ports:
             - "4000:4000"
-            
+    amq:
+        image: rmohr/activemq
+        ports:
+            - "61616:61616"
+            - "8161:8161"            

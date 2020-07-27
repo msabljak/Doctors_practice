@@ -31,6 +31,7 @@ namespace Doctors_practice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IPatientClient, AMQPatientClient>();
             services.AddScoped<IAppointmentRepository, SQLAppointmentRepository>();
             services.AddScoped<IDoctorRepository, SQLDoctorRepository>();
             services.AddScoped<IPracticeRepository, SQLPracticeRepository>();
