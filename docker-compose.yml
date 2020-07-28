@@ -1,11 +1,12 @@
 version: "3.8"
-services: 
+services:
     web:
-        build: "./Doctors_practice"
-        expose: 
+        image: msabljak/doctors_practice:latest
+        expose:
             - "8000"
-        depends_on:
+        depends_on: 
             - db
+            - amq
         environment: 
             DBServer: "db"
     db:
@@ -29,4 +30,9 @@ services:
         image: rmohr/activemq
         ports:
             - "61616:61616"
-            - "8161:8161"            
+            - "8161:8161"
+    emailservice:
+        image: msabljak/emailservice:latest   
+        depends_on: 
+            - amq
+        restart: always

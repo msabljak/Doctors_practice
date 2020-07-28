@@ -76,3 +76,95 @@ Http Response Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":3,"name":"Nino","surname":"Brežnjak","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/3 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients/3 QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":1004,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":1005,"name":"Nino","surname":"Brežnjak","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: {"id":0,"name":"Nino","surname":"Brežnjak","telephone":"-"}
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  

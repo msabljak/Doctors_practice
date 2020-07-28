@@ -15,6 +15,7 @@ namespace Doctors_practice.Models.Patient
         public SQLPatientRepository()
         {
             _connectionString = "Data Source=db;Initial Catalog=Doctors_practice;User ID=SA;Password=<QWerT!13r4>";
+            //_connectionString = "Data Source=localhost;Initial Catalog=Doctors_practice;User ID=SA;Password=<QWerT!13r4>";
         }
         public PatientDTO Add(PatientDTO patientDTO)
         {
