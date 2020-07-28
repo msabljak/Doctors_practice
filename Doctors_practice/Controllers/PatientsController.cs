@@ -64,7 +64,6 @@ namespace Doctors_practice.Controllers
             {
                 return BadRequest();
             }
-            _client.SendMessage("PatientCreated");
             if(_patientRepository.Update(patientDTO, id)==0)
             {
                 return NotFound();
@@ -79,6 +78,7 @@ namespace Doctors_practice.Controllers
         public async Task<ActionResult<PatientDTO>> PostPatient(PatientDTO patientDTO)
         {
             var patient = _patientRepository.Add(patientDTO);
+            _client.SendMessage("EmailQueue", "PatientCreated");
             return CreatedAtAction(nameof(GetPatient), new { id = patient.ID }, patient);            
         }
 
