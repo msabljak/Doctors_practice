@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Doctors_practice
+namespace EmailService
 {
-    public interface IPatientClient
+    public interface IClient
     {
         void SendMessage(string destination, string message);
         string ReadNextMessage(string destination);

@@ -1,7 +1,7 @@
 version: "3.8"
 services: 
     web:
-        image: "msabljak/doctors_practice:latest"
+        build: "./Doctors_practice"
         expose: 
             - "8000"
         depends_on:

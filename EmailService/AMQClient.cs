@@ -1,15 +1,15 @@
 ﻿using Apache.NMS;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Doctors_practice
+namespace EmailService
 {
-    public class AMQPatientClient : IPatientClient
+    class AMQClient : IClient
     {
         private static Uri _brokerUri;
-        public AMQPatientClient()
+        public AMQClient()
         {
             _brokerUri = new Uri("activemq:tcp://amq:61616");
         }
@@ -27,7 +27,7 @@ namespace Doctors_practice
                 {
                     producer.DeliveryMode = MsgDeliveryMode.NonPersistent;
 
-                    producer.Send(session.CreateTextMessage(message));                    
+                    producer.Send(session.CreateTextMessage(message));
                     //Console.WriteLine($"Sent {message} messages");
                 }
             }
@@ -47,7 +47,10 @@ namespace Doctors_practice
                     {
                         ITextMessage txtMsg = msg as ITextMessage;
                         string body = txtMsg.Text;
-
+                        //if (body == "PatientCreated")
+                        //{
+                            
+                        //}
                         //Console.WriteLine($"Received message: {txtMsg.Text}");
 
                         return body;

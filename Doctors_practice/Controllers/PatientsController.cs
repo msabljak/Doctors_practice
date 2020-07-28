@@ -64,6 +64,7 @@ namespace Doctors_practice.Controllers
             {
                 return BadRequest();
             }
+            _client.SendMessage("PatientCreated");
             if(_patientRepository.Update(patientDTO, id)==0)
             {
                 return NotFound();
