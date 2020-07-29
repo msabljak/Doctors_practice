@@ -12,27 +12,24 @@ namespace EmailService
     public class EmailWorker : BackgroundService
     {
         private readonly ILogger<EmailWorker> _logger;
-        public IServiceScopeFactory _serviceScopeFactory;
+        public IClient _client;
 
-        public EmailWorker(ILogger<EmailWorker> logger, IServiceScopeFactory serviceScopeFactory)
+        public EmailWorker(ILogger<EmailWorker> logger, IClient client)
         {
             _logger = logger;
-            _serviceScopeFactory = serviceScopeFactory;
+            _client = client;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            using (var scope = _serviceScopeFactory.CreateScope())
+            while (!stoppingToken.IsCancellationRequested)
             {
-                while (!stoppingToken.IsCancellationRequested)
+                if (_client.ReadNextMessage("EmailQueue") == "PatientCreated")
                 {
-                    if (scope.ServiceProvider.GetRequiredService<IClient>().ReadNextMessage("EmailQueue") == "PatientCreated")
-                    {
-                        _logger.LogInformation("Email confirmation sent!");
-                    }
-                    await Task.Delay(1000, stoppingToken);
+                    _logger.LogInformation("Email confirmation sent!");
                 }
-            }            
+                await Task.Delay(1000, stoppingToken);
+            }
         }
     }
 }

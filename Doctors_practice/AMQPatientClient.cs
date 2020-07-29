@@ -11,8 +11,8 @@ namespace Doctors_practice
         private static Uri _brokerUri;
         public AMQPatientClient()
         {
-            _brokerUri = new Uri("activemq:tcp://amq:61616");
-            //_brokerUri = new Uri("activemq:tcp://localhost:61616");
+            //_brokerUri = new Uri("activemq:tcp://amq:61616");
+            _brokerUri = new Uri("activemq:tcp://localhost:61616");
         }
 
         public void SendMessage(string destination, string message)
@@ -33,6 +33,43 @@ namespace Doctors_practice
                 }
             }
         }
+        public MessengerConnectionInfo SendTransactionalMessage(string destination, string message)
+        {
+            NMSConnectionFactory factory = new NMSConnectionFactory(_brokerUri);
+            IConnection connection = factory.CreateConnection();
+            connection.Start();
+
+            ISession session = connection.CreateSession(AcknowledgementMode.Transactional);
+            MessengerConnectionInfo messengerConnectionInfo = new MessengerConnectionInfo(connection, session);
+            using (IDestination dest = session.GetQueue(destination))
+            using (IMessageProducer producer = session.CreateProducer(dest))
+            {
+                producer.DeliveryMode = MsgDeliveryMode.NonPersistent;
+
+                producer.Send(session.CreateTextMessage(message));
+            }
+            connection.Stop();
+            return messengerConnectionInfo;
+        }
+
+        public void CommitTransactionalMessage(IConnection connection, ISession session)
+        {
+            connection.Start();
+            session.Commit();
+            session.Dispose();
+            connection.Close();
+            connection.Dispose();
+        }
+
+        public void RollbackTransactionalMessage(IConnection connection, ISession session)
+        {
+            connection.Start();
+            session.Rollback();
+            session.Dispose();
+            connection.Close();
+            connection.Dispose();
+        }
+
         public string ReadNextMessage(string destination)
         {
             NMSConnectionFactory factory = new NMSConnectionFactory(_brokerUri);

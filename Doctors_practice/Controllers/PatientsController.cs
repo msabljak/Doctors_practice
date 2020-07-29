@@ -73,13 +73,24 @@ namespace Doctors_practice.Controllers
         }
 
         // POST: Patients
+        //[HttpPost]
+        //[Route("Patients")]
+        //public async Task<ActionResult<PatientDTO>> PostPatient(PatientDTO patientDTO)
+        //{
+        //    var patient = _patientRepository.Add(patientDTO);
+        //    _client.SendMessage("EmailQueue", "PatientCreated");
+        //    return CreatedAtAction(nameof(GetPatient), new { id = patient.ID }, patient);            
+        //}
+
         [HttpPost]
         [Route("Patients")]
-        public async Task<ActionResult<PatientDTO>> PostPatient(PatientDTO patientDTO)
+        public async Task<ActionResult> PostPatient(PatientDTO patientDTO)
         {
-            var patient = _patientRepository.Add(patientDTO);
-            _client.SendMessage("EmailQueue", "PatientCreated");
-            return CreatedAtAction(nameof(GetPatient), new { id = patient.ID }, patient);            
+            Transaction transaction = new Transaction(_client, _patientRepository);
+            if (transaction.ExecuteTransaction(patientDTO, "EmailQueue", "PatientCreated")==false){
+                return BadRequest();
+            }
+            return Ok();
         }
 
         // DELETE: Patients/5

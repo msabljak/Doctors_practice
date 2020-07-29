@@ -1,4 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Apache.NMS;
+using Apache.NMS.ActiveMQ;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,8 +16,8 @@ namespace Doctors_practice.Models.Patient
         private SqlDataAdapter _adapter;
         public SQLPatientRepository()
         {
-            _connectionString = "Data Source=db;Initial Catalog=Doctors_practice;User ID=SA;Password=<QWerT!13r4>";
-            //_connectionString = "Data Source=localhost;Initial Catalog=Doctors_practice;User ID=SA;Password=<QWerT!13r4>";
+            //_connectionString = "Data Source=db;Initial Catalog=Doctors_practice;User ID=SA;Password=<QWerT!13r4>";
+            _connectionString = "Data Source=localhost;Initial Catalog=Doctors_practice;User ID=SA;Password=<QWerT!13r4>";
         }
         public PatientDTO Add(PatientDTO patientDTO)
         {
@@ -46,6 +48,39 @@ namespace Doctors_practice.Models.Patient
             }
         }
 
+        public DBConnectionInfo PrepareAdd(PatientDTO patientDTO)
+        {
+            _connection = new SqlConnection(_connectionString);
+            var query = "insert into Patient (Name,Surname,Telephone,Secret) values (@name,@surname,@telephone,@secret)";
+            _connection.Open();
+            SqlTransaction sqlTransaction;
+            sqlTransaction = _connection.BeginTransaction();
+            DBConnectionInfo connectionInfo = new DBConnectionInfo(sqlTransaction, _connection);
+            SqlCommand sqlCommand = new SqlCommand(query, _connection, sqlTransaction);
+            sqlCommand.Parameters.AddWithValue("@name", patientDTO.Name);
+            sqlCommand.Parameters.AddWithValue("@surname", patientDTO.Surname);
+            sqlCommand.Parameters.AddWithValue("@telephone", patientDTO.Telephone);
+            sqlCommand.Parameters.AddWithValue("@secret", "-");
+            
+            sqlCommand.ExecuteNonQuery();
+            return connectionInfo;
+        }
+
+        public void CommitAdd(SqlConnection connection, SqlTransaction transaction)
+        {
+            transaction.Commit();
+            _connection = connection;
+            _connection.Close();
+            _connection.Dispose();
+        }
+
+        public void RollbackAdd(SqlConnection connection, SqlTransaction transaction)
+        {
+            transaction.Rollback();
+            _connection = connection;
+            _connection.Close();
+            _connection.Dispose();
+        }
         public int Delete(int id)
         {
             if (!PatientExists(id))

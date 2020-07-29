@@ -18,7 +18,7 @@ namespace EmailService
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddScoped<IClient, AMQClient>();
+                    services.AddSingleton<IClient, AMQClient>();
                     services.AddHostedService<EmailWorker>();                    
                 });
     }
