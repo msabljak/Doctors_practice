@@ -41,6 +41,14 @@ namespace Doctors_practice
             }
             catch
             {
+                try
+                {
+                    _messengerConnectionInfo = _client.SendTransactionalMessage(destination, message);
+                }
+                catch
+                {
+                    failedMessengerCommand = true;
+                }
                 failedDBCommand = true;
             }
             if (failedDBCommand == true || failedMessengerCommand == true)
