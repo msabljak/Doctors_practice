@@ -11,8 +11,8 @@ namespace Doctors_practice
         private static Uri _brokerUri;
         public AMQPatientClient()
         {
-            //_brokerUri = new Uri("activemq:tcp://amq:61616");
-            _brokerUri = new Uri("activemq:tcp://localhost:61616");
+            _brokerUri = new Uri("activemq:tcp://amq:61616");
+            //_brokerUri = new Uri("activemq:tcp://localhost:61616");
         }
 
         public void SendMessage(string destination, string message)
