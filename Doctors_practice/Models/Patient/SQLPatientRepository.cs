@@ -48,22 +48,18 @@ namespace Doctors_practice.Models.Patient
             }
         }
 
-        public DBConnectionInfo PrepareAdd(PatientDTO patientDTO)
+        public void PrepareAdd(PatientDTO patientDTO)
         {
             _connection = new SqlConnection(_connectionString);
             var query = "insert into Patient (Name,Surname,Telephone,Secret) values (@name,@surname,@telephone,@secret)";
             _connection.Open();
-            SqlTransaction sqlTransaction;
-            sqlTransaction = _connection.BeginTransaction();
-            DBConnectionInfo connectionInfo = new DBConnectionInfo(sqlTransaction, _connection);
-            SqlCommand sqlCommand = new SqlCommand(query, _connection, sqlTransaction);
+            SqlCommand sqlCommand = new SqlCommand(query, _connection);
             sqlCommand.Parameters.AddWithValue("@name", patientDTO.Name);
             sqlCommand.Parameters.AddWithValue("@surname", patientDTO.Surname);
             sqlCommand.Parameters.AddWithValue("@telephone", patientDTO.Telephone);
             sqlCommand.Parameters.AddWithValue("@secret", "-");
             
             sqlCommand.ExecuteNonQuery();
-            return connectionInfo;
         }
 
         public void CommitAdd(SqlConnection connection, SqlTransaction transaction)
