@@ -1,151 +1,47 @@
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
 Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"}]
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
 Http Response Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
 Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients QueryString:  
 Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"}]
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
 Http Response Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
 Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients QueryString:  
 Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"}]
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
 Http Response Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
 Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":3,"name":"Nino","surname":"Brežnjak","telephone":"-"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients/3 QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients/3 QueryString:  Response Body: 
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
 Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"}]
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
 Http Response Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
 Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"}]
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
 Http Response Information:
@@ -157,57 +53,7 @@ Schema:https Host: localhost:44317 Path: /Patients/ QueryString:
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients QueryString:  
 Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":1004,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":1005,"name":"Nino","surname":"Brežnjak","telephone":"-"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: {"id":0,"name":"Nino","surname":"Brežnjak","telephone":"-"}
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":1004,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":1005,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":1006,"name":"Nino","surname":"Brežnjak","telephone":"-"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":1004,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":1005,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":1006,"name":"Nino","surname":"Brežnjak","telephone":"-"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients/1006 QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients/1006 QueryString:  Response Body: 
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients/1005 QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients/1005 QueryString:  Response Body: 
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients/1004 QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients/1004 QueryString:  Response Body: 
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
-Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  
-Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"}]
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
 Http Response Information:
@@ -215,17 +61,85 @@ Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Bod
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
 Http Request Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
 Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2010,"name":"Ana","surname":"Anic","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: {"id":0,"name":"Bruno","surname":"Brunic","telephone":"-"}
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: {"id":0,"name":"Bruno","surname":"Brunic","telephone":"-"}
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: {"id":0,"name":"Stipe","surname":"Stipic","telephone":"-"}
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2010,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2011,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2012,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2013,"name":"Stipe","surname":"Stipic","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: {"id":0,"name":"Mile","surname":"Milic","telephone":"-"}
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2010,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2011,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2012,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2013,"name":"Stipe","surname":"Stipic","telephone":"-"},{"id":2014,"name":"Mile","surname":"Milic","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: {"id":0,"name":"Radi","surname":"Radis","telephone":"-"}
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients QueryString:  
 Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2010,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2011,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2012,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2013,"name":"Stipe","surname":"Stipic","telephone":"-"},{"id":2014,"name":"Mile","surname":"Milic","telephone":"-"},{"id":2015,"name":"Radi","surname":"Radis","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2010,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2011,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2012,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2013,"name":"Stipe","surname":"Stipic","telephone":"-"},{"id":2014,"name":"Mile","surname":"Milic","telephone":"-"},{"id":2015,"name":"Radi","surname":"Radis","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2010,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2011,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2012,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2013,"name":"Stipe","surname":"Stipic","telephone":"-"},{"id":2014,"name":"Mile","surname":"Milic","telephone":"-"},{"id":2015,"name":"Radi","surname":"Radis","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2010,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2011,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2012,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2013,"name":"Stipe","surname":"Stipic","telephone":"-"},{"id":2014,"name":"Mile","surname":"Milic","telephone":"-"},{"id":2015,"name":"Radi","surname":"Radis","telephone":"-"}]
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
 Http Response Information:
@@ -235,9 +149,13 @@ Schema:https Host: localhost:44317 Path: /Patients/ QueryString:
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
 Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: {"id":2017,"name":"Test","surname":"Test123","telephone":"-"}
+Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients QueryString:  
 Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"}]
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2010,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2011,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2012,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2013,"name":"Stipe","surname":"Stipic","telephone":"-"},{"id":2014,"name":"Mile","surname":"Milic","telephone":"-"},{"id":2015,"name":"Radi","surname":"Radis","telephone":"-"},{"id":2016,"name":"Test","surname":"Test123","telephone":"-"},{"id":2017,"name":"Test","surname":"Test123","telephone":"-"}]
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
 Http Response Information:
@@ -245,11 +163,27 @@ Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Bod
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
 Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: 
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: {"id":2018,"name":"Novi","surname":"Lik","telephone":"-"}
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2010,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2011,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2012,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2013,"name":"Stipe","surname":"Stipic","telephone":"-"},{"id":2014,"name":"Mile","surname":"Milic","telephone":"-"},{"id":2015,"name":"Radi","surname":"Radis","telephone":"-"},{"id":2016,"name":"Test","surname":"Test123","telephone":"-"},{"id":2017,"name":"Test","surname":"Test123","telephone":"-"},{"id":2018,"name":"Novi","surname":"Lik","telephone":"-"}]
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients QueryString:  
 Http Response Information:
-Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"}]
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2010,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2011,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2012,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2013,"name":"Stipe","surname":"Stipic","telephone":"-"},{"id":2014,"name":"Mile","surname":"Milic","telephone":"-"},{"id":2015,"name":"Radi","surname":"Radis","telephone":"-"},{"id":2016,"name":"Test","surname":"Test123","telephone":"-"},{"id":2017,"name":"Test","surname":"Test123","telephone":"-"},{"id":2018,"name":"Novi","surname":"Lik","telephone":"-"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients/ QueryString:  Response Body: {"id":3003,"name":"Testni","surname":"Primjer","telephone":"-"}
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: [{"id":1,"name":"Martin","surname":"Sabljak","telephone":"+385918890588"},{"id":2,"name":"Ivan","surname":"Blažek","telephone":"-"},{"id":2002,"name":"Nino","surname":"Brežnjak","telephone":"-"},{"id":2003,"name":"Mislav","surname":"Hecimovic","telephone":"-"},{"id":2004,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2005,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2006,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2007,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2008,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2009,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2010,"name":"Ana","surname":"Anic","telephone":"-"},{"id":2011,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2012,"name":"Bruno","surname":"Brunic","telephone":"-"},{"id":2013,"name":"Stipe","surname":"Stipic","telephone":"-"},{"id":2014,"name":"Mile","surname":"Milic","telephone":"-"},{"id":2015,"name":"Radi","surname":"Radis","telephone":"-"},{"id":2016,"name":"Test","surname":"Test123","telephone":"-"},{"id":2017,"name":"Test","surname":"Test123","telephone":"-"},{"id":2018,"name":"Novi","surname":"Lik","telephone":"-"},{"id":3003,"name":"Testni","surname":"Primjer","telephone":"-"}]
 Http Request Information:
 Schema:https Host: localhost:44317 Path: /favicon.ico QueryString:  
 Http Response Information:

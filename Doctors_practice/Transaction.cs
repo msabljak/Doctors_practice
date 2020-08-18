@@ -29,7 +29,7 @@ namespace Doctors_practice
 
             try
             {
-                _dBConnectionInfo = _repository.PrepareAdd(patient);
+                //_dBConnectionInfo = _repository.PrepareAdd(patient);
                 try
                 {
                     _messengerConnectionInfo = _client.SendTransactionalMessage(destination, message);

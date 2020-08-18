@@ -11,14 +11,15 @@ namespace Doctors_practice
     public class EventConsumer
     {
         private IEventStoreConnection _conn;
-        private const string STREAM = "a_test_stream";
-        private const string GROUP = "a_test_group";
-        private const int DEFAULTPORT = 1113;
+        private string _stream;
+        private string _group;
         private static readonly UserCredentials User = new UserCredentials("admin", "changeit");
         private EventStorePersistentSubscriptionBase _subscription;
 
-        public void Start()
+        public EventConsumer(string stream, string group)
         {
+            _stream = stream;
+            _group = group;
             //uncommet to enable verbose logging in client.
             var settings = ConnectionSettings.Create().DisableTls(); //.EnableVerboseLogging().UseConsoleLogger();
 
@@ -27,20 +28,39 @@ namespace Doctors_practice
                 _conn.ConnectAsync().Wait();
 
                 CreateSubscription();
-                ConnectToSubscription();
+                //Call this method for creating a subscription that waits for a new event
+                //ConnectToSubscription();
 
                 //Console.WriteLine("waiting for events. press enter to exit");
                 //Console.ReadLine();
             }
         }
 
+        public long GetLastEventId()
+        {
+            try
+            {
+                var readResult = _conn.ReadEventAsync(_stream, StreamPosition.End, true).Result;
+                return readResult.Event.Value.Event.EventNumber;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            
+        }
+
+        public void Dispose()
+        {
+            _conn.Dispose();
+        }
 
         private void ConnectToSubscription()
         {
             var bufferSize = 10;
             var autoAck = true;
 
-            _subscription = _conn.ConnectToPersistentSubscription(STREAM, GROUP, EventAppeared, SubscriptionDropped,
+            _subscription = _conn.ConnectToPersistentSubscription(_stream, _group, EventAppeared, SubscriptionDropped,
                 User, bufferSize, autoAck);
         }
 
@@ -50,6 +70,7 @@ namespace Doctors_practice
             ConnectToSubscription();
         }
 
+        //Need to wait for this event and somehow notify the main task of its arrival maybe with a flag? Look for better options
         private static void EventAppeared(EventStorePersistentSubscriptionBase eventStorePersistentSubscriptionBase,
             ResolvedEvent resolvedEvent)
         {
@@ -73,12 +94,12 @@ namespace Doctors_practice
 
             try
             {
-                _conn.CreatePersistentSubscriptionAsync(STREAM, GROUP, settings, User).Wait();
+                _conn.CreatePersistentSubscriptionAsync(_stream, _group, settings, User).Wait();
             }
             catch (AggregateException ex)
             {
                 if (ex.InnerException.GetType() != typeof(InvalidOperationException)
-                    && ex.InnerException?.Message != $"Subscription group {GROUP} on stream {STREAM} already exists")
+                    && ex.InnerException?.Message != $"Subscription group {_group} on stream {_stream} already exists")
                 {
                     throw;
                 }

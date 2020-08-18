@@ -9,6 +9,8 @@ using Doctors_practice.Models;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using Doctors_practice.Models.Patient;
+using MediatR;
+using Doctors_practice.Commands;
 
 namespace Doctors_practice.Controllers
 {
@@ -17,12 +19,14 @@ namespace Doctors_practice.Controllers
     public class PatientsController : ControllerBase
     {
         private IPatientRepository _patientRepository;
-        private IPatientClient _client; 
+        private IPatientClient _client;
+        private IMediator _mediator;
 
-        public PatientsController(IPatientRepository patientRepository, IPatientClient client)
+        public PatientsController(IPatientRepository patientRepository, IPatientClient client, IMediator mediator)
         {
             _patientRepository = patientRepository;
             _client = client;
+            _mediator = mediator;
         }
         // GET: Patients
         [HttpGet]
@@ -72,26 +76,29 @@ namespace Doctors_practice.Controllers
             return NoContent();
         }
 
-        // POST: Patients
+        //POST: Patients
+       [HttpPost]
+       [Route("Patients")]
+        public async Task<ActionResult<PatientDTO>> PostPatient(PatientDTO patientDTO)
+        {
+            var result = await _mediator.Send(new CreatePatientCommand(patientDTO));
+            if (result == null)
+            {
+                return StatusCode(500);
+            }
+            return CreatedAtAction(nameof(GetPatient), new { id = result.ID }, result);
+        }
+
         //[HttpPost]
         //[Route("Patients")]
-        //public async Task<ActionResult<PatientDTO>> PostPatient(PatientDTO patientDTO)
+        //public async Task<ActionResult> PostPatient(PatientDTO patientDTO)
         //{
-        //    var patient = _patientRepository.Add(patientDTO);
-        //    _client.SendMessage("EmailQueue", "PatientCreated");
-        //    return CreatedAtAction(nameof(GetPatient), new { id = patient.ID }, patient);            
+        //    Transaction transaction = new Transaction(_client, _patientRepository);
+        //    if (transaction.ExecuteTransaction(patientDTO, "EmailQueue", "PatientCreated")==false){
+        //        return BadRequest();
+        //    }
+        //    return Ok();
         //}
-
-        [HttpPost]
-        [Route("Patients")]
-        public async Task<ActionResult> PostPatient(PatientDTO patientDTO)
-        {
-            Transaction transaction = new Transaction(_client, _patientRepository);
-            if (transaction.ExecuteTransaction(patientDTO, "EmailQueue", "PatientCreated")==false){
-                return BadRequest();
-            }
-            return Ok();
-        }
 
         // DELETE: Patients/5
         [HttpDelete("{id}")]

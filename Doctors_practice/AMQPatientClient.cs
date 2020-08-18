@@ -11,8 +11,8 @@ namespace Doctors_practice
         private static Uri _brokerUri;
         public AMQPatientClient()
         {
-            _brokerUri = new Uri("activemq:tcp://amq:61616");
-            //_brokerUri = new Uri("activemq:tcp://localhost:61616");
+            //_brokerUri = new Uri("activemq:tcp://amq:61616");
+            _brokerUri = new Uri("activemq:tcp://localhost:61616");
         }
 
         public void SendMessage(string destination, string message)
@@ -33,7 +33,27 @@ namespace Doctors_practice
                 }
             }
         }
-        public MessengerConnectionInfo SendTransactionalMessage(string destination, string message)
+
+        public Task<ITextMessage> SendMessageAsync(string destination, string message)
+        {
+            NMSConnectionFactory factory = new NMSConnectionFactory(_brokerUri);
+            using (IConnection connection = factory.CreateConnection())
+            {
+                connection.Start();
+
+                using (ISession session = connection.CreateSession(AcknowledgementMode.AutoAcknowledge))
+                using (IDestination dest = session.GetQueue(destination))
+                using (IMessageProducer producer = session.CreateProducer(dest))
+                {
+                    producer.DeliveryMode = MsgDeliveryMode.NonPersistent;
+                    var textMessage = session.CreateTextMessage(message);
+                    producer.Send(textMessage);
+                    return Task.FromResult(textMessage);
+                    //Console.WriteLine($"Sent {message} messages");
+                }
+            }
+        }
+        public Task<MessengerConnectionInfo> SendTransactionalMessageAsync(string destination, string message)
         {
             NMSConnectionFactory factory = new NMSConnectionFactory(_brokerUri);
             IConnection connection = factory.CreateConnection();
@@ -49,7 +69,7 @@ namespace Doctors_practice
                 producer.Send(session.CreateTextMessage(message));
             }
             connection.Stop();
-            return messengerConnectionInfo;
+            return Task.FromResult(messengerConnectionInfo);
         }
 
         public void CommitTransactionalMessage(IConnection connection, ISession session)
@@ -60,7 +80,7 @@ namespace Doctors_practice
             connection.Close();
             connection.Dispose();
         }
-
+            
         public void RollbackTransactionalMessage(IConnection connection, ISession session)
         {
             connection.Start();

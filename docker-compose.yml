@@ -7,6 +7,7 @@ services:
         depends_on: 
             - db
             - amq
+            - eventstore_db
         environment: 
             DBServer: "db"
     db:
@@ -36,3 +37,28 @@ services:
         depends_on: 
             - amq
         restart: always
+    eventstore_db:
+        image: eventstore/eventstore
+        command: --dev --enable-external-tcp --ext-ip=0.0.0.0 --int-ip=0.0.0.0 --disable-external-tcp-tls
+        environment:
+            - EVENTSTORE_CLUSTER_SIZE=1
+            - EVENTSTORE_INT_TCP_PORT=1112
+            - EVENTSTORE_EXT_TCP_PORT=1113
+            - EVENTSTORE_INT_HTTP_PORT=2112
+            - EVENTSTORE_EXT_HTTP_PORT=2113
+        ports:
+            - 1113:1113
+            - 2113:2113
+        volumes:
+            - "./Doctors_practice/EventStoreData:/var/lib/eventstore"
+        restart: always
+#    mongo:
+#        image: mongo:latest
+#        ports: 
+#            - 27017:27017
+#        restart: always
+#        environment:
+#            MONGO_INITDB_ROOT_USERNAME: root
+#            MONGO_INITDB_ROOT_PASSWORD: example
+#        volumes:
+#            - "./Doctors_practice/MongoDB:/data/db"

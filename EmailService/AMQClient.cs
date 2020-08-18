@@ -11,8 +11,8 @@ namespace EmailService
         private static Uri _brokerUri;
         public AMQClient()
         {
-            _brokerUri = new Uri("activemq:tcp://amq:61616");
-            //_brokerUri = new Uri("activemq:tcp://localhost:61616");
+            //_brokerUri = new Uri("activemq:tcp://amq:61616");
+            _brokerUri = new Uri("activemq:tcp://localhost:61616");
         }
 
         public void SendMessage(string destination, string message)

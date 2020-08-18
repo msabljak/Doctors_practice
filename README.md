@@ -9,6 +9,8 @@ A simple .net Core Web API project designed to simulate scheduled appointments f
     4. [Balance loading](#Balance-loading)
     5. [Message queuing service](#Message-queuing-service)
     6. [Email service](#Email-service)
+    7. [Event sourcing](#Event-sourcing)
+    8. [CQRS](#CQRS)
 # **Features**
 ## **Web API**
 
@@ -53,9 +55,11 @@ Related classes: DoctorsController, DoctorLogic.
 
 ### Transactions
 
-Since there are multiple services active within the solution the requirement of distibuted transactiosn becomes necessary to ensure ACID interaction with the database. This part of the code is part of the business layer. The controller creates a new transaction when it wants to create a new patient. The transaction is passed the repository and client the controller is using. The transaction then calls upon the repository and messenger client methods to prepare the transaction which both return information on the connections. The transaction then depending on the result via the ConnectionInfo classes it recieved tells the repository and messenging client if to commit or rollback the transaction that was started upon them.
+Since there are multiple services active within the solution the requirement of distibuted transactiosn becomes necessary to ensure ACID interaction with the database. This part of the code is part of the business layer. The PatientsController sends a request to Mediatr. Mediatr picks up this request and the entire transaction logic is actually handeled within the command handler itself. The idea is the handler tries to insert the patient information into the database, if it fails it terminates the call and returns internal server error, if it succeeds it tries to send a message to the queueing service, if the queuing service message fails the patient is removed from the database and the whole process is reverted. Every single step is verified and confirmed on an EventStore database saved as streams where each unique patient creates its own stream.
 
-Related classes: Transactions, MessengerConnectionInfo, DBConnectionInfo
+Related classes: PatientsController, CreatePatient and CreatePatientHandler
+
+Related classes: 
 
 ## **Database**
 The database is designed within Microsoft SQL Server 2019 hosted on an ubuntu operating system. It is hosted via a docker image and runs in a container. Itself consists of 4 simple tables which are as following.
@@ -120,4 +124,10 @@ The added benefit of using Apache's ActiveMQ service is how it treats its queuin
 
 ## **Email service**
 This service is its own seperate project which consists of a background worker and 2 classes for working with a message queuing service. The EmailWorker class extends the BackgroundService class to enable functionality as a background worker. Using dependency injection a messaging queuing service is added to the worker itself which it uses to connect to the message queuing service. Once connected it waits for a message to be sent with the content "PatientCreated" upon which it pretends to send an email in the form of logging that an email was sent. It also has a dockerfile created that will be used to automatically build a new image when comitted to github.
+
+## **Event sourcing**
+This concept essentially is the way all transactions are verified within the project. There is a simple eventstore database that stores all the events that happen on any one object within the project. It works by having a producer that can either create a stream or add to a stream new events and consumer which can actively wait and read for events on anyone stream if it needs some kind of confirmation. It also allows the implementations of projections for simple queries but those are not implemented in the current project. The project uses the IEventStore class which the EventStore class implements whose purpose is for the controllers to be able to connect to the Eventstore within which are methods to either create a consumer to read messages or a producer to upload information to the event store. It uses the EventStore nuget package and builds an image of EventStore to store all the information in its database in the form of simple JSON files. Persistency is enabled within the project.
+
+## **CQRS**
+Using the Mediatr nuget package this project segregates its commands and queries in the form of requests for which are in turn created handlers. The controllers simply just need to send the requests and the rest of the interaction is left to the handlers to manage. This allows for simple non-blocking asynchronous work of endpoints when a desired functionality is called.
 
