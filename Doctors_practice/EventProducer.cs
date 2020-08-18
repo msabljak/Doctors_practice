@@ -15,7 +15,8 @@ namespace Doctors_practice
         {
             //uncomment to enable verbose logging in client.
             var settings = ConnectionSettings.Create().DisableTls();//.EnableVerboseLogging().UseConsoleLogger();
-            _connection = EventStoreConnection.Create(settings, new Uri("tcp://admin:changeit@localhost:1113"));
+            //_connection = EventStoreConnection.Create(settings, new Uri("tcp://admin:changeit@localhost:1113"));
+            _connection = EventStoreConnection.Create(settings, new Uri("tcp://admin:changeit@eventstore_db:1113"));
             _connection.ConnectAsync()/*.Wait()*/;
         }
 
