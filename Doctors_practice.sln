@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doctors_practice", "Doctors
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailService", "EmailService\EmailService.csproj", "{8FA14BF6-104F-4E85-B456-577D8C8D2ECE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStoreImplementation", "EventStoreImplementation\EventStoreImplementation.csproj", "{D73EEFB1-F501-444A-BE9B-262982F63AF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8FA14BF6-104F-4E85-B456-577D8C8D2ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FA14BF6-104F-4E85-B456-577D8C8D2ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FA14BF6-104F-4E85-B456-577D8C8D2ECE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D73EEFB1-F501-444A-BE9B-262982F63AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73EEFB1-F501-444A-BE9B-262982F63AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73EEFB1-F501-444A-BE9B-262982F63AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73EEFB1-F501-444A-BE9B-262982F63AF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

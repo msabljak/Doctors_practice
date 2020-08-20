@@ -18,4 +18,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
     <PackageReference Include="MongoDB.Driver" Version="2.11.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventStoreImplementation\EventStoreImplementation.csproj" />
+  </ItemGroup>
 </Project>

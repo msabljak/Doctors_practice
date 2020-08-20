@@ -53,5 +53,9 @@
     <Folder Include="Queries\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EventStoreImplementation\EventStoreImplementation.csproj" />
+  </ItemGroup>
+
 
 </Project>

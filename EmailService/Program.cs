@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EventStoreImplementation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,6 +21,7 @@ namespace EmailService
                 .ConfigureServices((hostContext, services) =>
                 {
                     IConfiguration Configuration = hostContext.Configuration;
+                    services.AddScoped<IEventStore, EventStoreImplementation.EventStore>();
                     services.AddSingleton<IClient, AMQClient>();
                     services.AddHostedService<EmailWorker>();                    
                 });

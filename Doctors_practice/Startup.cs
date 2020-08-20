@@ -17,6 +17,7 @@ using Doctors_practice.Models.Practice;
 using Doctors_practice.Models.Appointment;
 using Doctors_practice.Models.Patient;
 using MediatR;
+using EventStoreImplementation;
 
 namespace Doctors_practice
 {
@@ -37,7 +38,7 @@ namespace Doctors_practice
             services.AddScoped<IDoctorRepository, SQLDoctorRepository>();
             services.AddScoped<IPracticeRepository, SQLPracticeRepository>();
             services.AddScoped<IPatientRepository, SQLPatientRepository>();
-            services.AddScoped<IEventStore, EventStore>();
+            services.AddScoped<IEventStore, EventStoreImplementation.EventStore>();
             services.AddMediatR(typeof(Startup));
             services.AddControllers();
         }
