@@ -1,8 +1,8 @@
 version: "3.8"
 services:
     web:
-        build: "./Doctors_practice"
-        #image: msabljak/doctors_practice:latest
+        #build: "./Doctors_practice"
+        image: msabljak/doctors_practice:latest
         expose:
             - "8000"
         depends_on: 
@@ -51,7 +51,7 @@ services:
             - 1113:1113
             - 2113:2113
         volumes:
-            - "./Doctors_practice/EventStoreData:/var/lib/eventstore"
+            - ".Doctors_practice/EventStoreData:/var/lib/eventstore"
         restart: always
 #    mongo:
 #        image: mongo:latest
