@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace EmailService
 {
     public class Program
-    {
+    {        
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -18,6 +19,7 @@ namespace EmailService
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    IConfiguration Configuration = hostContext.Configuration;
                     services.AddSingleton<IClient, AMQClient>();
                     services.AddHostedService<EmailWorker>();                    
                 });

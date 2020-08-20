@@ -1,6 +1,7 @@
 ﻿using Apache.NMS;
 using Apache.NMS.ActiveMQ;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,11 +13,13 @@ namespace Doctors_practice.Models.Patient
     public class SQLPatientRepository : IPatientRepository
     {
         private SqlConnection _connection;
+        private IConfiguration _configuration;
         private string _connectionString;
         private SqlDataAdapter _adapter;
-        public SQLPatientRepository()
+        public SQLPatientRepository(IConfiguration configuration)
         {
-            _connectionString = "Data Source=db;Initial Catalog=Doctors_practice;User ID=SA;Password=<QWerT!13r4>";
+            _configuration = configuration;
+            _connectionString = _configuration.GetConnectionString("sqlDB");
             //_connectionString = "Data Source=localhost;Initial Catalog=Doctors_practice;User ID=SA;Password=<QWerT!13r4>";
         }
         public PatientDTO Add(PatientDTO patientDTO)

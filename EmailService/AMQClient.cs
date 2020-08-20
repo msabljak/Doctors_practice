@@ -1,4 +1,5 @@
 ﻿using Apache.NMS;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,13 @@ namespace EmailService
 {
     class AMQClient : IClient
     {
+        private IConfiguration _configuration;
         private static Uri _brokerUri;
-        public AMQClient()
+
+        public AMQClient(IConfiguration configuration)
         {
-            _brokerUri = new Uri("activemq:tcp://amq:61616");
+            _configuration = configuration;
+            _brokerUri = new Uri(_configuration.GetConnectionString("amq"));
             //_brokerUri = new Uri("activemq:tcp://localhost:61616");
         }
 

@@ -1,5 +1,6 @@
 ﻿using EventStore.ClientAPI;
 using EventStore.ClientAPI.SystemData;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +12,21 @@ namespace Doctors_practice
     public class EventConsumer
     {
         private IEventStoreConnection _conn;
+        private IConfiguration _configuration;
         private string _stream;
         private string _group;
         private static readonly UserCredentials User = new UserCredentials("admin", "changeit");
         private EventStorePersistentSubscriptionBase _subscription;
 
-        public EventConsumer(string stream, string group)
+        public EventConsumer(IConfiguration configuration, string stream, string group)
         {
+            _configuration = configuration;
             _stream = stream;
             _group = group;
             //uncommet to enable verbose logging in client.
             var settings = ConnectionSettings.Create().DisableTls(); //.EnableVerboseLogging().UseConsoleLogger();
 
-            using (_conn = EventStoreConnection.Create(settings, new Uri("tcp://admin:changeit@eventstore_db:1113")))
+            using (_conn = EventStoreConnection.Create(settings, new Uri(_configuration.GetConnectionString("eventstore"))))
             //using (_conn = EventStoreConnection.Create(settings, new Uri("tcp://admin:changeit@localhost:1113")))
             {
                 _conn.ConnectAsync().Wait();

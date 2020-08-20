@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,12 +10,14 @@ namespace Doctors_practice.Models.Practice
 {
     public class SQLPracticeRepository : IPracticeRepository
     {
-        SqlConnection _connection;
-        string _connectionString;
-        SqlDataAdapter _adapter;
-        public SQLPracticeRepository()
+        private SqlConnection _connection;
+        private IConfiguration _configuration;
+        private string _connectionString;
+        private SqlDataAdapter _adapter;
+        public SQLPracticeRepository(IConfiguration configuration)
         {
-            _connectionString = "Data Source=db;Initial Catalog=Doctors_practice;Persist Security Info=True;User ID=SA;Password=<QWerT!13r4>";
+            _configuration = configuration;
+            _connectionString = _configuration.GetConnectionString("sqlDB");
         }
 
         public PracticeDTO Add(PracticeDTO practiceDTO)

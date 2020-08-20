@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -14,7 +15,7 @@ namespace EmailService
         private readonly ILogger<EmailWorker> _logger;
         public IClient _client;
 
-        public EmailWorker(ILogger<EmailWorker> logger, IClient client)
+        public EmailWorker(ILogger<EmailWorker> logger, IClient client, IConfiguration configuration)
         {
             _logger = logger;
             _client = client;

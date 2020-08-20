@@ -1,4 +1,5 @@
 ﻿using EventStore.ClientAPI;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,15 @@ namespace Doctors_practice
     public class EventProducer
     {
         private IEventStoreConnection _connection;
-        public EventProducer()
+        private IConfiguration _configuration;
+
+        public EventProducer(IConfiguration configuration)
         {
+            _configuration = configuration;
             //uncomment to enable verbose logging in client.
             var settings = ConnectionSettings.Create().DisableTls();//.EnableVerboseLogging().UseConsoleLogger();
             //_connection = EventStoreConnection.Create(settings, new Uri("tcp://admin:changeit@localhost:1113"));
-            _connection = EventStoreConnection.Create(settings, new Uri("tcp://admin:changeit@eventstore_db:1113"));
+            _connection = EventStoreConnection.Create(settings, new Uri(_configuration.GetConnectionString("eventstore")));
             _connection.ConnectAsync()/*.Wait()*/;
         }
 

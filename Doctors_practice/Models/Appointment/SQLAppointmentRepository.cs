@@ -1,6 +1,7 @@
 ﻿using Doctors_practice.Models.Appointment;
 using Doctors_practice.Models.Patient;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,12 +12,14 @@ namespace Doctors_practice.Models.Doctor
 {
     public class SQLAppointmentRepository : IAppointmentRepository
     {
-        SqlConnection _connection;
-        string _connectionString;
-        SqlDataAdapter _adapter;
+        private SqlConnection _connection;
+        private IConfiguration _configuration;
+        private string _connectionString;
+        private SqlDataAdapter _adapter;
 
-        public SQLAppointmentRepository()
+        public SQLAppointmentRepository(IConfiguration configuration)
         {
+            _configuration = configuration;
             _connectionString = "Data Source=db;Initial Catalog=Doctors_practice;Persist Security Info=True;User ID=SA;Password=<QWerT!13r4>";
         }
         public AppointmentDTO Add(AppointmentDTO appointmentDTO)
@@ -25,8 +28,8 @@ namespace Doctors_practice.Models.Doctor
             {
                 try
                 {
-                    SQLPatientRepository patientRepository = new SQLPatientRepository();
-                    SQLDoctorRepository doctorRepository = new SQLDoctorRepository();
+                    SQLPatientRepository patientRepository = new SQLPatientRepository(_configuration);
+                    SQLDoctorRepository doctorRepository = new SQLDoctorRepository(_configuration);
                     if (patientRepository.PatientExists(appointmentDTO.Patient_id)&& doctorRepository.DoctorExists(appointmentDTO.Doctor_id))
                     {
                         var query = "insert into Appointment(Patient_id,Doctor_id,Reason) values (@patient_id,@doctor_id,@reason)";
@@ -156,8 +159,8 @@ namespace Doctors_practice.Models.Doctor
             {
                 try
                 {
-                    SQLPatientRepository patientRepository = new SQLPatientRepository();
-                    SQLDoctorRepository doctorRepository = new SQLDoctorRepository();
+                    SQLPatientRepository patientRepository = new SQLPatientRepository(_configuration);
+                    SQLDoctorRepository doctorRepository = new SQLDoctorRepository(_configuration);
                     if (patientRepository.PatientExists(appointmentDTOChanges.Patient_id) && doctorRepository.DoctorExists(appointmentDTOChanges.Doctor_id))
                     {
                         var query = $"update Appointment set Patient_id=@patient_id,Doctor_id=@doctor_id,Reason=@reason where id = {id}";

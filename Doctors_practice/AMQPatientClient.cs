@@ -1,4 +1,5 @@
 ﻿using Apache.NMS;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,11 @@ namespace Doctors_practice
     public class AMQPatientClient : IPatientClient
     {
         private static Uri _brokerUri;
-        public AMQPatientClient()
+        private IConfiguration _configuration;
+        public AMQPatientClient(IConfiguration configuration)
         {
-            _brokerUri = new Uri("activemq:tcp://amq:61616");
+            _configuration = configuration;
+            _brokerUri = new Uri(_configuration.GetConnectionString("amq"));
             //_brokerUri = new Uri("activemq:tcp://localhost:61616");
         }
 

@@ -1,6 +1,7 @@
 ﻿using Doctors_practice.Models.Doctor;
 using Doctors_practice.Models.Practice;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,11 +12,13 @@ namespace Doctors_practice.Models.Patient
 {
     public class SQLDoctorRepository : IDoctorRepository
     {
-        SqlConnection _connection;
-        string _connectionString;
-        SqlDataAdapter _adapter;
-        public SQLDoctorRepository()
+        private SqlConnection _connection;
+        private IConfiguration _configuration;
+        private string _connectionString;
+        private SqlDataAdapter _adapter;
+        public SQLDoctorRepository(IConfiguration configuration)
         {
+            _configuration = configuration;
             _connectionString = "Data Source=db;Initial Catalog=Doctors_practice;Persist Security Info=True;User ID=SA;Password=<QWerT!13r4>";
         }
         public DoctorDTO Add(DoctorDTO doctorDTO)
@@ -24,7 +27,7 @@ namespace Doctors_practice.Models.Patient
             {
                 try
                 {
-                    SQLPracticeRepository practiceRepository = new SQLPracticeRepository();
+                    SQLPracticeRepository practiceRepository = new SQLPracticeRepository(_configuration);
                     if (practiceRepository.PracticeExists(doctorDTO.Practice_id))
                     {
                         var query = "insert into Doctor(Name,Surname,Practice_id) values (@name,@surname,@practice_id)";
@@ -154,7 +157,7 @@ namespace Doctors_practice.Models.Patient
             {
                 try
                 {
-                    SQLPracticeRepository practiceRepository = new SQLPracticeRepository();
+                    SQLPracticeRepository practiceRepository = new SQLPracticeRepository(_configuration);
                     if (practiceRepository.PracticeExists(doctorDTOChanges.Practice_id))
                     {
                         var query = $"update Doctor set Name=@name,Surname=@surname,Practice=@practice_id where id = {id}";
