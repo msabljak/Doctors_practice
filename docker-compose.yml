@@ -51,7 +51,7 @@ services:
             - 1113:1113
             - 2113:2113
         volumes:
-            - ".Doctors_practice/EventStoreData:/var/lib/eventstore"
+            - "./Doctors_practice/EventStoreData:/var/lib/eventstore"
         restart: always
 #    mongo:
 #        image: mongo:latest
