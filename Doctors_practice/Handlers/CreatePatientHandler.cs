@@ -31,10 +31,11 @@ namespace Doctors_practice.Handlers
             try
             {
                 _patient = await _patientRepository.AddAsync(request.PatientDTO);
-                EventProducer eventProducer = _eventStore.CreateEventProducer();
-                EventData eventData = eventProducer.CreateEventData(_patient, "Patient-Created");
-                eventProducer.SendEvent($"Patient-{_patient.ID}", eventData);
-                eventProducer.Dispose();
+                using (EventProducer eventProducer = _eventStore.CreateEventProducer())
+                {
+                    EventData eventData = eventProducer.CreateEventData(_patient, "Patient-Created");
+                    eventProducer.SendEvent($"Patient-{_patient.ID}", eventData);
+                }
                 tableInsertStatus = true;
             }
             catch (Exception)
@@ -47,18 +48,20 @@ namespace Doctors_practice.Handlers
                 {
                     
                     var message = await _client.SendMessageAsync("EmailQueue", "PatientCreated");
-                    EventProducer eventProducer = _eventStore.CreateEventProducer();
-                    EventData eventData = eventProducer.CreateEventData(message, "PatientCreatedConfirmation-Sent");
-                    eventProducer.SendEvent($"AMQMessages-Patient-{_patient.ID}", eventData);
-                    eventProducer.Dispose();
+                    using (EventProducer eventProducer = _eventStore.CreateEventProducer())
+                    {
+                        EventData eventData = eventProducer.CreateEventData(message, "PatientCreatedConfirmation-Sent");
+                        eventProducer.SendEvent($"AMQMessages-Patient-{_patient.ID}", eventData);
+                    }
                 }
                 catch (Exception)
                 {
                     await _patientRepository.DeleteAsync(_patient.ID);
-                    EventProducer eventProducer = _eventStore.CreateEventProducer();
-                    EventData eventData = eventProducer.CreateEventData(_patient, "Patient-Deleted");
-                    eventProducer.SendEvent($"Patient-{_patient.ID}", eventData);
-                    eventProducer.Dispose();
+                    using (EventProducer eventProducer = _eventStore.CreateEventProducer())
+                    {
+                        EventData eventData = eventProducer.CreateEventData(_patient, "Patient-Deleted");
+                        eventProducer.SendEvent($"Patient-{_patient.ID}", eventData);
+                    }
                     tableInsertStatus = false;
                 }
             }
