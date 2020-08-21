@@ -21,7 +21,7 @@ namespace EmailService
                 .ConfigureServices((hostContext, services) =>
                 {
                     IConfiguration Configuration = hostContext.Configuration;
-                    services.AddScoped<IEventStore, EventStoreImplementation.EventStore>();
+                    services.AddSingleton<IEventStore, EventStoreImplementation.EventStore>();
                     services.AddSingleton<IClient, AMQClient>();
                     services.AddHostedService<EmailWorker>();                    
                 });

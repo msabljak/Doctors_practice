@@ -9,5 +9,6 @@ namespace EmailService
     {
         void SendMessage(string destination, string message);        
         string ReadNextMessage(string destination);
+        object ReadNextObjectMessage(string destination);
     }
 }

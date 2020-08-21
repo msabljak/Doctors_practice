@@ -10,6 +10,7 @@ namespace Doctors_practice
     {
         void SendMessage(string destination, string message);
         Task<ITextMessage> SendMessageAsync(string destination, string message);
+        Task<IObjectMessage> SendObjectMessageAsync(string destination, object message);
         Task<MessengerConnectionInfo> SendTransactionalMessageAsync(string destination, string message);
         void CommitTransactionalMessage(IConnection connection, ISession session);
         void RollbackTransactionalMessage(IConnection connection, ISession session);

@@ -1,5 +1,6 @@
 ﻿using Apache.NMS;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +30,7 @@ namespace Doctors_practice
                 using (IDestination dest = session.GetQueue(destination))
                 using (IMessageProducer producer = session.CreateProducer(dest))
                 {
-                    producer.DeliveryMode = MsgDeliveryMode.NonPersistent;
-
+                    producer.DeliveryMode = MsgDeliveryMode.NonPersistent;                    
                     producer.Send(session.CreateTextMessage(message));                    
                     //Console.WriteLine($"Sent {message} messages");
                 }
@@ -52,6 +52,27 @@ namespace Doctors_practice
                     var textMessage = session.CreateTextMessage(message);
                     producer.Send(textMessage);
                     return Task.FromResult(textMessage);
+                    //Console.WriteLine($"Sent {message} messages");
+                }
+            }
+        }
+
+        public Task<IObjectMessage> SendObjectMessageAsync(string destination, object message)
+        {
+            NMSConnectionFactory factory = new NMSConnectionFactory(_brokerUri);
+            using (IConnection connection = factory.CreateConnection())
+            {
+                connection.Start();
+
+                using (ISession session = connection.CreateSession(AcknowledgementMode.AutoAcknowledge))
+                using (IDestination dest = session.GetQueue(destination))
+                using (IMessageProducer producer = session.CreateProducer(dest))
+                {
+                    producer.DeliveryMode = MsgDeliveryMode.NonPersistent;
+                    var objectMessage = session.CreateObjectMessage(message);
+                    objectMessage.Body = JsonConvert.SerializeObject(message);
+                    producer.Send(objectMessage);
+                    return Task.FromResult(objectMessage);
                     //Console.WriteLine($"Sent {message} messages");
                 }
             }

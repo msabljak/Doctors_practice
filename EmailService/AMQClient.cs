@@ -68,5 +68,37 @@ namespace EmailService
                 }
             }
         }
+
+        public object ReadNextObjectMessage(string destination)
+        {
+            NMSConnectionFactory factory = new NMSConnectionFactory(_brokerUri);
+            using (IConnection connection = factory.CreateConnection())
+            {
+                connection.Start();
+                using (ISession session = connection.CreateSession(AcknowledgementMode.AutoAcknowledge))
+                using (IDestination dest = session.GetQueue(destination))
+                using (IMessageConsumer consumer = session.CreateConsumer(dest))
+                {
+                    IMessage msg = consumer.Receive();
+                    if (msg is IObjectMessage)
+                    {
+                        IObjectMessage objMsg = msg as IObjectMessage;
+                        var body = objMsg.Body;
+                        //if (body == "PatientCreated")
+                        //{
+
+                        //}
+                        //Console.WriteLine($"Received message: {txtMsg.Text}");
+
+                        return body;
+                    }
+                    else
+                    {
+                        //Console.WriteLine("Unexpected message type: " + msg.GetType().Name);
+                        return "Unexpected message type: " + msg.GetType().Name;
+                    }
+                }
+            }
+        }
     }
 }

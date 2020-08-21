@@ -26,26 +26,56 @@ namespace EventStoreImplementation
             //uncommet to enable verbose logging in client.
             var settings = ConnectionSettings.Create().DisableTls(); //.EnableVerboseLogging().UseConsoleLogger();
 
-            using (_conn = EventStoreConnection.Create(settings, new Uri(_configuration.GetConnectionString("eventstore"))))
+            /*using (*/
+            _conn = EventStoreConnection.Create(settings, new Uri(_configuration.GetConnectionString("eventstore")));//)
             //using (_conn = EventStoreConnection.Create(settings, new Uri("tcp://admin:changeit@localhost:1113")))
-            {
+            //{
                 _conn.ConnectAsync().Wait();
 
-                CreateSubscription();
+                //CreateSubscription();
                 //Call this method for creating a subscription that waits for a new event
                 //ConnectToSubscription();
 
                 //Console.WriteLine("waiting for events. press enter to exit");
                 //Console.ReadLine();
-            }
+            //}
         }
 
-        public long GetLastEventId()
+        public Task<StreamEventsSlice> ReadStreamEventsForwardAsync()
+        {
+            int eventCountInStream = Convert.ToInt32(GetLastEventNumber());
+            try
+            {
+                var readEvents = _conn.ReadStreamEventsForwardAsync(_stream, 0, eventCountInStream, true).Result;
+                return Task.FromResult(readEvents);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
+        public bool FindEventType(StreamEventsSlice streamEvents, string desiredEvent)
+        {
+            bool eventFound = false;
+            foreach (var eventEmitted in streamEvents.Events)
+            {
+                if (eventEmitted.Event.EventType==desiredEvent)
+                {
+                    eventFound = true;
+                }
+            }
+            return eventFound;
+        }
+
+        public long GetLastEventNumber()
         {
             try
             {
-                var readResult = _conn.ReadEventAsync(_stream, StreamPosition.End, true).Result;
-                return readResult.Event.Value.Event.EventNumber;
+                var readEvent = _conn.ReadEventAsync(_stream, StreamPosition.End, true).Result;
+                return readEvent.Event.Value.Event.EventNumber;
             }
             catch (Exception)
             {
@@ -59,7 +89,7 @@ namespace EventStoreImplementation
             _conn.Dispose();
         }
 
-        private void ConnectToSubscription()
+        public void ConnectToSubscription()
         {
             var bufferSize = 10;
             var autoAck = true;
