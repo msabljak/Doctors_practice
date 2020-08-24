@@ -46,7 +46,7 @@ namespace EventStoreImplementation
             int eventCountInStream = Convert.ToInt32(GetLastEventNumber());
             try
             {
-                var readEvents = _conn.ReadStreamEventsForwardAsync(_stream, 0, eventCountInStream, true).Result;
+                var readEvents = _conn.ReadStreamEventsForwardAsync(_stream, 0, eventCountInStream + 1, true).Result;
                 return Task.FromResult(readEvents);
             }
             catch (Exception)

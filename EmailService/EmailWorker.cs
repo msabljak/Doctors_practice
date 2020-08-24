@@ -45,7 +45,7 @@ namespace EmailService
                         try
                         {
                             _logger.LogInformation("Email confirmation sent!");
-                            EventData eventData = eventProducer.CreateEventData(dataObject, "EmailConfirmation-Failed");
+                            EventData eventData = eventProducer.CreateEventData(dataObject, "EmailConfirmation-Sent");
                             eventProducer.SendEvent($"AMQMessages-Patient-{objectId}", eventData);
                         }
                         catch (Exception)
