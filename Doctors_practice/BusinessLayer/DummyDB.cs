@@ -7,7 +7,11 @@ namespace Doctors_practice.BusinessLayer
 {
     public class DummyDB
     {
-        public static bool PersistTransaction(double amount)
+        public DummyDB()
+        {
+
+        }
+        public bool PersistTransaction(double amount)
         {
             Random random = new Random();
             int randomNumber = random.Next(1, 100);

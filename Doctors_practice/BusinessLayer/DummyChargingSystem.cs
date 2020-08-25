@@ -4,7 +4,11 @@ namespace Doctors_practice.BusinessLayer
 {
     public class DummyChargingSystem
     {
-        public static bool SimulateCharge(double amount)
+        public DummyChargingSystem()
+        {
+
+        }
+        public bool SimulateCharge(double amount)
         {
             Random random = new Random();
             int randomNumber = random.Next(1, 100);
