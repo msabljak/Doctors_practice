@@ -10,8 +10,8 @@ namespace Doctors_practice.Tests
         [Fact]
         public void Charge_NegativeAmountShouldFail()
         {
-            var chargingSystem = new Mock<DummyChargingSystem>();
-            var DB = new Mock<DummyDB>();
+            var chargingSystem = new Mock<IDummyChargingSystem>();
+            var DB = new Mock<IDummyDB>();
             var customer = new Customer(chargingSystem.Object, DB.Object);
             string expected = "Amount to be charged can not be a negative value!";
 
@@ -24,8 +24,8 @@ namespace Doctors_practice.Tests
         [Fact]
         public void Charge_AmountEqualToZeroShouldFail()
         {
-            var chargingSystem = new Mock<DummyChargingSystem>();
-            var DB = new Mock<DummyDB>();
+            var chargingSystem = new Mock<IDummyChargingSystem>();
+            var DB = new Mock<IDummyDB>();
             var customer = new Customer(chargingSystem.Object, DB.Object);
             string expected = "Have to charge customer something!";
 
@@ -38,8 +38,8 @@ namespace Doctors_practice.Tests
         [Fact]
         public void Charge_AmountLargerThanBalanceShouldFail()
         {
-            var chargingSystem = new Mock<DummyChargingSystem>();
-            var DB = new Mock<DummyDB>();
+            var chargingSystem = new Mock<IDummyChargingSystem>();
+            var DB = new Mock<IDummyDB>();
             var customer = new Customer(chargingSystem.Object, DB.Object);
             customer.Balance = 400;
             string expected = "There is not sufficient funds on the balance to support this charge!";
@@ -54,10 +54,9 @@ namespace Doctors_practice.Tests
         public void Charge_UnsuccesfulChargeSystemCallShouldFail()
         {
             double charge = 300;
-            var chargingSystem = new Mock<DummyChargingSystem>();
+            var chargingSystem = new Mock<IDummyChargingSystem>();
             chargingSystem.Setup(cs => cs.SimulateCharge(It.IsAny<double>())).Returns(false);
-
-            var DB = new Mock<DummyDB>();
+            var DB = new Mock<IDummyDB>();
             var customer = new Customer(chargingSystem.Object, DB.Object);
             customer.Balance = 400;
             string expected = "3rd party Charging System failed to charge!";
@@ -71,11 +70,16 @@ namespace Doctors_practice.Tests
         [Fact]
         public void Charge_UnsuccesfulPersistTransactionCallShouldFail()
         {
-            var DB = new Mock<DummyDB>();
-            var customer = new Mock<Customer>();
+            double charge = 300;
+            var chargingSystem = new Mock<IDummyChargingSystem>();
+            chargingSystem.Setup(cs => cs.SimulateCharge(It.IsAny<double>())).Returns(true);
+            var DB = new Mock<IDummyDB>();
+            DB.Setup(db => db.PersistTransaction(It.IsAny<double>())).Returns(false);
+            var customer = new Customer(chargingSystem.Object, DB.Object);
+            customer.Balance = 400;
             string expected = "Transaction failed!";
 
-            Action action = () => customer.Object.Charge(300);
+            Action action = () => customer.Charge(charge);
 
             var actual = Assert.Throws<ArgumentException>(action);
             Assert.Equal(expected, actual.Message);
@@ -84,11 +88,15 @@ namespace Doctors_practice.Tests
         [Fact]
         public void Charge_ValidArgumentsShouldWork()
         {
-            var chargingSystem = new Mock<DummyChargingSystem>();
-            var DB = new Mock<DummyDB>();
-            var customer = new Mock<Customer>();
+            double charge = 300;
+            var chargingSystem = new Mock<IDummyChargingSystem>();
+            chargingSystem.Setup(cs => cs.SimulateCharge(It.IsAny<double>())).Returns(true);
+            var DB = new Mock<IDummyDB>();
+            DB.Setup(db => db.PersistTransaction(It.IsAny<double>())).Returns(true);
+            var customer = new Customer(chargingSystem.Object,DB.Object);
+            customer.Balance = 400;
 
-            var actual = customer.Object.Charge(300);
+            var actual = customer.Charge(charge);
 
             Assert.True(actual != false);
         }

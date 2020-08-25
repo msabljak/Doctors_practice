@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Doctors_practice.BusinessLayer
 {
-    public class DummyDB
+    public class DummyDB : IDummyDB
     {
         public DummyDB()
         {

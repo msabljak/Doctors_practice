@@ -7,12 +7,12 @@ namespace Doctors_practice.BusinessLayer
 {
     public class Customer
     {
-        private DummyChargingSystem _dummyChargingSystem;
-        private DummyDB _dummyDB;
+        private IDummyChargingSystem _dummyChargingSystem;
+        private IDummyDB _dummyDB;
 
         public string Name { get; set; }
         public double Balance { get; set; }
-        public Customer(DummyChargingSystem dummyChargingSystem, DummyDB dummyDB)
+        public Customer(IDummyChargingSystem dummyChargingSystem, IDummyDB dummyDB)
         {
             _dummyChargingSystem = dummyChargingSystem;
             _dummyDB = dummyDB;

@@ -2,7 +2,7 @@
 
 namespace Doctors_practice.BusinessLayer
 {
-    public class DummyChargingSystem
+    public class DummyChargingSystem : IDummyChargingSystem
     {
         public DummyChargingSystem()
         {
