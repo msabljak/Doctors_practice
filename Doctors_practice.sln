@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doctors_practice", "Doctors
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailService", "EmailService\EmailService.csproj", "{8FA14BF6-104F-4E85-B456-577D8C8D2ECE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStoreImplementation", "EventStoreImplementation\EventStoreImplementation.csproj", "{D73EEFB1-F501-444A-BE9B-262982F63AF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventStoreImplementation", "EventStoreImplementation\EventStoreImplementation.csproj", "{D73EEFB1-F501-444A-BE9B-262982F63AF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doctors_practice.Tests", "Doctors_practice.Tests\Doctors_practice.Tests.csproj", "{BECFB4EF-488F-45EB-8BB5-8FB47CF001FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D73EEFB1-F501-444A-BE9B-262982F63AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D73EEFB1-F501-444A-BE9B-262982F63AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D73EEFB1-F501-444A-BE9B-262982F63AF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BECFB4EF-488F-45EB-8BB5-8FB47CF001FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BECFB4EF-488F-45EB-8BB5-8FB47CF001FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BECFB4EF-488F-45EB-8BB5-8FB47CF001FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BECFB4EF-488F-45EB-8BB5-8FB47CF001FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
