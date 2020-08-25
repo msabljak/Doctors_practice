@@ -18,5 +18,5 @@ namespace Doctors_practice.BusinessLayer
             return true;
         }
     }
-    }
 }
+
