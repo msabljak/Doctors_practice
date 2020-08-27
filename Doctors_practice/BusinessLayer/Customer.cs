@@ -19,9 +19,9 @@ namespace Doctors_practice.BusinessLayer
             _dummyDB = dummyDB;
         }
 
-        public Task<bool> Charge(double amount, TimeSpan sleepTime)
+        public async Task<bool> Charge(double amount)
         {
-            Task.Delay(Convert.ToInt32(sleepTime.TotalMilliseconds));
+            await Task.Delay(TimeSpan.FromSeconds(10));
             if (double.IsNegative(amount))
             {
                 throw new ArgumentException("Amount to be charged can not be a negative value!");
@@ -44,7 +44,7 @@ namespace Doctors_practice.BusinessLayer
             {
                 throw new ArgumentException("Transaction failed!");
             }
-            return Task.FromResult(true);
+            return true;
         }
     }
 }

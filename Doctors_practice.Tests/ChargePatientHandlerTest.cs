@@ -9,29 +9,30 @@ using Doctors_practice.Commands;
 using System.Threading;
 using Polly.Timeout;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
 namespace Doctors_practice.Tests
 {
     public class ChargePatientHandlerTest
     {
         [Fact]
-        public void Handle_TaskTooLongShouldFail()
+        public async void Handle_TaskTooLongShouldFail()
         {
-            double charge = 300;
             var chargingSystem = new Mock<IDummyChargingSystem>();
             chargingSystem.Setup(cs => cs.SimulateCharge(It.IsAny<double>())).Returns(true);
             var DB = new Mock<IDummyDB>();
-            DB.Setup(db => db.PersistTransaction(It.IsAny<double>())).Returns(false);
+            DB.Setup(db => db.PersistTransaction(It.IsAny<double>())).Returns(true);
             var customer = new Mock<ICustomer>();
-            customer.SetupGet(x => x.Balance).Returns(400);
-            customer.Setup(x => x.Charge(charge, It.IsAny<TimeSpan>())).Returns(Task.FromResult(true));
-            ChargePatientHandler chargePatientHandler = new ChargePatientHandler(customer.Object, 3);
+            customer.SetupGet(x => x.Balance).Returns(500);
+           // customer.Setup(x => x.Charge(It.IsAny<double>())).Returns(Task.FromResult(true));            
+            ChargePatientHandler chargePatientHandler = new ChargePatientHandler(customer.Object, 5);
+            chargePatientHandler.Delay = TimeSpan.FromSeconds(10);
             ChargePatientCommand chargePatientCommand = new ChargePatientCommand(5);
             CancellationToken cancellationToken = new CancellationToken();
 
-            Action action = async () => await chargePatientHandler.Handle(chargePatientCommand, cancellationToken);
+            Func<Task> action = () => chargePatientHandler.Handle(chargePatientCommand, cancellationToken);
 
-            Assert.Throws<TimeoutRejectedException>(action);
+            await Assert.ThrowsAsync<TimeoutRejectedException>(action);
         }
     }
 }

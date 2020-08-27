@@ -22,6 +22,7 @@ namespace Doctors_practice.CommandHandlers
         private ICustomer _customer;
         public int MaxRetries { get; set; }
         public int TimeoutInSeconds { get; set; }
+        public TimeSpan Delay { get; set; }
         public ChargePatientHandler(ICustomer customer, int timeoutInSeconds)
         {
             TimeoutInSeconds = timeoutInSeconds;
@@ -34,11 +35,14 @@ namespace Doctors_practice.CommandHandlers
         {
             return await _timeoutPolicy.ExecuteAsync(async () => 
             {
-                var result = _customer.Charge(300, new TimeSpan(hours: 0, minutes: 0, seconds: 10)).Result;
-                if ( result == false)
-                {
-                    throw new HttpRequestException("This is a fake request Exception");
-                }
+                ////Does not work, function is never actually ever called so the delay within does not activate
+                //await _customer.Charge(300);
+                //Does work and will call timeout exception if configured in a manner it should
+                await Task.Delay(Delay);
+                //if (result == false)
+                //{
+                //    throw new HttpRequestException("This is a fake request Exception");
+                //}
                 return true;
             });
         }

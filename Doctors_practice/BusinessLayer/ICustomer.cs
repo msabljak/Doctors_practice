@@ -9,6 +9,6 @@ namespace Doctors_practice.BusinessLayer
     {
         string Name { get; set; }
         double Balance { get; set; }
-        Task<bool> Charge(double amount, TimeSpan sleepTime);
+        Task<bool> Charge(double amount);
     }
 }
