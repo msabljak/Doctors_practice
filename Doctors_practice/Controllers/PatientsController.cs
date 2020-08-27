@@ -89,6 +89,19 @@ namespace Doctors_practice.Controllers
             return CreatedAtAction(nameof(GetPatient), new { id = result.ID }, result);
         }
 
+        //POST: Patients/5/Charge
+        [HttpPost]
+        [Route("Patients/{id}/Charge")]
+        public async Task<ActionResult> PostPatientCharge (int id)
+        {
+            var result = await _mediator.Send(new ChargePatientCommand(id));
+            if (result == true)
+            {
+                return Ok();
+            }
+            return StatusCode(500);
+        }
+
         //[HttpPost]
         //[Route("Patients")]
         //public async Task<ActionResult> PostPatient(PatientDTO patientDTO)

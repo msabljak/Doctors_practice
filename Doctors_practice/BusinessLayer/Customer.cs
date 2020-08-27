@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Doctors_practice.BusinessLayer
 {
-    public class Customer
+    public class Customer : ICustomer
     {
         private IDummyChargingSystem _dummyChargingSystem;
         private IDummyDB _dummyDB;
@@ -18,8 +19,9 @@ namespace Doctors_practice.BusinessLayer
             _dummyDB = dummyDB;
         }
 
-        public bool Charge(double amount)
+        public Task<bool> Charge(double amount, TimeSpan sleepTime)
         {
+            Task.Delay(Convert.ToInt32(sleepTime.TotalMilliseconds));
             if (double.IsNegative(amount))
             {
                 throw new ArgumentException("Amount to be charged can not be a negative value!");
@@ -42,7 +44,7 @@ namespace Doctors_practice.BusinessLayer
             {
                 throw new ArgumentException("Transaction failed!");
             }
-            return true;
+            return Task.FromResult(true);
         }
     }
 }
