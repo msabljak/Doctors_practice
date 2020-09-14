@@ -28,7 +28,7 @@ namespace IdentityServerTesting
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            connectionString = configuration.GetConnectionString("SqlDB");
+            connectionString = configuration.GetConnectionString("sqlDB");
             
         }        
         // This method gets called by the runtime. Use this method to add services to the container.
