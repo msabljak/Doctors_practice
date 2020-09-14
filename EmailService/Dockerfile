@@ -5,14 +5,16 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["./EmailService.csproj", "EmailService_build/"]
+COPY ["EmailService/EmailService.csproj", "EmailService_build/"]
+COPY ["EventStoreImplementation/EventStoreImplementation.csproj", "EventStoreImplementation_build/"]
 RUN dotnet restore "EmailService_build/EmailService.csproj"
+RUN dotnet restore "EventStoreImplementation_build/EventStoreImplementation.csproj"
 COPY . .
 WORKDIR /src
-RUN dotnet build "EmailService.csproj" -c Release -o /app/build
+RUN dotnet build "EmailService/EmailService.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "EmailService.csproj" -c Release -o /app/publish
+RUN dotnet publish "EmailService/EmailService.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
