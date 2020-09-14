@@ -11,6 +11,9 @@ A simple .net Core Web API project designed to simulate scheduled appointments f
     6. [Email service](#Email-service)
     7. [Event sourcing](#Event-sourcing)
     8. [CQRS](#CQRS)
+    9. [Security](#Security)
+    10. [Unit testing](#Unit-testing)
+    11. [Resilience](#Resilience)
 # **Features**
 ## **Web API**
 
@@ -109,11 +112,14 @@ Pulls the latest image of the web api from the project that is located within a 
 ### Database
 Pulls a specific image of Microsoft SQL Server for Ubuntu, maps an interface for communication between the container and user. In this case it binds the port 1433 of the user to the containers port 1433. It creates an image with specific credentials for work with the project and maps where the Database data can be found.
 ### Balance loader
-Pulls the latest image available for NGinx, maps the ports 4000 of the user to the port 4000 of the container and waits for the Web API to first be built. It also maps where to find the nginx.conf within the project and configures it correctly on the docker container.
+Pulls the latest image available for NGinx, maps the ports 4000 of the user to the port 4000 of the container and waits for the Web API to first be built. It also maps where to find the nginx.conf within the project and configures it correctly on the docker container. It also acts as an interface to the Identity Service on the port 4001.
 ### Message queuing service
 Pulls an image of Apache's ActiveMQ messaging server and maps the required ports for communication between the user and container. It always waits for the AMQ .
 ### Email service
 Like the Web API it pulls the latest image from the project that is located within a docker hub repository and is activated after the message queuing service is available.
+### Identity service
+Requests the latest image from docker, depends on the database to be executed first. Sets up the required ports for working with the rest of the solution.
+
 ## **Balance loading**
 Balance loading multiple services to a single database via a single interface is done with the help of NGInx technology. It is configured to listen for requests sent from the Web API and via a round robin system communicates between the Web API's and single database. It's interface is accessed on port 4000.
 
@@ -131,3 +137,34 @@ This concept essentially is the way all transactions are verified within the pro
 ## **CQRS**
 Using the Mediatr nuget package this project segregates its commands and queries in the form of requests for which are in turn created handlers. The controllers simply just need to send the requests and the rest of the interaction is left to the handlers to manage. This allows for simple non-blocking asynchronous work of endpoints when a desired functionality is called.
 
+## **Security**
+Security in the project is enabled via an authentication and authorization system using OAuth technology to restrict access to the main Doctors_practice API. A seperate project named IdentityService with the help of IdentityServer4 package handles the authentication process in which it challenges the requests towards all the included clients and permitted users which are stored in a persistant MS SQL database. If the request is valid it will return an access token and if necessary an id token in a jwt format. If the request is invalid the caller will simply recieve a invalid_request response.
+
+The IdentityService runs through an nginx interface on the port of 4001 which is than redirected internally to the actual project.
+
+A sample of a permitted request is as following:
+```
+POST /connect/token HTTP/1.1
+Host: localhost:4001
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&scope=api1.read&client_id=oauthClient&client_secret=Secret
+```
+
+Furthermore the security implementation is not restricted to just IdentityService, the API it is protecting also has some authentication restrictions demanding that the token is valid and from a valid source.
+
+Depending on the content of the token, particularly its scopes some parts of the API are restricted using Policy-based authorization checking if the correct scope is within the access token before letting a particular endpoint of the controller being called. 
+
+A request that will work with the bearer token given in the prior example is as following:
+
+```
+GET /Patients HTTP/1.1
+Host: localhost:4000
+Authorization: Bearer (Replace with access token code)
+```
+
+## **Unit testing**
+Testing is done within Doctors_practice.Test project in which the technologies of Xunit and Moq are used for testing specific parts of the project using cyclometric complexity as a method of covering bare minimum for the Customer class. Moq is used to mock required methods and objects without actually creating instances elsewhere i.e. it can pretend to create a database object and returns as per required for the method without actually creating an instance in the database and even connecting to it.
+
+## **Resilience**
+Resillience within the web api is secured using the Polly nuget package. Right now it only covers a porject excluded MediatR handler in which a timeout policy and retry policy are included to secure adequate response to possible problems and a method to recover from them.
