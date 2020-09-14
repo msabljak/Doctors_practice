@@ -8,14 +8,14 @@ EXPOSE 5001
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["./IdentityService.csproj", "IdentityService_build/"]
+COPY ["IdentityService/IdentityService.csproj", "IdentityService_build/"]
 RUN dotnet restore "IdentityService_build/IdentityService.csproj"
 COPY . .
 WORKDIR /src
-RUN dotnet build "IdentityService.csproj" -c Release -o /app/build
+RUN dotnet build "IdentityService/IdentityService.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "IdentityService.csproj" -c Release -o /app/publish
+RUN dotnet publish "IdentityService/IdentityService.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
