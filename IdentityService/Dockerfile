@@ -4,19 +4,20 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
+EXPOSE 5001
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["IdentityServerTesting/IdentityServerTesting.csproj", "IdentityServerTesting/"]
-RUN dotnet restore "IdentityServerTesting/IdentityServerTesting.csproj"
+COPY ["./IdentityService.csproj", "IdentityService_build/"]
+RUN dotnet restore "IdentityService_build/IdentityService.csproj"
 COPY . .
-WORKDIR "/src/IdentityServerTesting"
-RUN dotnet build "IdentityServerTesting.csproj" -c Release -o /app/build
+WORKDIR /src
+RUN dotnet build "IdentityService.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "IdentityServerTesting.csproj" -c Release -o /app/publish
+RUN dotnet publish "IdentityService.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "IdentityServerTesting.dll"]
+ENTRYPOINT ["dotnet", "IdentityService.dll"]

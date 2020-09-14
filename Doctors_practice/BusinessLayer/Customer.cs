@@ -21,7 +21,6 @@ namespace Doctors_practice.BusinessLayer
 
         public async Task<bool> Charge(double amount)
         {
-            await Task.Delay(TimeSpan.FromSeconds(10));
             if (double.IsNegative(amount))
             {
                 throw new ArgumentException("Amount to be charged can not be a negative value!");

@@ -11,6 +11,8 @@ using System.Data;
 using Doctors_practice.Models.Patient;
 using MediatR;
 using Doctors_practice.Commands;
+using Polly;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Doctors_practice.Controllers
 {
@@ -29,6 +31,7 @@ namespace Doctors_practice.Controllers
             _mediator = mediator;
         }
         // GET: Patients
+        [Authorize(Policy = "Reader")]
         [HttpGet]
         [Route("Patients")]
         
@@ -45,7 +48,7 @@ namespace Doctors_practice.Controllers
             return _patientRepository.GetPatients(id);
         }
 
-        // GET: Patients/server
+        // GET: Patients/server        
         [HttpGet]
         [Route("Patients/server")]
         public string GetServerID()
@@ -89,18 +92,18 @@ namespace Doctors_practice.Controllers
             return CreatedAtAction(nameof(GetPatient), new { id = result.ID }, result);
         }
 
-        //POST: Patients/5/Charge
-        [HttpPost]
-        [Route("Patients/{id}/Charge")]
-        public async Task<ActionResult> PostPatientCharge (int id)
-        {
-            var result = await _mediator.Send(new ChargePatientCommand(id));
-            if (result == true)
-            {
-                return Ok();
-            }
-            return StatusCode(500);
-        }
+        ////POST: Patients/5/Charge
+        //[HttpPost]
+        //[Route("Patients/{id}/Charge")]
+        //public async Task<ActionResult> PostPatientCharge (int id)
+        //{
+        //    var result = await _mediator.Send(new ChargePatientCommand(id));
+        //    if (result == true)
+        //    {
+        //        return Ok();
+        //    }
+        //    return StatusCode(500);
+        //}
 
         //[HttpPost]
         //[Route("Patients")]

@@ -9,6 +9,7 @@ services:
             - db
             - amq
             - eventstore_db
+            - identityservice
         environment: 
             DBServer: "db"
     db:
@@ -53,6 +54,14 @@ services:
         volumes:
             - "./Doctors_practice/EventStoreData:/var/lib/eventstore"
         restart: always
+    identityservice:
+        image: msabljak/identityservice:latest
+        expose: 
+            - "5001"
+        depends_on: 
+            - db
+        environment: 
+            DBServer: "db"
 #    mongo:
 #        image: mongo:latest
 #        ports: 
