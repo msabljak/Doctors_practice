@@ -1,7 +1,9 @@
 version: "3.8"
 services:
     web:
-        #build: "./Doctors_practice"
+        #build: 
+        #    context: .
+        #    dockerfile: ./Doctors_practice/Dockerfile
         image: msabljak/doctors_practice:latest
         expose:
             - "8000"
