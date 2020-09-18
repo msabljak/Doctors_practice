@@ -163,6 +163,50 @@ Host: localhost:4000
 Authorization: Bearer (Replace with access token code)
 ```
 
+The IdentityService also includes a controller for CRUD actions with IdentityRoles. It is accessed at localhost:4001/roles/. It contains multiple endpoints that can be found in the RoleController.cs in IdentityService project, controllers folder. Available roles are as following: admin, superuser, user.
+Example of accessing the endpoints are as following:
+
+**Get all roles**
+```
+GET /roles HTTP/1.1
+Host: localhost:4001
+Cookie: .AspNetCore.Antiforgery.9TtSrW0hzOs=CfDJ8CrnsB9jNOdGkpp9YhnJOw2ThtT9d3W0sPCQS7cC-d0GmoeaniOXVfJSoyxIQT1XaJOTIU_4Q9Me9lPxf9w98vKNFW4iy6kNqg9Ga7b6MkK0w5waj72p0YGB79Kwlsi7tSimSH9FfxXzIZzk-rYjH50; idsrv.session=336269CA997995D728230F8034250BF8; .AspNetCore.Identity.Application=CfDJ8CrnsB9jNOdGkpp9YhnJOw3ffQW92ypopQBziBKnoWwsUrjlwhjgF7Nm_T2PRKWsqjkEf5LYGZz5CnnVsydQNiMbbSae2cPXLV6TjKexjZOSQeGrfOoO4XHCNOSQYTpMt5Lht6j3lq5ob5HxTD44gYDjmN7S6gWw6UoUX4yg5widq7cAnK7KTiz5mwqSVk5H15_7JdPd3sgrryyM6x5wDQeTHZABpgZ4AwQo2CM_vtmbYRbhewucFHlVjhJwJa6_E47Rfvq8UI1UjQSS-185Rb8EI6Zhgfug3sbkvGOELG5wJZpXsVgP4pJvHKZwyag1WPqPd1-g7KbMKETaBfr68URe0IYBonteP10v1xF2n9S71BNVqvclnZCQ43L0XdusIFK0CsF-vjbtYFaKb7vigg8FiwJZtdsgCA-OINmdBmLFCf9y90oRuaqmEehx0a8RH-yucYWFvZwtyqUVMCPZmwN7n-IYAq852lyX9yPcrbHH_JNZZSVvJmdkMJUjVgj9n5Xga_Ly52rJgShzVZiAzzkuBDisTOO9q36Tz7phrxOyqoHQEO9pnNRSGQkfTWiAcvn-Nw7hAq9G24L117sdTOp2aJXdoLCfkwhD9AIdT7p6
+```
+**Get all claims for role**
+
+URL explanation: /roles/{roleName}
+
+Role name is the assigned name of the role you are trying to request, possible options are: admin, superuser, user.
+
+```
+GET /roles/admin HTTP/1.1
+Host: localhost:4001
+Cookie: .AspNetCore.Antiforgery.9TtSrW0hzOs=CfDJ8CrnsB9jNOdGkpp9YhnJOw2ThtT9d3W0sPCQS7cC-d0GmoeaniOXVfJSoyxIQT1XaJOTIU_4Q9Me9lPxf9w98vKNFW4iy6kNqg9Ga7b6MkK0w5waj72p0YGB79Kwlsi7tSimSH9FfxXzIZzk-rYjH50; idsrv.session=336269CA997995D728230F8034250BF8; .AspNetCore.Identity.Application=CfDJ8CrnsB9jNOdGkpp9YhnJOw3ffQW92ypopQBziBKnoWwsUrjlwhjgF7Nm_T2PRKWsqjkEf5LYGZz5CnnVsydQNiMbbSae2cPXLV6TjKexjZOSQeGrfOoO4XHCNOSQYTpMt5Lht6j3lq5ob5HxTD44gYDjmN7S6gWw6UoUX4yg5widq7cAnK7KTiz5mwqSVk5H15_7JdPd3sgrryyM6x5wDQeTHZABpgZ4AwQo2CM_vtmbYRbhewucFHlVjhJwJa6_E47Rfvq8UI1UjQSS-185Rb8EI6Zhgfug3sbkvGOELG5wJZpXsVgP4pJvHKZwyag1WPqPd1-g7KbMKETaBfr68URe0IYBonteP10v1xF2n9S71BNVqvclnZCQ43L0XdusIFK0CsF-vjbtYFaKb7vigg8FiwJZtdsgCA-OINmdBmLFCf9y90oRuaqmEehx0a8RH-yucYWFvZwtyqUVMCPZmwN7n-IYAq852lyX9yPcrbHH_JNZZSVvJmdkMJUjVgj9n5Xga_Ly52rJgShzVZiAzzkuBDisTOO9q36Tz7phrxOyqoHQEO9pnNRSGQkfTWiAcvn-Nw7hAq9G24L117sdTOp2aJXdoLCfkwhD9AIdT7p6
+```
+
+**Add a new claim to the role**
+
+URL explanation: roles/{roleName}?claimType=&claimValue=
+
+Where role name is name of the role you want to create, claim type is the type of new claim as a string and claim value is the name(value) of the claim you wish to create.
+
+```POST /roles/admin?claimType=permission&claimValue=example HTTP/1.1
+Host: localhost:4001
+Cookie: .AspNetCore.Antiforgery.9TtSrW0hzOs=CfDJ8CrnsB9jNOdGkpp9YhnJOw2ThtT9d3W0sPCQS7cC-d0GmoeaniOXVfJSoyxIQT1XaJOTIU_4Q9Me9lPxf9w98vKNFW4iy6kNqg9Ga7b6MkK0w5waj72p0YGB79Kwlsi7tSimSH9FfxXzIZzk-rYjH50; idsrv.session=336269CA997995D728230F8034250BF8; .AspNetCore.Identity.Application=CfDJ8CrnsB9jNOdGkpp9YhnJOw3ffQW92ypopQBziBKnoWwsUrjlwhjgF7Nm_T2PRKWsqjkEf5LYGZz5CnnVsydQNiMbbSae2cPXLV6TjKexjZOSQeGrfOoO4XHCNOSQYTpMt5Lht6j3lq5ob5HxTD44gYDjmN7S6gWw6UoUX4yg5widq7cAnK7KTiz5mwqSVk5H15_7JdPd3sgrryyM6x5wDQeTHZABpgZ4AwQo2CM_vtmbYRbhewucFHlVjhJwJa6_E47Rfvq8UI1UjQSS-185Rb8EI6Zhgfug3sbkvGOELG5wJZpXsVgP4pJvHKZwyag1WPqPd1-g7KbMKETaBfr68URe0IYBonteP10v1xF2n9S71BNVqvclnZCQ43L0XdusIFK0CsF-vjbtYFaKb7vigg8FiwJZtdsgCA-OINmdBmLFCf9y90oRuaqmEehx0a8RH-yucYWFvZwtyqUVMCPZmwN7n-IYAq852lyX9yPcrbHH_JNZZSVvJmdkMJUjVgj9n5Xga_Ly52rJgShzVZiAzzkuBDisTOO9q36Tz7phrxOyqoHQEO9pnNRSGQkfTWiAcvn-Nw7hAq9G24L117sdTOp2aJXdoLCfkwhD9AIdT7p6
+```
+
+**Remove a claim from a role**
+
+URL explanation: roles/{roleName}/{claimValue}
+
+Where role name is name of the role you want to delete and claim value is the name of the claim you wish to delete.
+
+```
+DELETE /roles/admin/example HTTP/1.1
+Host: localhost:4001
+Cookie: .AspNetCore.Antiforgery.9TtSrW0hzOs=CfDJ8CrnsB9jNOdGkpp9YhnJOw2ThtT9d3W0sPCQS7cC-d0GmoeaniOXVfJSoyxIQT1XaJOTIU_4Q9Me9lPxf9w98vKNFW4iy6kNqg9Ga7b6MkK0w5waj72p0YGB79Kwlsi7tSimSH9FfxXzIZzk-rYjH50; idsrv.session=336269CA997995D728230F8034250BF8; .AspNetCore.Identity.Application=CfDJ8CrnsB9jNOdGkpp9YhnJOw3ffQW92ypopQBziBKnoWwsUrjlwhjgF7Nm_T2PRKWsqjkEf5LYGZz5CnnVsydQNiMbbSae2cPXLV6TjKexjZOSQeGrfOoO4XHCNOSQYTpMt5Lht6j3lq5ob5HxTD44gYDjmN7S6gWw6UoUX4yg5widq7cAnK7KTiz5mwqSVk5H15_7JdPd3sgrryyM6x5wDQeTHZABpgZ4AwQo2CM_vtmbYRbhewucFHlVjhJwJa6_E47Rfvq8UI1UjQSS-185Rb8EI6Zhgfug3sbkvGOELG5wJZpXsVgP4pJvHKZwyag1WPqPd1-g7KbMKETaBfr68URe0IYBonteP10v1xF2n9S71BNVqvclnZCQ43L0XdusIFK0CsF-vjbtYFaKb7vigg8FiwJZtdsgCA-OINmdBmLFCf9y90oRuaqmEehx0a8RH-yucYWFvZwtyqUVMCPZmwN7n-IYAq852lyX9yPcrbHH_JNZZSVvJmdkMJUjVgj9n5Xga_Ly52rJgShzVZiAzzkuBDisTOO9q36Tz7phrxOyqoHQEO9pnNRSGQkfTWiAcvn-Nw7hAq9G24L117sdTOp2aJXdoLCfkwhD9AIdT7p6
+```
+
 ## **Unit testing**
 Testing is done within Doctors_practice.Test project in which the technologies of Xunit and Moq are used for testing specific parts of the project using cyclometric complexity as a method of covering bare minimum for the Customer class. Moq is used to mock required methods and objects without actually creating instances elsewhere i.e. it can pretend to create a database object and returns as per required for the method without actually creating an instance in the database and even connecting to it.
 
