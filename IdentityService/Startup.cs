@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
@@ -36,9 +37,12 @@ namespace IdentityServerTesting
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-           services.AddDbContext<ApplicationDbContext>(builder =>
+            services.AddDbContext<ApplicationDbContext>(builder =>
             {
-                builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly));
+                builder.UseSqlServer(connectionString, sqlOptions =>
+                { 
+                    sqlOptions.MigrationsAssembly(migrationsAssembly); 
+                });
             });
 
             services.AddIdentity<IdentityUser, IdentityRole>()
@@ -61,10 +65,16 @@ namespace IdentityServerTesting
                     };
                 })
                 .AddAspNetIdentity<IdentityUser>()
-                .AddOperationalStore(options => options.ConfigureDbContext =
-                    builder => builder.UseSqlServer(
-                        connectionString,
-                        sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)))
+                .AddOperationalStore(options =>
+                { 
+                    options.ConfigureDbContext = builder =>
+                        {
+                            builder.UseSqlServer(connectionString, sqlOptions =>
+                            {
+                                sqlOptions.MigrationsAssembly(migrationsAssembly);
+                            });
+                        };
+                })
                 .AddDeveloperSigningCredential();
         }
 
@@ -136,8 +146,30 @@ namespace IdentityServerTesting
                     context.SaveChanges();
                 }
 
-                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();                
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
+                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                if (!roleManager.Roles.Any())
+                {
+                    var adminRole = new IdentityRole("admin");
+                    roleManager.CreateAsync(adminRole).Wait();
+
+                    roleManager.AddClaimAsync(adminRole, new Claim("permission", "projects.view")).Wait();
+                    roleManager.AddClaimAsync(adminRole, new Claim("permission", "projects.create")).Wait();
+                    roleManager.AddClaimAsync(adminRole, new Claim("permission", "projects.update")).Wait();
+
+                    var superUserRole = new IdentityRole("superuser");
+                    roleManager.CreateAsync(superUserRole).Wait();
+
+                    roleManager.AddClaimAsync(superUserRole, new Claim("permission", "projects.view")).Wait();
+                    roleManager.AddClaimAsync(superUserRole, new Claim("permission", "projects.create")).Wait();
+
+                    var userRole = new IdentityRole("user");
+                    roleManager.CreateAsync(userRole).Wait();
+
+                    roleManager.AddClaimAsync(userRole, new Claim("permission", "projects.view")).Wait();
+                }
+                var listOfRoles = roleManager.Roles.ToList();
                 if (!userManager.Users.Any())
                 {
                     foreach (var testUser in TestUsers.Users)
@@ -145,10 +177,23 @@ namespace IdentityServerTesting
                         var identityUser = new IdentityUser(testUser.Username)
                         {
                             Id = testUser.SubjectId
-                            
+
                         };
                         userManager.CreateAsync(identityUser, testUser.Password).Wait();
                         userManager.AddClaimsAsync(identityUser, testUser.Claims.ToList()).Wait();
+                        foreach (var claim in testUser.Claims.ToList())
+                        {
+                            if (claim.Type == "role")
+                            {
+                                foreach (var role in listOfRoles)
+                                {
+                                    if (claim.Value.Contains(role.Name))
+                                    {
+                                        userManager.AddToRoleAsync(identityUser, role.Name).Wait();
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
