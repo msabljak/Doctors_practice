@@ -19,7 +19,7 @@ namespace IdentityServerTesting
                     ClientName = "Example client application using client credentials",
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets = new List<Secret> {new Secret("Secret".Sha256())}, // change me!
-                    AllowedScopes = new List<string> {"api1.write", "api1.read", "role"},
+                    AllowedScopes = new List<string> {"api1.write", "api1.read"},
                     AlwaysIncludeUserClaimsInIdToken = true
                 },
 
@@ -36,10 +36,8 @@ namespace IdentityServerTesting
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
-                        "role",
                         "api1.read",
-                        "api1",
-                        "role"
+                        "api1.write"
                     },
                     
                     AlwaysIncludeUserClaimsInIdToken = true,

@@ -20,6 +20,11 @@ namespace IdentityServerTesting
                 {
                     Name = "role",
                     UserClaims = new List<string> {"role"}
+                },
+                new IdentityResource
+                {
+                    Name = "permission",
+                    UserClaims = new List<string> {"permission"}
                 }
             };
         }
@@ -34,7 +39,8 @@ namespace IdentityServerTesting
                     DisplayName = "Doctors Practice Api",
                     Description = "Allow the application to access Doctors Practice API on your behalf",
                     Scopes = new List<string>{"api1.read","api1.write"},
-                    ApiSecrets = new List<Secret>{new Secret("Secret".Sha256())}
+                    ApiSecrets = new List<Secret>{new Secret("Secret".Sha256())},
+                    UserClaims = new List<string>{"role", "permission"}
                 }
             };
         }

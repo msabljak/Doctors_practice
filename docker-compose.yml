@@ -14,6 +14,16 @@ services:
             - identityservice
         environment: 
             DBServer: "db"
+    identityservice:
+        image: msabljak/identityservice:latest
+        expose: 
+            - "5001"
+        ports:
+            - "5001:5001"
+        depends_on: 
+            - db
+        environment: 
+            DBServer: "db"
     db:
         image: "mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04"
         ports:
@@ -57,17 +67,7 @@ services:
             - 2113:2113
         volumes:
             - "./Doctors_practice/EventStoreData:/var/lib/eventstore"
-        restart: always
-    identityservice:
-        image: msabljak/identityservice:latest
-        expose: 
-            - "5001"
-        ports:
-            - "5001:5001"
-        depends_on: 
-            - db
-        environment: 
-            DBServer: "db"
+        restart: always    
 #    mongo:
 #        image: mongo:latest
 #        ports: 
