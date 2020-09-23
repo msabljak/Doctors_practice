@@ -23,6 +23,7 @@ using Doctors_practice.Commands;
 using System.Reflection;
 using Microsoft.AspNetCore.Authorization;
 using AuthorisationLibrary;
+using Doctors_practice.Extensions;
 
 namespace Doctors_practice
 {
@@ -58,6 +59,7 @@ namespace Doctors_practice
                 });
             });
 
+            services.AddElasticsearch(Configuration);
             services.AddSingleton<IAuthorizationHandler, ScopeHandler>();
             services.AddTransient<IDummyDB, DummyDB>();
             services.AddTransient<IDummyChargingSystem, DummyChargingSystem>();
