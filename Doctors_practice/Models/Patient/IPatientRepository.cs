@@ -12,9 +12,6 @@ namespace Doctors_practice.Models.Patient
         IEnumerable<PatientDTO> GetAllPatients();
         PatientDTO Add(PatientDTO patientDTO);
         Task<PatientDTO> AddAsync(PatientDTO patientDTO);
-        void PrepareAdd(PatientDTO patient);
-        void CommitAdd(SqlConnection connection, SqlTransaction transaction);
-        void RollbackAdd(SqlConnection connection, SqlTransaction transaction);
         int Update(PatientDTO patientDTOChanges, int id);
         int Delete(int id);
         Task<int> DeleteAsync(int id);

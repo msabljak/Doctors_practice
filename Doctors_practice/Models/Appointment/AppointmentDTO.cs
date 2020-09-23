@@ -11,5 +11,6 @@ namespace Doctors_practice.Models.Appointment
         public int Patient_id { get; set; }
         public int Doctor_id { get; set; }
         public string Reason { get; set; }
+        public DateTime Date { get; set; }
     }
 }

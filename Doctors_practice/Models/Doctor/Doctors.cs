@@ -11,6 +11,7 @@ namespace Doctors_practice.Models.Doctor
         public int ID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public DateTime Birthdate { get; set; }
         public int Practice_id { get; set; }
         public string Secret { get; set; }
     }
@@ -35,6 +36,10 @@ namespace Doctors_practice.Models.Doctor
             if (row.Table.Columns.Contains("Surname"))
             {
                 Surname = row["Surname"].ToString();
+            }
+            if (row.Table.Columns.Contains("Birthdate"))
+            {
+                Birthdate = Convert.ToDateTime(row["Birthdate"]);
             }
             if (row.Table.Columns.Contains("Practice_id"))
             {

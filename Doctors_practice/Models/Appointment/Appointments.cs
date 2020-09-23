@@ -12,6 +12,7 @@ namespace Doctors_practice.Models.Appointment
         public int Patient_id { get; set; }
         public int Doctor_id { get; set; }
         public string Reason { get; set; }
+        public DateTime Date { get; set; }
         public string Secret { get; set; }
     }
 
@@ -39,6 +40,10 @@ namespace Doctors_practice.Models.Appointment
             if (row.Table.Columns.Contains("Reason"))
             {
                 Reason = row["Reason"].ToString();
+            }
+            if (row.Table.Columns.Contains("Date"))
+            {
+                Date = Convert.ToDateTime(row["Date"]);
             }
             if (row.Table.Columns.Contains("Secret"))
             {

@@ -10,6 +10,7 @@ namespace Doctors_practice.Models.Doctor
         public int ID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public DateTime Birthdate { get; set; }
         public int Practice_id { get; set; }
     }
 }

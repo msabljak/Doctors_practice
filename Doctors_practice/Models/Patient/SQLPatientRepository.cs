@@ -28,10 +28,11 @@ namespace Doctors_practice.Models.Patient
             {
                 try
                 {
-                    var query = "insert into Patient (Name,Surname,Telephone,Secret) values (@name,@surname,@telephone,@secret)";
+                    var query = "insert into Patient (Name,Surname,Birthdate,Telephone,Secret) values (@name,@surname,@birthdate,@telephone,@secret)";
                     SqlCommand sqlCommand = new SqlCommand(query, _connection);
                     sqlCommand.Parameters.AddWithValue("@name", patientDTO.Name);
                     sqlCommand.Parameters.AddWithValue("@surname", patientDTO.Surname);
+                    sqlCommand.Parameters.AddWithValue("@birthdate", patientDTO.Birthdate);
                     sqlCommand.Parameters.AddWithValue("@telephone", patientDTO.Telephone);
                     sqlCommand.Parameters.AddWithValue("@secret", "-");
                     _connection.Open();
@@ -40,6 +41,7 @@ namespace Doctors_practice.Models.Patient
                     {
                         Name = patientDTO.Name,
                         Surname = patientDTO.Surname,
+                        Birthdate = patientDTO.Birthdate,
                         Telephone = patientDTO.Telephone
                     };
                     return PatientToDTO(patient);
@@ -57,10 +59,11 @@ namespace Doctors_practice.Models.Patient
             {
                 try
                 {
-                    var query = "insert into Patient (Name,Surname,Telephone,Secret) values (@name,@surname,@telephone,@secret);SELECT CAST(scope_identity() AS int)";
+                    var query = "insert into Patient (Name,Surname,Birthdate,Telephone,Secret) values (@name,@surname,@birthdate,@telephone,@secret);SELECT CAST(scope_identity() AS int)";
                     SqlCommand sqlCommand = new SqlCommand(query, _connection);
                     sqlCommand.Parameters.AddWithValue("@name", patientDTO.Name);
                     sqlCommand.Parameters.AddWithValue("@surname", patientDTO.Surname);
+                    sqlCommand.Parameters.AddWithValue("@birthdate", patientDTO.Birthdate);
                     sqlCommand.Parameters.AddWithValue("@telephone", patientDTO.Telephone);
                     sqlCommand.Parameters.AddWithValue("@secret", "-");
                     _connection.Open();                    
@@ -70,6 +73,7 @@ namespace Doctors_practice.Models.Patient
                         ID = newID,
                         Name = patientDTO.Name,
                         Surname = patientDTO.Surname,
+                        Birthdate = patientDTO.Birthdate,
                         Telephone = patientDTO.Telephone
                     };
                     return Task.FromResult(PatientToDTO(patient));
@@ -79,36 +83,6 @@ namespace Doctors_practice.Models.Patient
                     throw;
                 }
             }
-        }
-
-        public void PrepareAdd(PatientDTO patientDTO)
-        {
-            _connection = new SqlConnection(_connectionString);
-            var query = "insert into Patient (Name,Surname,Telephone,Secret) values (@name,@surname,@telephone,@secret)";
-            _connection.Open();
-            SqlCommand sqlCommand = new SqlCommand(query, _connection);
-            sqlCommand.Parameters.AddWithValue("@name", patientDTO.Name);
-            sqlCommand.Parameters.AddWithValue("@surname", patientDTO.Surname);
-            sqlCommand.Parameters.AddWithValue("@telephone", patientDTO.Telephone);
-            sqlCommand.Parameters.AddWithValue("@secret", "-");
-            
-            sqlCommand.ExecuteNonQuery();
-        }
-
-        public void CommitAdd(SqlConnection connection, SqlTransaction transaction)
-        {
-            transaction.Commit();
-            _connection = connection;
-            _connection.Close();
-            _connection.Dispose();
-        }
-
-        public void RollbackAdd(SqlConnection connection, SqlTransaction transaction)
-        {
-            transaction.Rollback();
-            _connection = connection;
-            _connection.Close();
-            _connection.Dispose();
         }
         public int Delete(int id)
         {
@@ -165,7 +139,7 @@ namespace Doctors_practice.Models.Patient
                 {
                     _connection.Open();
                     DataTable _dt = new DataTable();
-                    var query = "Select ID, Name, Surname, Telephone, Secret from Patient";
+                    var query = "Select ID, Name, Surname, Birthdate, Telephone, Secret from Patient";
                     _adapter = new SqlDataAdapter
                     {
                         SelectCommand = new SqlCommand(query, _connection)
@@ -196,7 +170,7 @@ namespace Doctors_practice.Models.Patient
                 {
                     _connection.Open();
                     DataTable _dt = new DataTable();
-                    var query = $"Select ID, Name, Surname, Telephone, Secret from Patient where id={id}";
+                    var query = $"Select ID, Name, Surname, Birthdate, Telephone, Secret from Patient where id={id}";
                     _adapter = new SqlDataAdapter
                     {
                         SelectCommand = new SqlCommand(query, _connection)
@@ -229,10 +203,11 @@ namespace Doctors_practice.Models.Patient
             {
                 try
                 {                    
-                    var query = $"update Patient set Name=@name,Surname=@surname,Telephone=@telephone,Secret=@secret where id = {id}";
+                    var query = $"update Patient set Name=@name,Surname=@surname,Birthdate=@birthdate,Telephone=@telephone,Secret=@secret where id = {id}";
                     SqlCommand sqlCommand = new SqlCommand(query, _connection);
                     sqlCommand.Parameters.AddWithValue("@name", patientDTOChanges.Name);
                     sqlCommand.Parameters.AddWithValue("@surname", patientDTOChanges.Surname);
+                    sqlCommand.Parameters.AddWithValue("@birthdate", patientDTOChanges.Birthdate);
                     sqlCommand.Parameters.AddWithValue("@telephone", patientDTOChanges.Telephone);
                     sqlCommand.Parameters.AddWithValue("@secret", "-");
                     _connection.Open();
@@ -279,6 +254,7 @@ namespace Doctors_practice.Models.Patient
                 ID = patient.ID,
                 Name = patient.Name,
                 Surname = patient.Surname,
+                Birthdate = patient.Birthdate,
                 Telephone = patient.Telephone
             };
     }

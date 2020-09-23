@@ -30,10 +30,11 @@ namespace Doctors_practice.Models.Patient
                     SQLPracticeRepository practiceRepository = new SQLPracticeRepository(_configuration);
                     if (practiceRepository.PracticeExists(doctorDTO.Practice_id))
                     {
-                        var query = "insert into Doctor(Name,Surname,Practice_id) values (@name,@surname,@practice_id)";
+                        var query = "insert into Doctor(Name,Surname,Birthdate,Practice_id) values (@name,@surname,@birthdate,@practice_id)";
                         SqlCommand sqlCommand = new SqlCommand(query, _connection);
                         sqlCommand.Parameters.AddWithValue("@name", doctorDTO.Name);
-                        sqlCommand.Parameters.AddWithValue("@address", doctorDTO.Surname);
+                        sqlCommand.Parameters.AddWithValue("@surname", doctorDTO.Surname);
+                        sqlCommand.Parameters.AddWithValue("@birthdate", doctorDTO.Birthdate);
                         sqlCommand.Parameters.AddWithValue("@practice_id", doctorDTO.Practice_id);
                         _connection.Open();
                         sqlCommand.ExecuteNonQuery();
@@ -41,6 +42,7 @@ namespace Doctors_practice.Models.Patient
                         {
                             Name = doctorDTO.Name,
                             Surname = doctorDTO.Surname,
+                            Birthdate = doctorDTO.Birthdate,
                             Practice_id = doctorDTO.Practice_id
                         };
                         return DoctorToDTO(doctor);
@@ -91,7 +93,7 @@ namespace Doctors_practice.Models.Patient
                 {
                     _connection.Open();
                     DataTable _dt = new DataTable();
-                    var query = "select ID, Name, Surname, Practice_id from Doctor";
+                    var query = "select ID, Name, Surname, Birthdate, Practice_id from Doctor";
                     _adapter = new SqlDataAdapter
                     {
                         SelectCommand = new SqlCommand(query, _connection)
@@ -123,7 +125,7 @@ namespace Doctors_practice.Models.Patient
                 {
                     _connection.Open();
                     DataTable _dt = new DataTable();
-                    var query = $"select ID, Name, Surname, Practice_id from Doctor where id={id}";
+                    var query = $"select ID, Name, Surname, Birthdatem Practice_id from Doctor where id={id}";
                     _adapter = new SqlDataAdapter
                     {
                         SelectCommand = new SqlCommand(query, _connection)
@@ -160,10 +162,11 @@ namespace Doctors_practice.Models.Patient
                     SQLPracticeRepository practiceRepository = new SQLPracticeRepository(_configuration);
                     if (practiceRepository.PracticeExists(doctorDTOChanges.Practice_id))
                     {
-                        var query = $"update Doctor set Name=@name,Surname=@surname,Practice=@practice_id where id = {id}";
+                        var query = $"update Doctor set Name=@name,Surname=@surname,Birthdate=@birthdate,Practice=@practice_id where id = {id}";
                         SqlCommand sqlCommand = new SqlCommand(query, _connection);
                         sqlCommand.Parameters.AddWithValue("Name", doctorDTOChanges.Name);
                         sqlCommand.Parameters.AddWithValue("Surname", doctorDTOChanges.Surname);
+                        sqlCommand.Parameters.AddWithValue("Birthdate", doctorDTOChanges.Birthdate);
                         sqlCommand.Parameters.AddWithValue("Practice_id", doctorDTOChanges.Practice_id);
                         _connection.Open();
                         sqlCommand.ExecuteNonQuery();
@@ -213,6 +216,7 @@ namespace Doctors_practice.Models.Patient
                 ID = doctor.ID,
                 Name = doctor.Name,
                 Surname = doctor.Surname,
+                Birthdate = doctor.Birthdate,
                 Practice_id = doctor.Practice_id
             };
     }
