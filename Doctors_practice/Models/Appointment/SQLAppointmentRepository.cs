@@ -20,7 +20,7 @@ namespace Doctors_practice.Models.Doctor
         public SQLAppointmentRepository(IConfiguration configuration)
         {
             _configuration = configuration;
-            _connectionString = "Data Source=db;Initial Catalog=Doctors_practice;Persist Security Info=True;User ID=SA;Password=<QWerT!13r4>";
+            _connectionString = _configuration.GetConnectionString("sqlDB");
         }
         public AppointmentDTO Add(AppointmentDTO appointmentDTO)
         {

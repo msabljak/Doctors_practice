@@ -37,11 +37,11 @@ namespace Doctors_practice.Models
             {
                 Surname = row["Surname"].ToString();
             }
-            if (row.Table.Columns.Contains("Birthdate"))
+            if (row.Table.Columns.Contains("Birthdate") && row["Birthdate"].ToString() != "")
             {
                 Birthdate = Convert.ToDateTime(row["Birthdate"]);
             }
-            if (row.Table.Columns.Contains("Telephone"))
+            if (row.Table.Columns.Contains("Telephone") && row["Telephone"].ToString() != "")
             {
                 Telephone = row["Telephone"].ToString();
             }

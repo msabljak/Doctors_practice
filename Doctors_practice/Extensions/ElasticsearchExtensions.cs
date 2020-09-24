@@ -20,9 +20,8 @@ namespace Doctors_practice.Extensions
 
             var settings = new ConnectionSettings(new Uri(url))
                 .DefaultIndex(defaultIndex)
-                .DefaultMappingFor<Patients>(m => m
+                .DefaultMappingFor<PatientDTO>(m => m
                     .IndexName("patients")
-                    .Ignore(p => p.Secret)
                     .IdProperty(p => p.ID)
                     .PropertyName(p => p.ID, "ID")
                     .PropertyName(p => p.Name, "Name")
@@ -30,9 +29,8 @@ namespace Doctors_practice.Extensions
                     .PropertyName(p => p.Birthdate, "Birthdate")
                     .PropertyName(p => p.Telephone, "Telephone")
                     )
-                .DefaultMappingFor<Doctors>(m => m
+                .DefaultMappingFor<DoctorDTO>(m => m
                     .IndexName("doctors")
-                    .Ignore(d => d.Secret)
                     .IdProperty(d => d.ID)
                     .PropertyName(d => d.ID, "ID")
                     .PropertyName(d => d.Name, "Name")
@@ -40,9 +38,8 @@ namespace Doctors_practice.Extensions
                     .PropertyName(d => d.Birthdate, "Birthdate")
                     .PropertyName(d => d.Practice_id, "Practice ID")
                     )
-                .DefaultMappingFor<Appointments>(m => m
+                .DefaultMappingFor<AppointmentDTO>(m => m
                     .IndexName("appointments")
-                    .Ignore(a => a.Secret)
                     .IdProperty(a => a.ID)
                     .PropertyName(a => a.ID, "ID")
                     .PropertyName(a => a.Doctor_id, "Doctor's ID")

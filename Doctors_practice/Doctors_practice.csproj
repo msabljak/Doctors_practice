@@ -51,7 +51,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\" />
     <Folder Include="Logs\" />
     <Folder Include="EventStoreData\" />
     <Folder Include="MongoDB\" />
