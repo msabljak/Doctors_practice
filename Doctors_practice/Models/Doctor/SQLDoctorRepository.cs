@@ -125,7 +125,7 @@ namespace Doctors_practice.Models.Patient
                 {
                     _connection.Open();
                     DataTable _dt = new DataTable();
-                    var query = $"select ID, Name, Surname, Birthdatem Practice_id from Doctor where id={id}";
+                    var query = $"select ID, Name, Surname, Birthdate, Practice_id from Doctor where id={id}";
                     _adapter = new SqlDataAdapter
                     {
                         SelectCommand = new SqlCommand(query, _connection)
