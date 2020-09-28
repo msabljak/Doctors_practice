@@ -230,6 +230,8 @@ Instead of updating the current document it deletes the existing index of that n
 
 Example of a functioning call: 
 ```
+GET /elasticsearch/reindex HTTP/1.1
+Host: localhost:4000
 ```
 
 **/elasticsearch/search/string/{searchValue}**
@@ -238,6 +240,8 @@ This endpoint searches for all occuring values of the string (typically a name o
 
 Example of a functioning call with multiple different objects: 
 ```
+GET /elasticsearch/search/string/Carroll HTTP/1.1
+Host: localhost:4000
 ```
 
 **/elasticsearch/search/date/{dateValue}**
@@ -246,6 +250,8 @@ This endpoint searches for a date value across all existing objects in the datab
 
 Example of a functioning call with multiple different objects: 
 ```
+GET /elasticsearch/search/date/2020-09-28T00:00:00 HTTP/1.1
+Host: localhost:4000
 ```
 
 The implemetnation also relies on a background worker service(named: ElasticsearchIndexRefresherService) that periodically (every 1 hour) sends a HTTP request to the Doctors_practice API on the elasticsearch/reindex endpoint.
