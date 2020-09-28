@@ -5,14 +5,14 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["ElasticsearchIndexRefresherService/ElasticsearchIndexRefresherService.csproj", "ElasticsearchIndexRefresherService/"]
-RUN dotnet restore "ElasticsearchIndexRefresherService/ElasticsearchIndexRefresherService.csproj"
+COPY ["ElasticsearchIndexRefresherService/ElasticsearchIndexRefresherService.csproj", "ElasticsearchIndexRefresherService_build/"]
+RUN dotnet restore "ElasticsearchIndexRefresherService_build/ElasticsearchIndexRefresherService.csproj"
 COPY . .
-WORKDIR "/src/ElasticsearchIndexRefresherService"
-RUN dotnet build "ElasticsearchIndexRefresherService.csproj" -c Release -o /app/build
+WORKDIR /src
+RUN dotnet build "ElasticsearchIndexRefresherService/ElasticsearchIndexRefresherService.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ElasticsearchIndexRefresherService.csproj" -c Release -o /app/publish
+RUN dotnet publish "ElasticsearchIndexRefresherService/ElasticsearchIndexRefresherService.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
