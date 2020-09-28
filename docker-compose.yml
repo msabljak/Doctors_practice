@@ -75,9 +75,14 @@ services:
             - 9200:9200
             - 9300:9300
         environment: 
-            discovery.type=single-node
+            - discovery.type=single-node
         volumes: 
             - "./Doctors_practice/Elasticsearch/data:/usr/share/elasticsearch/data"
+    elasticsearchindexrefresherservice:
+        image: msabljak/elasticsearchindexrefresherservice:latest
+        depends_on:
+            - web
+        restart: always
 #    mongo:
 #        image: mongo:latest
 #        ports: 
