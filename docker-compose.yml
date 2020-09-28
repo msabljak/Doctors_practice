@@ -12,6 +12,7 @@ services:
             - amq
             - eventstore_db
             - identityservice
+            - elasticsearch
         environment: 
             DBServer: "db"
     identityservice:
@@ -67,7 +68,16 @@ services:
             - 2113:2113
         volumes:
             - "./Doctors_practice/EventStoreData:/var/lib/eventstore"
-        restart: always    
+        restart: always
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.9.1
+        ports: 
+            - 9200:9200
+            - 9300:9300
+        environment: 
+            discovery.type=single-node
+        volumes: 
+            - "./Doctors_practice/Elasticsearch/data:/usr/share/elasticsearch/data"
 #    mongo:
 #        image: mongo:latest
 #        ports: 
