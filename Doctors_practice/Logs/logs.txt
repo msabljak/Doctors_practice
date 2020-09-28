@@ -2182,3 +2182,7 @@ Http Request Information:
 Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-28T00:00:00 QueryString:  
 Http Response Information:
 Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-28T00:00:00 QueryString:  Response Body: [{"id":521,"patient_id":832,"doctor_id":152,"reason":"Dietary surveil/counsel","date":"2020-09-28T00:00:00"},{"id":1001,"name":"Vladivoj","surname":"Sabljak","birthdate":"2020-09-28T00:00:00","practice_id":69}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
