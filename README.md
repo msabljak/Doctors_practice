@@ -14,6 +14,7 @@ A simple .net Core Web API project designed to simulate scheduled appointments f
     9. [Security](#Security)
     10. [Unit testing](#Unit-testing)
     11. [Resilience](#Resilience)
+    12. [Elasticsearch](#Elasticsearch)
 # **Features**
 ## **Web API**
 
@@ -212,3 +213,39 @@ Testing is done within Doctors_practice.Test project in which the technologies o
 
 ## **Resilience**
 Resillience within the web api is secured using the Polly nuget package. Right now it only covers a porject excluded MediatR handler in which a timeout policy and retry policy are included to secure adequate response to possible problems and a method to recover from them.
+
+## **Elasticsearch**
+Currently elasticsearch serves the sole purpose of indexing entities from the database as documents to speed up searches. 
+
+The implementation is provided through the Doctors_practice API upon which an Elasticsearch NEST client is provided into the dependency injection. The 3 base objects of Patients, Doctors and Appointments are mapped accordingly in the ElasticsearchExtensions found in the extensions folder. It also maps an ElasticPerson object that has common properties across all people objects(Patients & Doctors) for searching the elasticsearch indexes easier. In all honesty this is due to incorrect structuring of classes and lack of a parent class that the patient and doctor should have inherited. The rest of the functionality is exposed through a controller named ElasticsearchController which serves at the /elasticsearch endpoint. All methods follow the CQRS principle and the controller contains 3 endpoints as following:
+
+**/elasticsearch/reindex**
+
+This endpoint is in control of updating the elasticsearch indices. It gets all the current objects from the database and adds them to the corresponding index as following:
+* Doctor enietites -> Index: "doctors"
+* Patient entities -> Index: "patients"
+* Appointment entities -> Index: "appointments"
+
+Instead of updating the current document it deletes the existing index of that name and replaces it with a new one.
+
+Example of a functioning call: 
+```
+```
+
+**/elasticsearch/search/string/{searchValue}**
+
+This endpoint searches for all occuring values of the string (typically a name or surname) across all indexes and returns a list of doctor and patient objects that contain the string.
+
+Example of a functioning call with multiple different objects: 
+```
+```
+
+**/elasticsearch/search/date/{dateValue}**
+
+This endpoint searches for a date value across all existing objects in the database that have a date. Before passing the request to the handler the date value is parsed into a string to ease searching the database. Two seperate searches are sent as one query to the elasticsearch indices. One searchign all dates in a "Date" field for appointments and a second searching all dates in a "Birthdate" field for any person object, be it a Patient or Doctor. It will return a list of appointment, doctor and patient objects that contained the exact date requested.
+
+Example of a functioning call with multiple different objects: 
+```
+```
+
+The implemetnation also relies on a background worker service(named: ElasticsearchIndexRefresherService) that periodically (every 1 hour) sends a HTTP request to the Doctors_practice API on the elasticsearch/reindex endpoint.
