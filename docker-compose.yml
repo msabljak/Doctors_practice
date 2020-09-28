@@ -16,6 +16,9 @@ services:
         environment: 
             DBServer: "db"
     identityservice:
+        #build:
+        #    context: .
+        #    dockerfile: ./IdentityService/Dockerfile
         image: msabljak/identityservice:latest
         expose: 
             - "5001"
@@ -79,7 +82,10 @@ services:
         volumes: 
             - "./Doctors_practice/Elasticsearch/data:/usr/share/elasticsearch/data"
     elasticsearchindexrefresherservice:
-        image: msabljak/elasticsearchindexrefresherservice:latest
+        #image: msabljak/elasticsearchindexrefresherservice:latest
+        build:
+            context: .
+            dockerfile: ./ElasticsearchIndexRefresherService/Dockerfile
         depends_on:
             - web
         restart: always
