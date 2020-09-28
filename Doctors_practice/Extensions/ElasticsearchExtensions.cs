@@ -1,4 +1,5 @@
-﻿using Doctors_practice.Models;
+﻿using Doctors_practice.BusinessLayer;
+using Doctors_practice.Models;
 using Doctors_practice.Models.Appointment;
 using Doctors_practice.Models.Doctor;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +29,14 @@ namespace Doctors_practice.Extensions
                     .PropertyName(p => p.Surname, "Surname")
                     .PropertyName(p => p.Birthdate, "Birthdate")
                     .PropertyName(p => p.Telephone, "Telephone")
+                    )
+                .DefaultMappingFor<ElasticPerson>(m => m
+                    .IndexName("elasticpatients")
+                    .IdProperty(p => p.ID)
+                    .PropertyName(p => p.ID, "ID")
+                    .PropertyName(p => p.Name, "Name")
+                    .PropertyName(p => p.Surname, "Surname")
+                    .PropertyName(p => p.Birthdate, "Birthdate")
                     )
                 .DefaultMappingFor<DoctorDTO>(m => m
                     .IndexName("doctors")

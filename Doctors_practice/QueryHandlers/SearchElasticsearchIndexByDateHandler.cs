@@ -29,20 +29,62 @@ namespace Doctors_practice.QueryHandlers
         }
         public async Task<List<object>> Handle(SearchElasticsearchIndexByDateQuery request, CancellationToken cancellationToken)
         {
-            var searchResponse = await _elasticClient.SearchAsync<dynamic>(s => s
-                .AllIndices()
-                .Query(q => q
-                    .Bool(b => b
-                        .Must(m => m
-                                .QueryString(qs => qs
-                                    .Query(request.SearchValue)
+            //var searchResponse = await _elasticClient.SearchAsync<AppointmentDTO>(s => s
+            //    .AllIndices()
+            //    .Query(q => q
+            //        .Match(m => m
+            //            .Field(f => f.Date)
+            //            .Query(request.SearchValue)
+            //        )
+            //    ));
+
+            //var searchResponse = await _elasticClient.SearchAsync<AppointmentDTO>(s => s
+            //   .AllIndices()
+            //   .Query(q => q
+            //       .Bool(b => b
+            //           .Filter(f => f
+            //               .DateRange(dr => dr
+            //                    .Field(f => f.Date)
+            //                    .GreaterThanOrEquals(request.SearchValue)
+            //                    .LessThanOrEquals(request.SearchValue)
+            //               )
+            //           )
+            //       )
+            //   ));
+            var searchResponse = await _elasticClient.MultiSearchAsync("_all" ,ms => ms
+                    .Search<AppointmentDTO>("appointments", s => s
+                        .Index("appointments")
+                        .Query(q => q
+                            .Bool(b => b
+                                .Filter(f => f
+                                    .DateRange(dr => dr
+                                        .Field(f => f.Date)
+                                        .GreaterThanOrEquals(request.SearchValue)
+                                        .LessThanOrEquals(request.SearchValue)
+                                    )
+                                )
                             )
                         )
                     )
-                ));
-
+                    .Search<ElasticPerson>("people", s => s
+                        .AllIndices()
+                        .Query(q => q
+                            .Match(m => m
+                                    .Field(f => f.Birthdate)
+                                    .Query(request.SearchValue)
+                                )
+                        )
+                    )
+               );
+            var appointmentResponses = searchResponse.GetResponse<AppointmentDTO>("appointments");
+            var peopleResponses = searchResponse.GetResponse<ElasticPerson>("people");
             List<ElasticsearchResponse> objectIdTypePairs = new List<ElasticsearchResponse>();
-            foreach (var hit in searchResponse.Hits)
+            
+            foreach (var hit in appointmentResponses.Hits)
+            {
+                objectIdTypePairs.Add(new ElasticsearchResponse(Convert.ToInt32(hit.Id), hit.Index));
+            }
+            foreach (var hit in peopleResponses.Hits)
             {
                 objectIdTypePairs.Add(new ElasticsearchResponse(Convert.ToInt32(hit.Id), hit.Index));
             }
