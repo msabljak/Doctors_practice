@@ -54,6 +54,7 @@
     <Folder Include="Logs\" />
     <Folder Include="EventStoreData\" />
     <Folder Include="MongoDB\" />
+    <Folder Include="Elasticsearch\" />
   </ItemGroup>
 
   <ItemGroup>

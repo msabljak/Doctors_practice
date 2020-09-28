@@ -1184,3 +1184,1001 @@ Http Request Information:
 Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
 Http Response Information:
 Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Martin QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/reindex QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/reindex QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  Response Body: [{"id":301,"objectType":"doctors"},{"id":693,"objectType":"patients"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  Response Body: [{"id":301,"objectType":"doctors"},{"id":693,"objectType":"patients"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/Carroll QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172},{"id":693,"name":"Carroll","surname":"Vearncomb","birthdate":"1964-04-28T00:00:00","telephone":"935-300-3171"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/2017-07-25 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/2016-06-03T10:34 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/2016-06-03T10:34 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/2016-06-03T10:34 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/2016-06-03T10:34 QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2016-06-03T10:34 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2016-06-03T10:34 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172},{"id":693,"name":"Carroll","surname":"Vearncomb","birthdate":"1964-04-28T00:00:00","telephone":"935-300-3171"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/name/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/name/Carroll QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/name/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/name/Carroll QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172},{"id":693,"name":"Carroll","surname":"Vearncomb","birthdate":"1964-04-28T00:00:00","telephone":"935-300-3171"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/1964-04-28T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/1964-04-28T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/1964-04-28T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/1964-04-28T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172},{"id":693,"name":"Carroll","surname":"Vearncomb","birthdate":"1964-04-28T00:00:00","telephone":"935-300-3171"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172},{"id":693,"name":"Carroll","surname":"Vearncomb","birthdate":"1964-04-28T00:00:00","telephone":"935-300-3171"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/reindex QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/reindex QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/reindex QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/reindex QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172},{"id":693,"name":"Carroll","surname":"Vearncomb","birthdate":"1964-04-28T00:00:00","telephone":"935-300-3171"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  Response Body: [{"id":1,"patient_id":329,"doctor_id":742,"reason":"Nerv root/plexus dis NEC","date":"2021-02-10T00:00:00"},{"id":2,"patient_id":10,"doctor_id":547,"reason":"Polyp of nasal cavity","date":"2022-09-12T00:00:00"},{"id":3,"patient_id":276,"doctor_id":951,"reason":"Vitreous opacities NEC","date":"2021-09-22T00:00:00"},{"id":4,"patient_id":797,"doctor_id":39,"reason":"Open wound of shoulder","date":"2021-01-27T00:00:00"},{"id":5,"patient_id":651,"doctor_id":240,"reason":"TB of bladder-no exam","date":"2022-11-12T00:00:00"},{"id":6,"patient_id":935,"doctor_id":929,"reason":"Patellar tendinitis","date":"2021-07-02T00:00:00"},{"id":7,"patient_id":47,"doctor_id":803,"reason":"Ret dystrph in lipidoses","date":"2023-08-06T00:00:00"},{"id":8,"patient_id":641,"doctor_id":352,"reason":"Obj w-w/o sub fall NEC","date":"2019-12-07T00:00:00"},{"id":9,"patient_id":21,"doctor_id":845,"reason":"Use oth agnt af estrogen","date":"2022-08-11T00:00:00"},{"id":10,"patient_id":370,"doctor_id":637,"reason":"Injury saphenous vein","date":"2024-08-05T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  Response Body: [{"id":4,"patient_id":797,"doctor_id":39,"reason":"Open wound of shoulder","date":"2021-01-27T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  Response Body: [{"id":1,"patient_id":329,"doctor_id":742,"reason":"Nerv root/plexus dis NEC","date":"2021-02-10T00:00:00"},{"id":2,"patient_id":10,"doctor_id":547,"reason":"Polyp of nasal cavity","date":"2022-09-12T00:00:00"},{"id":3,"patient_id":276,"doctor_id":951,"reason":"Vitreous opacities NEC","date":"2021-09-22T00:00:00"},{"id":4,"patient_id":797,"doctor_id":39,"reason":"Open wound of shoulder","date":"2021-01-27T00:00:00"},{"id":5,"patient_id":651,"doctor_id":240,"reason":"TB of bladder-no exam","date":"2022-11-12T00:00:00"},{"id":6,"patient_id":935,"doctor_id":929,"reason":"Patellar tendinitis","date":"2021-07-02T00:00:00"},{"id":7,"patient_id":47,"doctor_id":803,"reason":"Ret dystrph in lipidoses","date":"2023-08-06T00:00:00"},{"id":8,"patient_id":641,"doctor_id":352,"reason":"Obj w-w/o sub fall NEC","date":"2019-12-07T00:00:00"},{"id":9,"patient_id":21,"doctor_id":845,"reason":"Use oth agnt af estrogen","date":"2022-08-11T00:00:00"},{"id":10,"patient_id":370,"doctor_id":637,"reason":"Injury saphenous vein","date":"2024-08-05T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2022-01-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2022-01-27T00:00:00 QueryString:  Response Body: [{"id":1,"patient_id":329,"doctor_id":742,"reason":"Nerv root/plexus dis NEC","date":"2021-02-10T00:00:00"},{"id":2,"patient_id":10,"doctor_id":547,"reason":"Polyp of nasal cavity","date":"2022-09-12T00:00:00"},{"id":3,"patient_id":276,"doctor_id":951,"reason":"Vitreous opacities NEC","date":"2021-09-22T00:00:00"},{"id":4,"patient_id":797,"doctor_id":39,"reason":"Open wound of shoulder","date":"2021-01-27T00:00:00"},{"id":5,"patient_id":651,"doctor_id":240,"reason":"TB of bladder-no exam","date":"2022-11-12T00:00:00"},{"id":6,"patient_id":935,"doctor_id":929,"reason":"Patellar tendinitis","date":"2021-07-02T00:00:00"},{"id":7,"patient_id":47,"doctor_id":803,"reason":"Ret dystrph in lipidoses","date":"2023-08-06T00:00:00"},{"id":8,"patient_id":641,"doctor_id":352,"reason":"Obj w-w/o sub fall NEC","date":"2019-12-07T00:00:00"},{"id":9,"patient_id":21,"doctor_id":845,"reason":"Use oth agnt af estrogen","date":"2022-08-11T00:00:00"},{"id":10,"patient_id":370,"doctor_id":637,"reason":"Injury saphenous vein","date":"2024-08-05T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2022-01-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2022-01-27T00:00:00 QueryString:  Response Body: [{"id":2,"patient_id":10,"doctor_id":547,"reason":"Polyp of nasal cavity","date":"2022-09-12T00:00:00"},{"id":5,"patient_id":651,"doctor_id":240,"reason":"TB of bladder-no exam","date":"2022-11-12T00:00:00"},{"id":7,"patient_id":47,"doctor_id":803,"reason":"Ret dystrph in lipidoses","date":"2023-08-06T00:00:00"},{"id":9,"patient_id":21,"doctor_id":845,"reason":"Use oth agnt af estrogen","date":"2022-08-11T00:00:00"},{"id":10,"patient_id":370,"doctor_id":637,"reason":"Injury saphenous vein","date":"2024-08-05T00:00:00"},{"id":11,"patient_id":456,"doctor_id":152,"reason":"Histoplasma capsulat NEC","date":"2022-01-27T00:00:00"},{"id":13,"patient_id":20,"doctor_id":219,"reason":"Pois-antineop antibiotic","date":"2024-05-03T00:00:00"},{"id":14,"patient_id":17,"doctor_id":105,"reason":"Abdmnal pain periumbilic","date":"2024-06-22T00:00:00"},{"id":15,"patient_id":846,"doctor_id":420,"reason":"Prem separ placen-deliv","date":"2023-10-04T00:00:00"},{"id":16,"patient_id":256,"doctor_id":363,"reason":"Fourth nerve palsy","date":"2022-08-16T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2022-11-12T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2022-11-12T00:00:00 QueryString:  Response Body: [{"id":5,"patient_id":651,"doctor_id":240,"reason":"TB of bladder-no exam","date":"2022-11-12T00:00:00"},{"id":41,"patient_id":349,"doctor_id":564,"reason":"Pylorospasm","date":"2022-11-12T00:00:00"},{"id":274,"patient_id":548,"doctor_id":327,"reason":"Outlet contraction-unsp","date":"2022-11-12T00:00:00"},{"id":659,"patient_id":320,"doctor_id":72,"reason":"Tk off/land-unp aircrft","date":"2022-11-12T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2022-11-12T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2022-11-12T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172},{"id":693,"name":"Carroll","surname":"Vearncomb","birthdate":"1964-04-28T00:00:00","telephone":"935-300-3171"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172},{"id":693,"name":"Carroll","surname":"Vearncomb","birthdate":"1964-04-28T00:00:00","telephone":"935-300-3171"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/1964-04-28T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/1964-04-28T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/1964-04-28T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/reindex QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/reindex QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/string/Carroll QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172},{"id":693,"name":"Carroll","surname":"Vearncomb","birthdate":"1964-04-28T00:00:00","telephone":"935-300-3171"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  Response Body: [{"id":4,"patient_id":797,"doctor_id":39,"reason":"Open wound of shoulder","date":"2021-01-27T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2021-01-27T00:00:00 QueryString:  Response Body: [{"id":4,"patient_id":797,"doctor_id":39,"reason":"Open wound of shoulder","date":"2021-01-27T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2017-07-25T00:00:00 QueryString:  Response Body: [{"id":301,"name":"Carroll","surname":"Yearby","birthdate":"2017-07-25T00:00:00","practice_id":172}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-23T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-23T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-23T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-23T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-20T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-20T00:00:00 QueryString:  Response Body: [{"id":18,"patient_id":709,"doctor_id":404,"reason":"Abn fnd-cerebrospinal fl","date":"2020-09-20T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-20T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-20T00:00:00 QueryString:  Response Body: [{"id":221,"name":"Nicola","surname":"Choulerton","birthdate":"2019-09-20T00:00:00","practice_id":23}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-23T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-23T00:00:00 QueryString:  Response Body: [{"id":97,"patient_id":770,"doctor_id":832,"reason":"Abnormal labor NOS-unsp","date":"2019-09-23T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-24T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-24T00:00:00 QueryString:  Response Body: [{"id":454,"patient_id":990,"doctor_id":392,"reason":"TB lung infiltr-no exam","date":"2019-09-24T00:00:00"},{"id":742,"patient_id":798,"doctor_id":789,"reason":"Chr congest splenomegaly","date":"2019-09-24T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-25T00:00:00 QueryString:  Response Body: [{"id":19,"patient_id":52,"doctor_id":467,"reason":"Protrusio acetabuli NOS","date":"2019-09-25T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-26T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-26T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-27T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-28T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-28T00:00:00 QueryString:  Response Body: [{"id":321,"patient_id":276,"doctor_id":890,"reason":"Rickettsialpox","date":"2019-09-28T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-29T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-09-29T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-1T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-1T00:00:00 QueryString:  Response Body: [{"id":320,"patient_id":303,"doctor_id":16,"reason":"Mechanical ectropion","date":"2019-10-01T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-02T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-02T00:00:00 QueryString:  Response Body: [{"id":322,"patient_id":793,"doctor_id":221,"reason":"Sezary's disease axilla","date":"2019-10-02T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-03T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-03T00:00:00 QueryString:  Response Body: [{"id":487,"patient_id":925,"doctor_id":914,"reason":"Recent detachment, total","date":"2019-10-03T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-03T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-03T00:00:00 QueryString:  Response Body: [{"id":487,"patient_id":925,"doctor_id":914,"reason":"Recent detachment, total","date":"2019-10-03T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-02T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-02T00:00:00 QueryString:  Response Body: [{"id":322,"patient_id":793,"doctor_id":221,"reason":"Sezary's disease axilla","date":"2019-10-02T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-04T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-04T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-05T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-05T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-06T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-06T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-07T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-07T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-08T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-08T00:00:00 QueryString:  Response Body: [{"id":290,"patient_id":850,"doctor_id":714,"reason":"Old magnet fb, iris","date":"2019-10-08T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-09T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-09T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-10T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-10T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-11T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-11T00:00:00 QueryString:  Response Body: [{"id":217,"patient_id":924,"doctor_id":318,"reason":"Insect bite NEC","date":"2019-10-11T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-12T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-12T00:00:00 QueryString:  Response Body: [{"id":249,"patient_id":541,"doctor_id":356,"reason":"Abdmnal rgdt lt lwr quad","date":"2019-10-12T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-13T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-13T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-14T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-14T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-15T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-15T00:00:00 QueryString:  Response Body: [{"id":980,"patient_id":279,"doctor_id":481,"reason":"Dermatoglyphic anomalies","date":"2019-10-15T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-16T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-16T00:00:00 QueryString:  Response Body: [{"id":397,"name":"Griswold","surname":"Scamadin","birthdate":"2019-10-16T00:00:00","practice_id":193}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-17T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-17T00:00:00 QueryString:  Response Body: [{"id":456,"patient_id":97,"doctor_id":616,"reason":"Herpes simplex eye NEC","date":"2019-10-17T00:00:00"},{"id":523,"patient_id":352,"doctor_id":949,"reason":"Firearm accident NOS","date":"2019-10-17T00:00:00"},{"id":886,"patient_id":664,"doctor_id":488,"reason":"Pulm complicat-antepart","date":"2019-10-17T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-18T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-18T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-19T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-19T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-20T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-20T00:00:00 QueryString:  Response Body: [{"id":531,"patient_id":569,"doctor_id":303,"reason":"Bact arthritis-ankle","date":"2019-10-20T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-21T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-21T00:00:00 QueryString:  Response Body: [{"id":731,"patient_id":58,"doctor_id":560,"reason":"Urethral false passage","date":"2019-10-21T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-22T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-22T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-23T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-23T00:00:00 QueryString:  Response Body: [{"id":314,"patient_id":98,"doctor_id":790,"reason":"Crit illness neuropathy","date":"2019-10-23T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-24T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-24T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-26T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-26T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-27T00:00:00 QueryString:  Response Body: [{"id":463,"patient_id":600,"doctor_id":329,"reason":"Carbuncle of buttock","date":"2019-10-27T00:00:00"},{"id":516,"patient_id":978,"doctor_id":188,"reason":"Amput below knee, unilat","date":"2019-10-27T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-28T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-28T00:00:00 QueryString:  Response Body: [{"id":746,"patient_id":573,"doctor_id":475,"reason":"Agenesis of lung","date":"2019-10-28T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-29T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-29T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-30T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-10-30T00:00:00 QueryString:  Response Body: [{"id":73,"patient_id":727,"doctor_id":894,"reason":"Lepromatous leprosy","date":"2019-10-30T00:00:00"},{"id":825,"patient_id":981,"doctor_id":3,"reason":"Septicemia NEC","date":"2019-10-30T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-01T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-01T00:00:00 QueryString:  Response Body: [{"id":452,"patient_id":250,"doctor_id":382,"reason":"Prim cutan coccidioid","date":"2019-11-01T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-02T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-02T00:00:00 QueryString:  Response Body: [{"id":876,"patient_id":724,"doctor_id":778,"reason":"Cervical root injury","date":"2019-11-02T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-03T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-03T00:00:00 QueryString:  Response Body: [{"id":487,"name":"Karalee","surname":"Lindfors","birthdate":"2019-11-03T00:00:00","practice_id":183}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-04T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-04T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-05T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-05T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-06T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-06T00:00:00 QueryString:  Response Body: [{"id":643,"patient_id":834,"doctor_id":535,"reason":"Merkel cell ca-face","date":"2019-11-06T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-07T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-07T00:00:00 QueryString:  Response Body: [{"id":421,"patient_id":742,"doctor_id":431,"reason":"Adv eff quinoline","date":"2019-11-07T00:00:00"},{"id":799,"patient_id":401,"doctor_id":995,"reason":"Jt stiffness NEC-ankle","date":"2019-11-07T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-08T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-08T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-09T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-09T00:00:00 QueryString:  Response Body: [{"id":920,"patient_id":57,"doctor_id":64,"reason":"Cl skul base fx/brf coma","date":"2019-11-09T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-10T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-10T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-11T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-11T00:00:00 QueryString:  Response Body: [{"id":426,"patient_id":591,"doctor_id":407,"reason":"Mal neo labia minora","date":"2019-11-11T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-12T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-12T00:00:00 QueryString:  Response Body: [{"id":886,"name":"Elsbeth","surname":"Stedson","birthdate":"2019-11-12T00:00:00","practice_id":41}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-13T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-13T00:00:00 QueryString:  Response Body: [{"id":802,"patient_id":324,"doctor_id":396,"reason":"Congenital ptosis","date":"2019-11-13T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-14T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-14T00:00:00 QueryString:  Response Body: [{"id":885,"patient_id":600,"doctor_id":405,"reason":"Celiac disease","date":"2019-11-14T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-15T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-15T00:00:00 QueryString:  Response Body: [{"id":725,"patient_id":242,"doctor_id":816,"reason":"Secondry iritis, infect","date":"2019-11-15T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-16T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-16T00:00:00 QueryString:  Response Body: [{"id":337,"patient_id":676,"doctor_id":419,"reason":"DMI ophth uncntrld","date":"2019-11-16T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-17T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-17T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-18T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-18T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-19T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-19T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-20T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-20T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-21T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-21T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-22T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-22T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-23T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-23T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-24T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-24T00:00:00 QueryString:  Response Body: [{"id":652,"patient_id":42,"doctor_id":139,"reason":"Mul gest-fet reduct ante","date":"2019-11-24T00:00:00"},{"id":820,"patient_id":805,"doctor_id":651,"reason":"Legal abort uncompl-inc","date":"2019-11-24T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-25T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-26T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-26T00:00:00 QueryString:  Response Body: [{"id":123,"patient_id":684,"doctor_id":823,"reason":"Acc poison-hormones","date":"2019-11-26T00:00:00"},{"id":904,"patient_id":672,"doctor_id":776,"reason":"Stromal cornea pigment","date":"2019-11-26T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-27T00:00:00 QueryString:  Response Body: [{"id":127,"patient_id":757,"doctor_id":795,"reason":"Chronic pneumothorax","date":"2019-11-27T00:00:00"},{"id":781,"patient_id":692,"doctor_id":820,"reason":"Abn react-external stoma","date":"2019-11-27T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-28T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-28T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-29T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-29T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-30T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-30T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-31T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-11-31T00:00:00 QueryString:  Response Body: {"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"|85a46fc0-49145a1bb21b8e3b.","errors":{"dateValue":["The value '2019-11-31T00:00:00' is not valid."]}}
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-01T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-01T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-02T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-02T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-03T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-03T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-04T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-04T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-05T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-05T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-06T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-06T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-07T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-07T00:00:00 QueryString:  Response Body: [{"id":8,"patient_id":641,"doctor_id":352,"reason":"Obj w-w/o sub fall NEC","date":"2019-12-07T00:00:00"},{"id":181,"patient_id":510,"doctor_id":953,"reason":"Health supv nb 8-28 days","date":"2019-12-07T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-08T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-08T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-09T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-09T00:00:00 QueryString:  Response Body: [{"id":152,"name":"Garwin","surname":"Filisov","birthdate":"2019-12-09T00:00:00","practice_id":15}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-10T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-10T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-11T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-11T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-12T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-12T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-13T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-13T00:00:00 QueryString:  Response Body: [{"id":372,"patient_id":568,"doctor_id":747,"reason":"Tachycardia NOS","date":"2019-12-13T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-14T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-14T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-15T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-15T00:00:00 QueryString:  Response Body: [{"id":354,"patient_id":507,"doctor_id":794,"reason":"Foreign body uterus","date":"2019-12-15T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-16T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-16T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-17T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-17T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-19T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-19T00:00:00 QueryString:  Response Body: [{"id":30,"patient_id":333,"doctor_id":212,"reason":"Ac dilation of stomach","date":"2019-12-19T00:00:00"},{"id":899,"patient_id":67,"doctor_id":891,"reason":"Burn of esophagus","date":"2019-12-19T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-20T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-20T00:00:00 QueryString:  Response Body: [{"id":390,"patient_id":169,"doctor_id":585,"reason":"Ect preg NEC w/o int prg","date":"2019-12-20T00:00:00"},{"id":892,"patient_id":292,"doctor_id":915,"reason":"Assault-criminal neglect","date":"2019-12-20T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-21T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-21T00:00:00 QueryString:  Response Body: [{"id":631,"patient_id":27,"doctor_id":918,"reason":"Abrasion trunk","date":"2019-12-21T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-23T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-23T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-24T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-24T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-25T00:00:00 QueryString:  Response Body: [{"id":117,"patient_id":897,"doctor_id":491,"reason":"Cl skl/oth fx-proln coma","date":"2019-12-25T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-2T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-2T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-26T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-26T00:00:00 QueryString:  Response Body: [{"id":166,"patient_id":765,"doctor_id":75,"reason":"Push-ups,pull-ups,sit-up","date":"2019-12-26T00:00:00"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-27T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-27T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-28T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-28T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-29T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-12-29T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-01-19T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2019-01-19T00:00:00 QueryString:  Response Body: []
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-01-19T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-01-19T00:00:00 QueryString:  Response Body: [{"id":218,"name":"Urbain","surname":"Banaszczyk","birthdate":"2020-01-19T00:00:00","practice_id":20}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-08-25T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-08-25T00:00:00 QueryString:  Response Body: [{"id":568,"name":"Rodrique","surname":"Shreve","birthdate":"2020-08-25T00:00:00","practice_id":144}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-14T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-14T00:00:00 QueryString:  Response Body: [{"id":119,"name":"Shadow","surname":"Welfare","birthdate":"2020-09-14T00:00:00","practice_id":82}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-13T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-13T00:00:00 QueryString:  Response Body: [{"id":953,"name":"Reinhold","surname":"Veltmann","birthdate":"2020-09-13T00:00:00","telephone":"198-530-3287"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-01-05T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-01-05T00:00:00 QueryString:  Response Body: [{"id":192,"name":"Olenka","surname":"Willstrop","birthdate":"2020-01-05T00:00:00","telephone":"411-381-6058"}]
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/reindex QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/reindex QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-28T00:00:00 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /elasticsearch/search/date/2020-09-28T00:00:00 QueryString:  Response Body: [{"id":521,"patient_id":832,"doctor_id":152,"reason":"Dietary surveil/counsel","date":"2020-09-28T00:00:00"},{"id":1001,"name":"Vladivoj","surname":"Sabljak","birthdate":"2020-09-28T00:00:00","practice_id":69}]
