@@ -15,6 +15,7 @@ A simple .net Core Web API project designed to simulate scheduled appointments f
     10. [Unit testing](#Unit-testing)
     11. [Resilience](#Resilience)
     12. [Elasticsearch](#Elasticsearch)
+    13. [Database project](#Database-project)
 # **Features**
 ## **Web API**
 
@@ -255,3 +256,8 @@ Host: localhost:4000
 ```
 
 The implemetnation also relies on a background worker service(named: ElasticsearchIndexRefresherService) that periodically (every 1 hour) sends a HTTP request to the Doctors_practice API on the elasticsearch/reindex endpoint.
+
+## **Database project**
+Database project is a project designed for versioning and synchronising between the code data models and database tables. It supports an in code comparison of the state of the tables in database as to how it should be modeled according to the code within the project. If it identifies differences one can choose to either import the current database to the project, copy the changes from the database to the project or apply changes from the project to the database as per requirement of the developer. 
+
+For altering the database according to the project once a comparison identifies changes one can simply generate a script which can be run within the DBMS to update any differences.
