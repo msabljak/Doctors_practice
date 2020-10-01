@@ -67,18 +67,22 @@ Related classes: PatientsController, CreatePatient and CreatePatientHandler
 Related classes: 
 
 ## **Database**
-The database is designed within Microsoft SQL Server 2019 hosted on an ubuntu operating system. It is hosted via a docker image and runs in a container. Itself consists of 4 simple tables which are as following.
-> Table Appointment with the attributes: ID, Doctor_id, Patient_id, Reason, Secret
+The database is designed within Microsoft SQL Server 2019 hosted on an ubuntu operating system. It is hosted via a docker image and runs in a container. Itself consists of 5 simple tables which are as following.
+> Table Appointment with the attributes: ID, Doctor_id, Patient_id, Diagnosis_code, Diagnosis_description, Date, Secret
 
 This table mostly serves as a helper table to connect a patient with a specific doctor since a patient can have multiple doctors at the same time and a doctor multiple patients. Doctor_id is a foreign key associated to the Doctor Table, while Patient_id is identical except connected to the Patient table.
 
->Table Doctor with the attributes:  ID, Name, Surname, Practice_id, Secret
+>Table Doctor with the attributes:  ID, Name, Surname, Birthdate, Telephone, Email, Practice_id, Secret
 
 Practice_id serves a foreign key connected to Practice table for associating the Doctor to his assigned practice.
 
->Table Patient with the attributes: ID, Name, Surname, Telephone, Secret
+>Table Health_card with the attributes: ID, History_of_illness, Blood_type, Hereditary_diseases
 
->Table Practice with the attributes: ID, Name, Address, Secret
+>Table Patient with the attributes: ID, Name, Surname, Birthdate, Gender, Email, Health_card_id, Secret
+
+Health_card_id serves a foreign key connected to the Health_card table for associating a single health card to a single patient. 
+
+>Table Practice with the attributes: ID, Name, Address, Specialty, Secret
 
 All tables have the secret property for the purposes of simulating extra data that a web api would not recieve and work without for purposes of creating DTO objects. 
 
