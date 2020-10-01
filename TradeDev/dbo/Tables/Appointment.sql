@@ -11,3 +11,7 @@
     CONSTRAINT [FK_Appointment_Patient] FOREIGN KEY ([Patient_id]) REFERENCES [dbo].[Patient] ([ID])
 );
 
+
+GO
+
+CREATE UNIQUE INDEX [IX_Appointment_ID] ON [dbo].[Appointment] ([ID])
