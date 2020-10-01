@@ -11,7 +11,8 @@ namespace Doctors_practice.Models.Appointment
         public int ID { get; set; }
         public int Patient_id { get; set; }
         public int Doctor_id { get; set; }
-        public string Reason { get; set; }
+        public string DiagnosisCode { get; set; }
+        public string DiagnosisDescription { get; set; }
         public DateTime Date { get; set; }
         public string Secret { get; set; }
     }
@@ -37,9 +38,13 @@ namespace Doctors_practice.Models.Appointment
             {
                 Doctor_id = Convert.ToInt32(row["Doctor_id"]);
             }
-            if (row.Table.Columns.Contains("Reason"))
+            if (row.Table.Columns.Contains("Diagnosis_code"))
             {
-                Reason = row["Reason"].ToString();
+                DiagnosisCode = row["Diagnosis_code"].ToString();
+            }
+            if (row.Table.Columns.Contains("Diagnosis_description"))
+            {
+                DiagnosisDescription = row["Diagnosis_description"].ToString();
             }
             if (row.Table.Columns.Contains("Date"))
             {

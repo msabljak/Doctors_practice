@@ -11,6 +11,8 @@ namespace Doctors_practice.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime Birthdate { get; set; }
-        public string Telephone { get; set; }
+        public char Gender { get; set; }
+        public string Email { get; set; }
+        public int HealthCard_id { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace Doctors_practice.Models.Practice
         public int ID { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
+        public string Specialty { get; set; }
         public string Secret { get; set; }
     }
 
@@ -34,6 +35,10 @@ namespace Doctors_practice.Models.Practice
             if (row.Table.Columns.Contains("Address"))
             {
                 Address = row["Address"].ToString();
+            }
+            if (row.Table.Columns.Contains("Specialty"))
+            {
+                Specialty = row["Specialty"].ToString();
             }
             if (row.Table.Columns.Contains("Secret"))
             {

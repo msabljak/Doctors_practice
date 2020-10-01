@@ -32,11 +32,12 @@ namespace Doctors_practice.Models.Doctor
                     SQLDoctorRepository doctorRepository = new SQLDoctorRepository(_configuration);
                     if (patientRepository.PatientExists(appointmentDTO.Patient_id)&& doctorRepository.DoctorExists(appointmentDTO.Doctor_id))
                     {
-                        var query = "insert into Appointment(Patient_id,Doctor_id,Reason, Date) values (@patient_id,@doctor_id,@reason, @date)";
+                        var query = "insert into Appointment(Patient_id,Doctor_id,Diagnosis_code,Diagnosis_description, Date) values (@patient_id,@doctor_id,@diagnosis_code,@diagnosis_description, @date)";
                         SqlCommand sqlCommand = new SqlCommand(query, _connection);
                         sqlCommand.Parameters.AddWithValue("@patient_id", appointmentDTO.Patient_id);
                         sqlCommand.Parameters.AddWithValue("@doctor_id", appointmentDTO.Doctor_id);
-                        sqlCommand.Parameters.AddWithValue("@reason", appointmentDTO.Reason);
+                        sqlCommand.Parameters.AddWithValue("@diagnosis_code", appointmentDTO.DiagnosisCode);
+                        sqlCommand.Parameters.AddWithValue("@diagnosis_description", appointmentDTO.DiagnosisDescription);
                         sqlCommand.Parameters.AddWithValue("@date", appointmentDTO.Date);
                         _connection.Open();
                         sqlCommand.ExecuteNonQuery();
@@ -44,7 +45,8 @@ namespace Doctors_practice.Models.Doctor
                         {
                             Patient_id = appointmentDTO.Patient_id,
                             Doctor_id = appointmentDTO.Doctor_id,
-                            Reason = appointmentDTO.Reason,
+                            DiagnosisCode = appointmentDTO.DiagnosisCode,
+                            DiagnosisDescription = appointmentDTO.DiagnosisDescription,
                             Date = appointmentDTO.Date
                         };
                         return AppointmentToDTO(appointment);
@@ -95,7 +97,7 @@ namespace Doctors_practice.Models.Doctor
                 {
                     _connection.Open();
                     DataTable _dt = new DataTable();
-                    var query = $"select ID, Patient_id, Doctor_id, Reason, Date from Appointment";
+                    var query = $"select ID, Patient_id, Doctor_id, Diagnosis_code, Diagnosis_description, Date from Appointment";
                     _adapter = new SqlDataAdapter
                     {
                         SelectCommand = new SqlCommand(query, _connection)
@@ -127,7 +129,7 @@ namespace Doctors_practice.Models.Doctor
                 {
                     _connection.Open();
                     DataTable _dt = new DataTable();
-                    var query = $"select ID, Patient_id, Doctor_id, Reason, Date from Appointment where id = {id}";
+                    var query = $"select ID, Patient_id, Doctor_id, Diagnosis_code, Diagnosis_description, Date from Appointment where id = {id}";
                     _adapter = new SqlDataAdapter
                     {
                         SelectCommand = new SqlCommand(query, _connection)
@@ -165,11 +167,12 @@ namespace Doctors_practice.Models.Doctor
                     SQLDoctorRepository doctorRepository = new SQLDoctorRepository(_configuration);
                     if (patientRepository.PatientExists(appointmentDTOChanges.Patient_id) && doctorRepository.DoctorExists(appointmentDTOChanges.Doctor_id))
                     {
-                        var query = $"update Appointment set Patient_id=@patient_id,Doctor_id=@doctor_id,Reason=@reason, Date=@date where id = {id}";
+                        var query = $"update Appointment set Patient_id=@patient_id,Doctor_id=@doctor_id,Diagnosis_code=@diagnosis_code,Diagnosis_description=@diagnosis_description,Date=@date where id = {id}";
                         SqlCommand sqlCommand = new SqlCommand(query, _connection);
                         sqlCommand.Parameters.AddWithValue("@patient_id", appointmentDTOChanges.Patient_id);
                         sqlCommand.Parameters.AddWithValue("@doctor_id", appointmentDTOChanges.Doctor_id);
-                        sqlCommand.Parameters.AddWithValue("@reason", appointmentDTOChanges.Reason);
+                        sqlCommand.Parameters.AddWithValue("@diagnosis_code", appointmentDTOChanges.DiagnosisCode);
+                        sqlCommand.Parameters.AddWithValue("@diagnosis_description", appointmentDTOChanges.DiagnosisDescription);
                         sqlCommand.Parameters.AddWithValue("@date", appointmentDTOChanges.Date);
                         _connection.Open();
                         sqlCommand.ExecuteNonQuery();
@@ -221,7 +224,8 @@ namespace Doctors_practice.Models.Doctor
                 ID = appointment.ID,
                 Doctor_id = appointment.Doctor_id,
                 Patient_id = appointment.Patient_id,
-                Reason = appointment.Reason,
+                DiagnosisCode = appointment.DiagnosisCode,
+                DiagnosisDescription = appointment.DiagnosisDescription,
                 Date = appointment.Date
             };
     }

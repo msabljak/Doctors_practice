@@ -26,16 +26,18 @@ namespace Doctors_practice.Models.Practice
             {
                 try
                 {
-                    var query = "insert into Practice(Name,Address) values (@name,@address)";
+                    var query = "insert into Practice(Name,Address,Specialty) values (@name,@address,@specialty)";
                     SqlCommand sqlCommand = new SqlCommand(query, _connection);
                     sqlCommand.Parameters.AddWithValue("@name", practiceDTO.Name);
                     sqlCommand.Parameters.AddWithValue("@address", practiceDTO.Address);
+                    sqlCommand.Parameters.AddWithValue("@specialty", practiceDTO.Specialty);
                     _connection.Open();
                     sqlCommand.ExecuteNonQuery();
                     var practice = new Practices
                     {
                         Name = practiceDTO.Name,
-                        Address = practiceDTO.Address
+                        Address = practiceDTO.Address,
+                        Specialty = practiceDTO.Specialty
                     };
                     return PracticeToDTO(practice);
 
@@ -80,7 +82,7 @@ namespace Doctors_practice.Models.Practice
                 {
                     _connection.Open();
                     DataTable _dt = new DataTable();
-                    var query = "select ID, Name, Address from Practice";
+                    var query = "select ID, Name, Address, Specialty from Practice";
                     _adapter = new SqlDataAdapter
                     {
                         SelectCommand = new SqlCommand(query,_connection)
@@ -112,7 +114,7 @@ namespace Doctors_practice.Models.Practice
                 {
                     _connection.Open();
                     DataTable _dt = new DataTable();
-                    var query = $"select ID, Name, Address from Practice where id={id}";
+                    var query = $"select ID, Name, Address, Specialty from Practice where id={id}";
                     _adapter = new SqlDataAdapter
                     {
                         SelectCommand = new SqlCommand(query, _connection)
@@ -146,10 +148,11 @@ namespace Doctors_practice.Models.Practice
             {
                 try
                 {
-                    var query = $"update Practice set Name=@name,Address=@address where id = {id}";
+                    var query = $"update Practice set Name=@name,Address=@address,Specialty=@specialty where id = {id}";
                     SqlCommand sqlCommand = new SqlCommand(query, _connection);
                     sqlCommand.Parameters.AddWithValue("Name", practiceDTOChanges.Name);
                     sqlCommand.Parameters.AddWithValue("Address", practiceDTOChanges.Address);
+                    sqlCommand.Parameters.AddWithValue("Specialty", practiceDTOChanges.Specialty);
                     _connection.Open();
                     sqlCommand.ExecuteNonQuery();
                     return 1;
@@ -194,7 +197,8 @@ namespace Doctors_practice.Models.Practice
             {
                 ID = practice.ID,
                 Name = practice.Name,
-                Address = practice.Address
+                Address = practice.Address,
+                Specialty = practice.Specialty
             };
     }
 }

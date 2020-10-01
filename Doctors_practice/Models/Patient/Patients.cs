@@ -12,7 +12,9 @@ namespace Doctors_practice.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime Birthdate { get; set; }
-        public string Telephone { get; set; }
+        public char Gender { get; set; }
+        public string Email { get; set; }
+        public int HealthCard_id { get; set; }
         public string Secret { get; set; }
     }
 
@@ -41,9 +43,13 @@ namespace Doctors_practice.Models
             {
                 Birthdate = Convert.ToDateTime(row["Birthdate"]);
             }
-            if (row.Table.Columns.Contains("Telephone") && row["Telephone"].ToString() != "")
+            if (row.Table.Columns.Contains("Gender"))
             {
-                Telephone = row["Telephone"].ToString();
+                Gender = row["Gender"].ToString().ToCharArray()[0];
+            }
+            if (row.Table.Columns.Contains("Health_card_id"))
+            {
+                HealthCard_id = Convert.ToInt32(row["Health_card_id"]);
             }
             if (row.Table.Columns.Contains("Secret"))
             {

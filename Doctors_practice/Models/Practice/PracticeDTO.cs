@@ -10,5 +10,6 @@ namespace Doctors_practice.Models.Practice
         public int ID { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
+        public string Specialty { get; set; }
     }
 }
