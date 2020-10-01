@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService", "Identity
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorisationLibrary", "AuthorisationLibrary\AuthorisationLibrary.csproj", "{D9A75F0E-49B9-4882-948C-207F8A758489}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticsearchIndexRefresherService", "ElasticsearchIndexRefresherService\ElasticsearchIndexRefresherService.csproj", "{94602D61-2695-4F7B-89DD-7E175998CFCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticsearchIndexRefresherService", "ElasticsearchIndexRefresherService\ElasticsearchIndexRefresherService.csproj", "{94602D61-2695-4F7B-89DD-7E175998CFCF}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TradeDev", "TradeDev\TradeDev.sqlproj", "{D3E4BDBE-8F4C-47C6-8BA6-80769A69A91F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,12 @@ Global
 		{94602D61-2695-4F7B-89DD-7E175998CFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94602D61-2695-4F7B-89DD-7E175998CFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94602D61-2695-4F7B-89DD-7E175998CFCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E4BDBE-8F4C-47C6-8BA6-80769A69A91F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E4BDBE-8F4C-47C6-8BA6-80769A69A91F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E4BDBE-8F4C-47C6-8BA6-80769A69A91F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D3E4BDBE-8F4C-47C6-8BA6-80769A69A91F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E4BDBE-8F4C-47C6-8BA6-80769A69A91F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E4BDBE-8F4C-47C6-8BA6-80769A69A91F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
