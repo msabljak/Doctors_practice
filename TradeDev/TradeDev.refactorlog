@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="9545189a-73e5-4d9f-9129-87e715d28fd5" ChangeDateTime="10/01/2020 09:08:24">
+    <Property Name="ElementName" Value="[dbo].[Appointment].[Reason]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Appointment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Diagnosis_description" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6d1875d2-0742-4dd1-ab40-211b8ca18042" ChangeDateTime="10/01/2020 10:39:23">
+    <Property Name="ElementName" Value="[dbo].[Appointment].[Reason]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Appointment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[Diagnosis_description]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="46ed92de-0da8-49a9-9cb7-372b01791ebb" ChangeDateTime="10/01/2020 10:43:29">
+    <Property Name="ElementName" Value="[dbo].[Appointment].[Diagnosis_description]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Appointment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Reason" />
+  </Operation>
+</Operations>
