@@ -37,6 +37,7 @@
     <PackageReference Include="MongoDB.Driver" Version="2.11.0" />
     <PackageReference Include="NEST" Version="7.9.0" />
     <PackageReference Include="Polly" Version="7.2.1" />
+    <PackageReference Include="StackExchange.Redis" Version="2.1.58" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
   </ItemGroup>
 
