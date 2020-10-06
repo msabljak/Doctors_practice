@@ -19,7 +19,6 @@ namespace Doctors_practice.Models.Patient
             ID = patientDTO.ID;
             Name = patientDTO.Name;
             Surname = patientDTO.Surname;
-            Telephone = patientDTO.Telephone;
             EventType = eventType;
         }
     }
