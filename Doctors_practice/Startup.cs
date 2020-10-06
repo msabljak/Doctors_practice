@@ -73,10 +73,17 @@ namespace Doctors_practice
             services.AddScoped<IPatientRepository, SQLPatientRepository>();
             services.AddScoped<IEventStore, EventStoreImplementation.EventStore>();
             services.AddMediatR(typeof(Startup));
-            //services.AddSingleton<ICacheService, InMemoryCacheService>();
-            services.AddSingleton<IConnectionMultiplexer>(x =>
+
+            if (Configuration.GetValue<string>("Properties:cacheType")=="InMemory")
+            {
+                services.AddSingleton<ICacheService, InMemoryCacheService>();
+            }
+            else if (Configuration.GetValue<string>("Properties:cacheType")=="Redis")
+            {
+                services.AddSingleton<IConnectionMultiplexer>(x =>
                 ConnectionMultiplexer.Connect(Configuration.GetConnectionString("redis")));
-            services.AddSingleton<ICacheService, RedisCacheService>();
+                services.AddSingleton<ICacheService, RedisCacheService>();
+            }            
             services.AddControllers();
         }
 
