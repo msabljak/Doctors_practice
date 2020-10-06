@@ -28,7 +28,6 @@ namespace Doctors_practice.Extensions
                     .PropertyName(p => p.Name, "Name")
                     .PropertyName(p => p.Surname, "Surname")
                     .PropertyName(p => p.Birthdate, "Birthdate")
-                    .PropertyName(p => p.Telephone, "Telephone")
                     )
                 .DefaultMappingFor<ElasticPerson>(m => m
                     .IndexName("elasticpatients")
@@ -53,7 +52,6 @@ namespace Doctors_practice.Extensions
                     .PropertyName(a => a.ID, "ID")
                     .PropertyName(a => a.Doctor_id, "Doctor's ID")
                     .PropertyName(a => a.Patient_id, "Patient's ID")
-                    .PropertyName(a => a.Reason, "Reason")
                     .PropertyName(a => a.Date, "Date of appointment")
                 );
 
