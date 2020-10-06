@@ -2344,3 +2344,31 @@ Http Request Information:
 Schema:https Host: localhost:44317 Path: /Patients/276 QueryString:  
 Http Response Information:
 Schema:https Host: localhost:44317 Path: /Patients/276 QueryString:  Response Body: {"id":276,"name":"Bevan","surname":"Pither","birthdate":"2011-12-29T00:00:00","gender":"\u0000","email":null,"healthCard_id":-1}
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Doctors/276 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Doctors/276 QueryString:  Response Body: {"id":276,"name":"Mace","surname":"MacHoste","birthdate":"1979-10-07T00:00:00","telephone":"","email":"","practice_id":65}
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Patients QueryString:  Response Body: 
+Http Request Information:
+Schema:https Host: localhost:44317 Path: /Doctors/276 QueryString:  
+Http Response Information:
+Schema:https Host: localhost:44317 Path: /Doctors/276 QueryString:  Response Body: {"id":276,"name":"Mace","surname":"MacHoste","birthdate":"1979-10-07T00:00:00","telephone":"","email":"","practice_id":65}
