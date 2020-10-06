@@ -1,10 +1,10 @@
 version: "3.8"
 services:
     web:
-        build: 
-            context: .
-            dockerfile: ./Doctors_practice/Dockerfile
-        #image: msabljak/doctors_practice:latest
+        #build: 
+            #context: .
+            #dockerfile: ./Doctors_practice/Dockerfile
+        image: msabljak/doctors_practice:latest
         expose:
             - "8000"
         depends_on: 
