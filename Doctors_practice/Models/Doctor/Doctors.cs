@@ -45,11 +45,11 @@ namespace Doctors_practice.Models.Doctor
             }
             if (row.Table.Columns.Contains("Telephone"))
             {
-                Surname = row["Telephone"].ToString();
+                Telephone = row["Telephone"].ToString();
             }
             if (row.Table.Columns.Contains("Email"))
             {
-                Surname = row["Email"].ToString();
+                Email = row["Email"].ToString();
             }
             if (row.Table.Columns.Contains("Practice_id"))
             {

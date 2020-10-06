@@ -45,11 +45,25 @@ namespace Doctors_practice.Models
             }
             if (row.Table.Columns.Contains("Gender"))
             {
-                Gender = row["Gender"].ToString().ToCharArray()[0];
+                if (row["Gender"].ToString() == "")
+                {
+                    Gender = '\0';
+                }
+                else
+                {
+                    Gender = row["Gender"].ToString().ToCharArray()[0];
+                }                
             }
             if (row.Table.Columns.Contains("Health_card_id"))
             {
-                HealthCard_id = Convert.ToInt32(row["Health_card_id"]);
+                if (row["Health_card_id"].ToString() == "")
+                {
+                    HealthCard_id = -1;
+                }
+                else
+                {
+                    HealthCard_id = Convert.ToInt32(row["Health_card_id"]);
+                }                
             }
             if (row.Table.Columns.Contains("Secret"))
             {
