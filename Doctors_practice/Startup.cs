@@ -24,6 +24,8 @@ using System.Reflection;
 using Microsoft.AspNetCore.Authorization;
 using AuthorisationLibrary;
 using Doctors_practice.Extensions;
+using StackExchange.Redis;
+using Doctors_practice.Services;
 
 namespace Doctors_practice
 {
@@ -71,6 +73,10 @@ namespace Doctors_practice
             services.AddScoped<IPatientRepository, SQLPatientRepository>();
             services.AddScoped<IEventStore, EventStoreImplementation.EventStore>();
             services.AddMediatR(typeof(Startup));
+            //services.AddSingleton<ICacheService, InMemoryCacheService>();
+            services.AddSingleton<IConnectionMultiplexer>(x =>
+                ConnectionMultiplexer.Connect(Configuration.GetConnectionString("redis")));
+            services.AddSingleton<ICacheService, RedisCacheService>();
             services.AddControllers();
         }
 
