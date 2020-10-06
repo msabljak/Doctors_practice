@@ -10,6 +10,8 @@ using Doctors_practice.Models;
 using Doctors_practice.Models.Appointment;
 using Doctors_practice.Models.Patient;
 using Doctors_practice.BusinessLayer;
+using Doctors_practice.Services;
+using Newtonsoft.Json;
 
 namespace Doctors_practice.Controllers
 {
@@ -19,28 +21,50 @@ namespace Doctors_practice.Controllers
         private IDoctorRepository _doctorRepository;
         private IAppointmentRepository _appointmentRepository;
         private IPatientRepository _patientRepository;
+        private ICacheService _cacheService;
 
-        public DoctorsController(IDoctorRepository doctorRepository, IAppointmentRepository appointmentRepository, IPatientRepository patientRepository)
+        public DoctorsController(IDoctorRepository doctorRepository, IAppointmentRepository appointmentRepository, IPatientRepository patientRepository, ICacheService cacheService)
         {
             _doctorRepository = doctorRepository;
             _appointmentRepository = appointmentRepository;
             _patientRepository = patientRepository;
+            _cacheService = cacheService;
         }
 
         // GET: Doctors
         [HttpGet]
         [Route("Doctors")]
-        public IEnumerable<DoctorDTO> GetDoctors()
+        public async Task<IEnumerable<DoctorDTO>> GetDoctors()
         {
-            return _doctorRepository.GetAllDoctors();
+            if (await _cacheService.GetCacheValueAsync(Request.Path)==null)
+            {
+                IEnumerable<DoctorDTO> doctorDTOs = _doctorRepository.GetAllDoctors();
+                string doctorDTOsAsJSON = JsonConvert.SerializeObject(doctorDTOs);
+                await _cacheService.SetCacheValueAsync(Request.Path, doctorDTOsAsJSON);
+                return doctorDTOs;
+            }
+            else
+            {
+                return JsonConvert.DeserializeObject<IEnumerable<DoctorDTO>>(await _cacheService.GetCacheValueAsync(Request.Path));
+            }
         }
 
         // GET: Doctors/5
         [HttpGet]
         [Route("Doctors/{id}")]
-        public DoctorDTO GetDoctor(int id)
+        public async Task<DoctorDTO> GetDoctor(int id)
         {
-            return _doctorRepository.GetDoctor(id);
+            if (await _cacheService.GetCacheValueAsync(Request.Path)== null)
+            {
+                DoctorDTO doctorDTO = _doctorRepository.GetDoctor(id);
+                string doctorDTOAsJSON = JsonConvert.SerializeObject(doctorDTO);
+                await _cacheService.SetCacheValueAsync(Request.Path, doctorDTOAsJSON);
+                return doctorDTO;
+            }
+            else
+            {
+                return JsonConvert.DeserializeObject<DoctorDTO>(await _cacheService.GetCacheValueAsync(Request.Path));
+            }
         }
 
         // GET: Doctors/5/Patients
