@@ -15,6 +15,7 @@ using Polly;
 using Microsoft.AspNetCore.Authorization;
 using Doctors_practice.Services;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace Doctors_practice.Controllers
 {
@@ -26,13 +27,15 @@ namespace Doctors_practice.Controllers
         private IPatientClient _client;
         private IMediator _mediator;
         private ICacheService _cacheService;
+        private IConfiguration _configuration;
 
-        public PatientsController(IPatientRepository patientRepository, IPatientClient client, IMediator mediator, ICacheService cacheService)
+        public PatientsController(IPatientRepository patientRepository, IPatientClient client, IMediator mediator, ICacheService cacheService, IConfiguration configuration)
         {
             _patientRepository = patientRepository;
             _client = client;
             _mediator = mediator;
             _cacheService = cacheService;
+            _configuration = configuration;
         }
         // GET: Patients
         [Authorize(Policy = "Reader")]
@@ -41,17 +44,21 @@ namespace Doctors_practice.Controllers
         
         public async Task<IEnumerable<PatientDTO>> GetPatients()
         {
-            if (await _cacheService.GetCacheValueAsync(Request.Path) == null)
+            if (_configuration.GetValue<string>("Properties:cacheEnabled") == "true")
             {
-                IEnumerable<PatientDTO> patientDTOs = _patientRepository.GetAllPatients();
-                string patientDTOsAsJSON = JsonConvert.SerializeObject(patientDTOs);
-                await _cacheService.SetCacheValueAsync(Request.Path, patientDTOsAsJSON);
-                return patientDTOs;
+                if (await _cacheService.GetCacheValueAsync(Request.Path) == null)
+                {
+                    IEnumerable<PatientDTO> patientDTOs = _patientRepository.GetAllPatients();
+                    string patientDTOsAsJSON = JsonConvert.SerializeObject(patientDTOs);
+                    await _cacheService.SetCacheValueAsync(Request.Path, patientDTOsAsJSON);
+                    return patientDTOs;
+                }
+                else
+                {
+                    return JsonConvert.DeserializeObject<IEnumerable<PatientDTO>>(await _cacheService.GetCacheValueAsync(Request.Path));
+                }
             }
-            else
-            {
-                return JsonConvert.DeserializeObject<IEnumerable<PatientDTO>>(await _cacheService.GetCacheValueAsync(Request.Path));
-            } 
+            return _patientRepository.GetAllPatients();
         }
 
         // GET: Patients/5
@@ -59,17 +66,21 @@ namespace Doctors_practice.Controllers
         [Route("Patients/{id}")]
         public async Task<PatientDTO> GetPatient(int id)
         {
-            if (await _cacheService.GetCacheValueAsync(Request.Path) == null)
+            if (_configuration.GetValue<string>("Properties:cacheEnabled") == "true")
             {
-                PatientDTO patientDTO = _patientRepository.GetPatients(id);
-                string patientDTOAsJSON = JsonConvert.SerializeObject(patientDTO);
-                await _cacheService.SetCacheValueAsync(Request.Path, patientDTOAsJSON);
-                return patientDTO;
+                if (await _cacheService.GetCacheValueAsync(Request.Path) == null)
+                {
+                    PatientDTO patientDTO = _patientRepository.GetPatients(id);
+                    string patientDTOAsJSON = JsonConvert.SerializeObject(patientDTO);
+                    await _cacheService.SetCacheValueAsync(Request.Path, patientDTOAsJSON);
+                    return patientDTO;
+                }
+                else
+                {
+                    return JsonConvert.DeserializeObject<PatientDTO>(await _cacheService.GetCacheValueAsync(Request.Path));
+                }
             }
-            else
-            {
-                return JsonConvert.DeserializeObject<PatientDTO>(await _cacheService.GetCacheValueAsync(Request.Path));
-            }
+            return _patientRepository.GetPatients(id);
         }
 
         // GET: Patients/server        
