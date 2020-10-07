@@ -16,6 +16,7 @@ A simple .net Core Web API project designed to simulate scheduled appointments f
     11. [Resilience](#Resilience)
     12. [Elasticsearch](#Elasticsearch)
     13. [Database project](#Database-project)
+    14. [Caching](#Caching)
 # **Features**
 ## **Web API**
 
@@ -265,3 +266,24 @@ The implemetnation also relies on a background worker service(named: Elasticsear
 Database project is a project designed for versioning and synchronising between the code data models and database tables. It supports an in code comparison of the state of the tables in database as to how it should be modeled according to the code within the project. If it identifies differences one can choose to either import the current database to the project, copy the changes from the database to the project or apply changes from the project to the database as per requirement of the developer. 
 
 For altering the database according to the project once a comparison identifies changes one can simply generate a script which can be run within the DBMS to update any differences.
+
+## **Caching**
+The solution currently only caches GET requests on the Doctors_practice API for Doctors, Doctor by id, Patients and Patient by id. It supports 3 modes of operation: 
+
+* No caching
+* In memory caching
+* Redis caching
+
+The variable mode of operation is configured by the help of paramaters in the appsettings. There is a section named properties with 2 key:value fields. The first is cacheEnabled which when its value set to exactly "**true**" will enable caching and any other value will ensure that caching is disabled within the api. The other field named "cacheType" recieves 2 seperate values and controls which type of caching is being used. If assigned the value "**InMemory**" it well configure the in memory caching service supplied by .NET and if assigned "**Redis**" it will configure a redis client for the caching service.
+
+### Implementation
+In the Services folder there is an interface named ICacheService which is used to inject one of the 2 implementations of InMemoryCacheService and RedisCacheService into the pipeline behaviour. InMemoryCacheService creates a new memory cache for every API while the RedisCacheService creates a client to connect to a hosted Redis caching service on the system.
+
+Depending on the value set in "cacheType" in appsettings the configure services will decide which implementation of ICacheService to inject.
+
+The controllers, DoctorsController and PatientsController then upon recieving GET requests first check if caching is enabled or not via "cacheEnabled". 
+If caching is enabled it then proceeds to check the caching service if that particular object was loaded into cache via a key which is structured equally as to the request path that was called upon the endpoint. 
+
+Depending on the response of the caching services it will either proceed to use the response of the caching service or contact the repository for the actual requested object. 
+
+If caching wasn't enabled the controller will just contact the repository directly.
