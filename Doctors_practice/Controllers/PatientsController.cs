@@ -83,6 +83,34 @@ namespace Doctors_practice.Controllers
             return _patientRepository.GetPatients(id);
         }
 
+        // GET: Patients/FromPractices/5
+        [HttpGet]
+        [Route("Patients/FromPractices/{minimumDoctors}")]
+        public string GetPatientsFromPractices(int minimumDoctors)
+        {
+            return _patientRepository.GetAllPatientsFromPracticesWithSpecificAmountOfDoctors(minimumDoctors);
+        }
+
+        [HttpGet]
+        [Route("Patients/SlowRequest/{desiredAmount}")]
+        public async Task<string> GetSlowRequest(int desiredAmount)
+        {
+            if (_configuration.GetValue<string>("Properties:cacheEnabled") == "true")
+            {
+                if (await _cacheService.GetCacheValueAsync(Request.Path) == null)
+                {
+                    string data = _patientRepository.SlowRequest(desiredAmount);
+                    await _cacheService.SetCacheValueAsync(Request.Path, data);
+                    return data;
+                }
+                else
+                {
+                    return await _cacheService.GetCacheValueAsync(Request.Path);
+                }
+            }
+            return _patientRepository.SlowRequest(desiredAmount);
+        }
+
         // GET: Patients/server        
         [HttpGet]
         [Route("Patients/server")]

@@ -66,7 +66,8 @@ namespace Doctors_practice.Controllers
         {
             if (_configuration.GetValue<string>("Properties:cacheEnabled") == "true")
             {
-                if (await _cacheService.GetCacheValueAsync(Request.Path) == null)
+                var cacheValue = await _cacheService.GetCacheValueAsync(Request.Path);
+                if (cacheValue == null)
                 {
                     DoctorDTO doctorDTO = _doctorRepository.GetDoctor(id);
                     string doctorDTOAsJSON = JsonConvert.SerializeObject(doctorDTO);
@@ -75,7 +76,7 @@ namespace Doctors_practice.Controllers
                 }
                 else
                 {
-                    return JsonConvert.DeserializeObject<DoctorDTO>(await _cacheService.GetCacheValueAsync(Request.Path));
+                    return JsonConvert.DeserializeObject<DoctorDTO>(cacheValue);
                 }
             }
             return _doctorRepository.GetDoctor(id);
