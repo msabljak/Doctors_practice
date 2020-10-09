@@ -10,6 +10,8 @@ namespace Doctors_practice.Models.Patient
     {
         PatientDTO GetPatients(int id);
         IEnumerable<PatientDTO> GetAllPatients();
+        string GetAllPatientsFromPracticesWithSpecificAmountOfDoctors(int requiredNumber);
+        string SlowRequest(int desiredAmount);
         PatientDTO Add(PatientDTO patientDTO);
         Task<PatientDTO> AddAsync(PatientDTO patientDTO);
         int Update(PatientDTO patientDTOChanges, int id);

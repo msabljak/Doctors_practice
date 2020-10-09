@@ -1,5 +1,6 @@
 ﻿using Apache.NMS;
 using Apache.NMS.ActiveMQ;
+using Microsoft.AspNetCore.Razor.Language.Extensions;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -196,6 +197,95 @@ namespace Doctors_practice.Models.Patient
                 }
                 catch
                 {
+                    throw;
+                }
+            }
+        }
+
+        public string GetAllPatientsFromPracticesWithSpecificAmountOfDoctors(int requiredNumber)
+        {
+            using (_connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    _connection.Open();
+                    DataTable _dt = new DataTable();
+                    var query = $"SELECT pr.id, pr.Name as Practice_name, p.Name as Patient_name, p.Surname as Patient_surname, a.Diagnosis_description, a.Date FROM Patient p " +
+                        $"JOIN Appointment a ON p.ID = a.Patient_id " +
+                        $"JOIN Doctor d ON a.Doctor_id = d.ID " +
+                        $"JOIN Practice pr ON d.Practice_id = pr.ID " +
+                        $"WHERE pr.ID IN(" +
+                        $"SELECT pr.ID as Practice_doctors FROM Practice pr " +
+                        $"JOIN Doctor d ON pr.ID = d.Practice_id " +
+                        $"GROUP BY pr.ID " +
+                        $"HAVING COUNT(pr.ID) > {requiredNumber}) " +
+                        $"AND p.Name LIKE 'a__%' " +
+                        $"GROUP BY pr.ID,a.Date,p.Surname,p.Name, pr.Name, a.Diagnosis_description " +
+                        $"ORDER BY pr.ID; ";
+                    _adapter = new SqlDataAdapter
+                    {
+                        SelectCommand = new SqlCommand(query, _connection)
+                    };
+                    _adapter.Fill(_dt);
+                    string data = "";
+                    if (_dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in _dt.Rows)
+                        {
+                            foreach (object item in row.ItemArray)
+                            {
+                                data = data + item.ToString() + " ";
+                            }
+                            data = data + "\n";
+                        }
+                    }
+                    return data;
+                }
+                catch
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        public string SlowRequest(int desiredAmount)
+        {
+            using (_connection = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    string data = "";
+                    _connection.Open();
+                    DataTable _dt = new DataTable();
+                    var query = "SELECT Patient.Name, Doctor.Surname FROM Patient, Doctor";
+                    _adapter = new SqlDataAdapter
+                    {
+                        SelectCommand = new SqlCommand(query, _connection)
+                    };
+                    _adapter.Fill(_dt);
+                    int counter = 0;
+                    if (_dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in _dt.Rows)
+                        {
+                            foreach (object item in row.ItemArray)
+                            {
+                                data = data + item.ToString() + " ";
+                            }
+                            data = data + "\n";
+                            counter++;
+                            if (counter == desiredAmount)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    return data;
+                }
+                catch
+                {
+
                     throw;
                 }
             }
