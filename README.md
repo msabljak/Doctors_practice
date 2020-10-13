@@ -287,3 +287,191 @@ If caching is enabled it then proceeds to check the caching service if that part
 Depending on the response of the caching services it will either proceed to use the response of the caching service or contact the repository for the actual requested object. 
 
 If caching wasn't enabled the controller will just contact the repository directly.
+
+### Stress testing
+
+The Doctors_practice API was subjected to stress testing in 6 configurations:
+
+* [No caching, 1 API service](#No-caching,-1-API-service)
+* [No caching, 3 API services](#No-caching,-3-API-services)
+* [In memory caching, 1 API service](#In-memory-caching,-1-API-service)
+* [In memory caching, 3 API services](#In-memory-caching,-3-API-services)
+* [Caching with Redis, 1 API service](#Caching-with-Redis,-1-API-service)
+* [Caching with Redis, 3 API services](#Caching-with-Redis,-3-API-services)
+
+In cases of multiple API services round robin balance loading was deployed.
+
+For purposes of testing an endpoint was created as following: /Patients/SlowRequest/{desiredNumber}
+
+The endpoint calls a method that returns a list of results with elements equal to the desiredNumber parameter in the route. The method itself is created to deliberatly be slow with communicating with the database and gets the Cartesius product from the Patient and Doctor table.
+
+**Important note: The method is synchronous**
+
+The tool used to stress test the API was Apache JMeter. It was set to randomise a new value between 1 and 100 on every request on the /Patients/SlowRequest/{desiredNumber} endpoint. This ensured that there would at least be some variation in the requests enabling some responses being already cached and some not.
+
+The rampup period on all testings was 100 seconds for consistency. The only variable was the amount of users that would appear in that period and request from the API.
+
+#### **No caching, 1 API service**
+
+| Users | Average Response Time | Standard deviation of Response Time | Throughput | Crashed |
+|-------|-----------------------|-------------------------------------|------------|---------|
+|200    |2533                   |1347                                 |     1,9/sec|No       |
+|250    |54462                  |18505                                |     1,7/sec|Yes      |
+
+Started testing with 250 users but the API could never manage that amount of requests and would eventually due to load stop respodning and causing errors no matter what. 
+
+At 200 users the was able to process all requests as they came exactly without any hold up and it turned out to be the optimal no cache start up.
+
+In both cases the throughput was below the theoretical amount of requests which was 2.5/sec for 250 users and 2/sec for 200.
+
+#### **No caching, 3 API services**
+| Users | Average Response Time | Standard deviation of Response Time | Throughput | Crashed |
+|-------|-----------------------|-------------------------------------|------------|---------|
+|150    |1483                   |345                                  |     1,5/sec|No       |
+|200    |1732                   |885                                  |     2,0/sec|No       |
+|250    |2756                   |5657                                 |     1,6/sec|No       |
+|300    |57096                  |42077                                |     1,1/sec|Yes      |
+
+Testing started with 50 users less than the succesful test of equivalent caching technique due to worries of stress upon the database due to increase amount of calls but the database showed that it could handle calls from 3 API's. It proved to be succesful.
+
+The test of 200 users was also successful and faster than the single API equivalent and met the theoretical maximum throughput meaning that the solution at a whole had downtime and availability to process even more calls.
+
+The configuration could handle 250 users but on the graph that plotted response time against time of execution (Can be found in the summary documentation) it is evident towards the end the API was starting to choke which is evident via the throughput not being equal to the maximum as well.
+
+As expected increasing the load to 300 users this configuration of services could not handle the load and lead to an eventual crash.
+
+#### **In memory caching, 1 API service**
+
+Uncached start up
+
+| Users | Average Response Time | Standard deviation of Response Time | Throughput | Crashed |
+|-------|-----------------------|-------------------------------------|------------|---------|
+|200    |1030                   |828                                  |     2,0/sec|No       |
+|250    |139                    |462                                  |     2,5/sec|No       |
+
+This table shows the start up of the service when nothign has been cached, an increased amount of users would cause the service to crash upon startup of uncached data. But despite having a startup user requirement equal to that of no caching it still performed faster than both variants of configuration of no caching. It is also evident that after the first iteration it managed to cache most responses.
+
+The following table represents performance once cached.
+
+| Users | Average Response Time | Standard deviation of Response Time | Throughput | Crashed |
+|-------|-----------------------|-------------------------------------|------------|---------|
+|250    |139                    |462                                  |     2,5/sec|No       |
+|500    |121                    |396                                  |     5,0/sec|No       |
+|1000   |33                     |197                                  |    10,0/sec|No       |
+|2000   |5                      |30                                   |    20,0/sec|No       |
+|4000   |4                      |8                                    |    40,0/sec|No       |
+|8000   |3                      |5                                    |    76,9/sec|No       |
+|16000  |6                      |2                                    |   166,6/sec|No       |
+|32000  |34                     |144                                  |   333,3/sec|Yes      |
+
+Accross all testings it was interesting to notice that up to a certain amount of users that the performance of the service actually increases with more requests coming in shorter time due to it being less and less likely of data not being already cached.
+
+There was an anomaly at 8000 users no matter how many tests were made the throughput would never meet the theoretical maximum yet it could always run double that amount of users in the same time with no issues.
+
+Once at 32000 users across 100 seconds the configuration can no longer respond to all the requests and starts crashing.
+
+#### **In memory caching, 3 API services**
+
+Uncached start up
+| Users | Average Response Time | Standard deviation of Response Time | Throughput | Crashed |
+|-------|-----------------------|-------------------------------------|------------|---------|
+|200    |1217                   |567                                  |     2,0/sec|No       |
+|200    |847                    |699                                  |     2,0/sec|No       |
+|200    |10                     |39                                   |     2,0/sec|No       |
+
+In the table it is evident that it required essentially double the amount of requests to its 1 api service equivalent for most responses to be cached and to start working in cached configuration. Even after one run of 200 users if the second had 250 in 100 seconds the server would crash.
+
+Upon start up and populating cache this configuration performed slower than its equivalent with 1 api during the same process.
+
+Performance once cache is populated:
+
+| Users | Average Response Time | Standard deviation of Response Time | Throughput | Crashed |
+|-------|-----------------------|-------------------------------------|------------|---------|
+|200    |10                     |39                                   |     2,0/sec|No       |
+|500    |38745                  |41753                                |     1,8/sec|Yes      |
+
+Unlike its 1 API service equivalent this configuration performed significantly worse and at 500 users it would already consistently cache and could no longer meet the theoretical maximum throughput. Based off of results during filling cache proccess this configuration could only ever run 200 users at a time consistently.
+
+#### **Caching with Redis, 1 API service**
+
+Uncached start up
+| Users | Average Response Time | Standard deviation of Response Time | Throughput | Crashed |
+|-------|-----------------------|-------------------------------------|------------|---------|
+|200    |729                    |764                                  |     2,0/sec|No       |
+|250    |126                    |401                                  |     2,5/sec|No       |
+
+Fastest response time upon startup with an empty cache compared to all configurations prior. Also only required the one iteration to fill its cache and start serving like the In memory caching of 1 API.
+
+Performance once cache is populated:
+
+| Users | Average Response Time | Standard deviation of Response Time | Throughput | Crashed |
+|-------|-----------------------|-------------------------------------|------------|---------|
+|250    |126                    |401                                  |     2,5/sec|No       |
+|500    |124                    |405                                  |     5,0/sec|No       |
+|1000   |37                     |208                                  |    10,0/sec|No       |
+|2000   |6                      |30                                   |    20,0/sec|No       |
+|4000   |5                      |3                                    |    40,0/sec|No       |
+|8000   |15                     |87                                   |    76,9/sec|No       |
+|16000  |4                      |16                                   |   166,6/sec|No       |
+|32000  |32                     |179                                  |   333,3/sec|Yes      |
+
+Responded equally to the configuration with In memory caching of 1 api including the anomaly and crash point. Has similar response times as well.
+
+During testing had a new anomaly where upon start up configuration with empty cache that was proved to work the server would be too stressed and it would crash.
+
+#### **Caching with Redis, 3 API services**
+
+Uncached start up
+| Users | Average Response Time | Standard deviation of Response Time | Throughput | Crashed |
+|-------|-----------------------|-------------------------------------|------------|---------|
+|200    |1013                   |860                                  |     2,0/sec|No       |
+|250    |123                    |390                                  |     2,5/sec|No       |
+
+Same results as it's equivalent with 1 api service with the distinction that it had a slower response time than it. 
+
+Performance once cache is populated:
+
+| Users | Average Response Time | Standard deviation of Response Time | Throughput | Crashed |
+|-------|-----------------------|-------------------------------------|------------|---------|
+|250    |123                    |390                                  |     2,5/sec|No       |
+|500    |114                    |372                                  |     5,0/sec|No       |
+|1000   |35                     |218                                  |    10,0/sec|No       |
+|2000   |6                      |29                                   |    20,0/sec|No       |
+|4000   |5                      |2                                    |    40,0/sec|No       |
+|8000   |5                      |6                                    |    76,9/sec|No       |
+|16000  |8                      |17                                   |   166,6/sec|No       |
+|32000  |1165                   |2506                                 |   333,3/sec|Yes      |
+
+Near identical performance to the 1 API equivalent configuration.
+
+**Conclusion of testing**
+- 
+
+No caching configuration performs the worst being the slowest and soonest to crash. It was only slightly helped by the addition of additional API's.
+
+In memory caching with multiple API's performed second worst due to requirement of multiple repeating requests to fill all the sepereate cache's of the services and was very limited in its configuration mode being only able to run equally to the No cache, 1 api configuration without crashing. 
+
+In comparison to that the single api configuration of memory caching ran to extreme limits showing the strength of caching but the weakness of the in memory variant when there are multiple services with a balance loader infront of them. This one performed better because all the requests came to this single service leading to the cache to be more functional.
+
+Both variants of using Redis for caching functioned at similar performances as 1 api with in memory caching. This indicates that the use of an external service for storing information overcomes the weakness of in memory caching accross multiple API's. Furthermore one can conclude that for solutions that will only ever require 1 API it is cheaper, simpled and equally valid to use In Memory caching for purposes of caching but if there is a demand for multiple services of the same API being hosted as is with any larger website with more demand then an external service is required.
+
+The 3 best configurations showed a similar trend upon which when they had more requests in a shorter period of time they would slowly speed up their response time, to a certain capacity. This leads me to believe there could be an equation derived to calculate optimal caching settings for a service.
+
+The top 3 performing configurations also showed the same trend of crashing at 32000 users indicating that this is an issue with the server machine reaching its capacity and simply not having the resources to serve so many requests in such little time. This is due to the method being synchronous and that every request on a certain API would have to always wait for the prior to finish. This limit was imposed deliberatly as to protect the testing machine from harm.
+
+In terms of start up from an empty cache the configurations performed on the following ranking:
+
+1. Caching with Redis, 1 API service
+2. Caching with Redis, 3 API services
+3. In memory caching, 1 API service
+4. In memory caching, 3 API services
+5. No caching, 3 API services
+6. No caching, 1 API service
+
+I suspect caching with Redis with 3 api services was lacking on start up due to delay from the balance loader processing and redirecting requests to and from different destinations.
+
+In memory caching with 3 API services, despite having a lower maximum user capacity compared to the No caching variant still performed faster at equal numbers therefore is rated higher.
+
+The anomaly of configurations not able to work at maximum throughput at 8000 despite double that users could meet the maximum throughput has yet to be explained/figured out.
+
+For more information on the tests reference the **Summary of stress testing Doctors_practice API** document in the solution folder.
