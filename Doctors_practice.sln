@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticsearchIndexRefresher
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TradeDev", "TradeDev\TradeDev.sqlproj", "{D3E4BDBE-8F4C-47C6-8BA6-80769A69A91F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptographyService", "CryptographyService\CryptographyService.csproj", "{B301EEF3-9579-49BA-BBFF-A8CE7989A1C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{D3E4BDBE-8F4C-47C6-8BA6-80769A69A91F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3E4BDBE-8F4C-47C6-8BA6-80769A69A91F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3E4BDBE-8F4C-47C6-8BA6-80769A69A91F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B301EEF3-9579-49BA-BBFF-A8CE7989A1C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B301EEF3-9579-49BA-BBFF-A8CE7989A1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B301EEF3-9579-49BA-BBFF-A8CE7989A1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B301EEF3-9579-49BA-BBFF-A8CE7989A1C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
