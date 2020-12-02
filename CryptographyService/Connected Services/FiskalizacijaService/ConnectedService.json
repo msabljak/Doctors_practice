@@ -22,6 +22,12 @@
       "System.Security.Cryptography.Xml, {System.Security.Cryptography.Xml, 5.0.0}",
       "System.Security.Permissions, {System.Security.Permissions, 5.0.0}",
       "System.Security.Principal.Windows, {System.Security.Principal.Windows, 5.0.0}",
+      "System.ServiceModel, {System.ServiceModel.Primitives, 4.4.4}",
+      "System.ServiceModel.Duplex, {System.ServiceModel.Duplex, 4.4.4}",
+      "System.ServiceModel.Http, {System.ServiceModel.Http, 4.4.4}",
+      "System.ServiceModel.NetTcp, {System.ServiceModel.NetTcp, 4.4.4}",
+      "System.ServiceModel.Primitives, {System.ServiceModel.Primitives, 4.4.4}",
+      "System.ServiceModel.Security, {System.ServiceModel.Security, 4.4.4}",
       "System.Windows.Extensions, {System.Windows.Extensions, 5.0.0}"
     ],
     "targetFramework": "netcoreapp3.1",

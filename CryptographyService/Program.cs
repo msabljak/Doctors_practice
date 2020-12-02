@@ -1,13 +1,16 @@
-﻿using System;
+﻿using FiskalizacijaService;
+using RestSharp;
+using System;
+using System.Globalization;
 using System.IO;
-using System.Xml;
+using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography.Xml;
-using FiskalizacijaService;
-using System.Globalization;
 using System.Text;
-using System.Linq;
+using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace CryptographyService
@@ -21,51 +24,14 @@ namespace CryptographyService
         [STAThread]
         static void Main(string[] args)
         {
-            var header = new ZaglavljeType()
-            {
-                IdPoruke = Guid.NewGuid().ToString(),
-                DatumVrijeme = DateTime.Now.ToString("dd'.'MM'.'yyyy'T'HH':'mm':'ss")
-            };
-
-            var invoice = new RacunType()
-            {
-                BrRac = new BrojRacunaType()
-                {
-                    BrOznRac = "1",
-                    OznPosPr = "1",
-                    OznNapUr = "1"
-                },
-                DatVrijeme = DateTime.Now.ToString("dd'.'MM'.'yyyy'T'HH':'mm':'ss"),
-                IznosUkupno = 3.ToString("N2", CultureInfo.InvariantCulture),
-                NacinPlac = NacinPlacanjaType.G,
-                NakDost = false,
-                Oib = "98765432198",
-                OibOper = "98642375382",
-                OznSlijed = OznakaSlijednostiType.N,
-                Pdv = new[]
-                {
-                    new PorezType
-                    {
-                        Stopa = 25.ToString("N2", CultureInfo.InvariantCulture),
-                        Osnovica = 2.34.ToString("N2", CultureInfo.InvariantCulture),
-                        Iznos = .56.ToString("N2", CultureInfo.InvariantCulture)
-                    }
-                },
-                USustPdv = true
-            };
-
-            var invoiceRequest = new RacunZahtjev()
-            {
-                Zaglavlje = header,
-                Racun = invoice
-            };
-
+            var invoiceRequest = new InvoiceRequest().ToRacunZahtjev();
             var invoiceResponse = SignAndSendInvoiceRequest(invoiceRequest);
-            Console.WriteLine("Zahtjev poslan");
-            Console.ReadLine();
+            var responseDocument = new XmlDocument();
+            responseDocument.LoadXml(invoiceResponse.Content);
+            responseDocument.Save(@".\ResponseXML.xml");
         }
 
-        private static RacunOdgovor SignAndSendInvoiceRequest(RacunZahtjev request)
+        private static IRestResponse SignAndSendInvoiceRequest(RacunZahtjev request)
         {
             if (request != null && request.Racun.ZastKod == null)
             {
@@ -73,17 +39,31 @@ namespace CryptographyService
             }
 
             request.Id = request.GetType().Name;
-
-            #region Serialise XML from Request and Sign XML
-
-            SignedXml xml = null;
+            
             var ser = Serialize(request);
             var doc = new XmlDocument();
             doc.LoadXml(ser);
 
+            doc.Save(@".\UnsignedXML.xml");
+
+            doc = Sign(doc, request);
+
+            XDocument xdoc = AddSoapEnvelope(doc);
+            xdoc.Save(@".\SoapEnvelope");
+           
+            var soapEnvelopeXml = xdoc.ToXmlDocument();
+            string address = "https://cistest.apis-it.hr:8449/FiskalizacijaServiceTest";
+
+            return SendSoapEnvelope(address,soapEnvelopeXml);
+        }
+
+        private static XmlDocument Sign(XmlDocument doc, RacunZahtjev request)
+        {
+            SignedXml xml = null;
             xml = new SignedXml(doc);
             xml.SigningKey = cert.PrivateKey;
             xml.SignedInfo.CanonicalizationMethod = SignedXml.XmlDsigExcC14NTransformUrl;
+            xml.SignedInfo.SignatureMethod = "http://www.w3.org/2000/09/xmldsig#rsa-sha1";
 
             var keyInfo = new KeyInfo();
             var keyInfoData = new KeyInfoX509Data();
@@ -101,63 +81,29 @@ namespace CryptographyService
             Reference reference = new Reference("#" + request.Id);
             foreach (var x in transforms)
                 reference.AddTransform(x);
+            reference.DigestMethod = "http://www.w3.org/2000/09/xmldsig#sha1";
             xml.AddReference(reference);
             xml.ComputeSignature();
-            #endregion
 
-            #region Add signature elements from signed XML to RacunZahtjev
+            // Get the XML representation of the signature and save
+            // it to an XmlElement object.
+            XmlElement xmlDigitalSignature = xml.GetXml();
 
-            var s = xml.Signature;
-            var certSerial = (X509IssuerSerial)keyInfoData.IssuerSerials[0];
-            request.Signature = new SignatureType
+            // Append the element to the XML document.
+            doc.DocumentElement.AppendChild(doc.ImportNode(xmlDigitalSignature, true));
+
+            if (doc.FirstChild is XmlDeclaration)
             {
-                SignedInfo = new SignedInfoType
-                {
-                    CanonicalizationMethod = new CanonicalizationMethodType { Algorithm = s.SignedInfo.CanonicalizationMethod },
-                    SignatureMethod = new SignatureMethodType { Algorithm = s.SignedInfo.SignatureMethod },
-                    Reference =
-                        (from x in s.SignedInfo.References.OfType<Reference>()
-                         select new ReferenceType
-                         {
-                             URI = x.Uri,
-                             Transforms =
-                                 (from t in transforms
-                                  select new TransformType { Algorithm = t.Algorithm }).ToArray(),
-                             DigestMethod = new DigestMethodType { Algorithm = x.DigestMethod },
-                             DigestValue = x.DigestValue
-                         }).ToArray()
-                },
-                SignatureValue = new SignatureValueType { Value = s.SignatureValue },
-                KeyInfo = new KeyInfoType
-                {
-                    ItemsElementName = new[] { ItemsChoiceType2.X509Data },
-                    Items = new[]
-                    {
-                        new X509DataType
-                        {
-                            ItemsElementName = new[]
-                            {
-                                ItemsChoiceType.X509IssuerSerial,
-                                ItemsChoiceType.X509Certificate
-                            },
-                            Items = new object[]
-                            {
-                                new X509IssuerSerialType
-                                {
-                                    X509IssuerName = certSerial.IssuerName,
-                                    X509SerialNumber = certSerial.SerialNumber
-                                },
-                                cert.RawData
-                            }
-                        }
-                    }
-                }
-            };
-            #endregion
+                doc.RemoveChild(doc.FirstChild);
+            }
 
+            // Save the signed XML document to a file specified
+            // using the passed string.
+            XmlTextWriter xmltw = new XmlTextWriter("SignedXML.xml", new UTF8Encoding(false));
+            doc.WriteTo(xmltw);
+            xmltw.Close();
 
-            FiskalizacijaPortTypeClient client = new FiskalizacijaPortTypeClient();
-            return client.racuniAsync(request).Result.RacunOdgovor;
+            return doc;
         }
 
         private static void GenerateZKI(RacunType invoice)
@@ -177,7 +123,7 @@ namespace CryptographyService
         {
             byte[] b = Encoding.ASCII.GetBytes(value);
             RSA provider = cert.GetRSAPrivateKey();
-            var signData = provider.SignData(b, HashAlgorithmName.SHA1,RSASignaturePadding.Pkcs1);
+            var signData = provider.SignData(b, HashAlgorithmName.SHA1,RSASignaturePadding.Pss);
 
             // Compute hash
             MD5 md5 = MD5.Create();
@@ -187,7 +133,7 @@ namespace CryptographyService
             return result;
         }
 
-        public static string Serialize(RacunZahtjev request)
+        private static string Serialize(RacunZahtjev request)
         {
             if (request == null) throw new ArgumentNullException("request");
 
@@ -197,6 +143,7 @@ namespace CryptographyService
                 var rz = (RacunZahtjev)request;
 
                 var r = rz.Racun;
+                var s = rz.Signature;
                 Action<Array, Action> fixArray = (x, y) =>
                 {
                     var isEmpty = x != null && !x.OfType<object>().Any(x1 => x1 != null);
@@ -218,6 +165,40 @@ namespace CryptographyService
 
                 return Encoding.UTF8.GetString(ms.ToArray());
             }
+        }
+
+        private static XDocument AddSoapEnvelope(XmlDocument xml)
+        {
+            XNamespace soapenv = "http://schemas.xmlsoap.org/soap/envelope/";
+            string soapenvPrefix = "soapenv";
+            XNamespace tns = "http://www.apis-it.hr/fin/2012/types/f73";
+
+            //creating the envelope element (1st)
+            XElement envelope = new XElement(soapenv + "Envelope", new XAttribute(XNamespace.Xmlns + soapenvPrefix, soapenv));
+
+            XElement body = new XElement(soapenv + "Body");
+            XElement racunZahtjev = XElement.Load(new XmlNodeReader(xml));
+            body.Add(racunZahtjev);
+
+            //adding body to envelope
+            envelope.Add(body);
+
+            //adding envelope to doc and publishing
+            XDocument doc = new XDocument();
+            doc.Add(envelope);
+            return doc;
+        }
+
+        private static IRestResponse SendSoapEnvelope(string address, XmlDocument soapEnvelopeXml)
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+            var client = new RestClient(address);
+            client.Timeout = -1;
+            var req = new RestRequest(Method.POST);
+            req.AddHeader("Content-Type", "application/xml");
+            req.AddParameter("application/xml", soapEnvelopeXml.InnerXml, ParameterType.RequestBody);
+            return client.Execute(req);
         }
     }
 }
