@@ -17,6 +17,7 @@ A simple .net Core Web API project designed to simulate scheduled appointments f
     12. [Elasticsearch](#Elasticsearch)
     13. [Database project](#Database-project)
     14. [Caching](#Caching)
+    15. [3rd-party communication with encryption](#3rd-party-communication-with-encryption)
 # **Features**
 ## **Web API**
 
@@ -475,3 +476,22 @@ In memory caching with 3 API services, despite having a lower maximum user capac
 The anomaly of configurations not able to work at maximum throughput at 8000 despite double that users could meet the maximum throughput has yet to be explained/figured out.
 
 For more information on the tests reference the **Summary of stress testing Doctors_practice API** document in the solution folder.
+
+## **3rd-party communication with encryption**
+
+The project incharge of communication with a 3rd-party system is the CryptographicService project. It serves as a proof of concept project. It is incharge of creating an example invoice that has to be signed by a private certificate that is not included in the solution folder for security reasons.
+
+Once the invoice is signed it is inserted into a soap envelope which is then sent to the SOAP API of Fina and requests an invoice response with a JIR token.
+
+The project uses the WSDL supplied by FINA to create the basic schematics of the base invoice XML minus the signature. The creation of an invoice is done by the *InvoiceRequest* class.
+
+FINA requires a Issuer security code to be appended to the invoice. This code is based off of the private key which is then signed with a sha1 algorithm and hashed with MD5. The method *SignAndHashMD5* does the logic for this part.
+
+The *Sign* method simply uses the certificate to sign the xml document created from the invoice and appends all the signedxml data to the original xml.
+
+Finally the 2 methods *AddSoapEnvelope* and *SendSoapEnvelope* are in charge of creating an XML with a soap envelope ready to be sent based off of the signed xml and sends it via a RestSharp client to the desired address.
+
+
+
+
+
